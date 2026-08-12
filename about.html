@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>About | Abhay Jaiswal — Data Engineer</title>
+<title>Abhay Jaiswal | Data Engineer</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+rel="stylesheet">
 
 <style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
 :root{
+
     --bg:#06100d;
     --panel:#0b1814;
     --panel2:#0f211b;
+
     --text:#effff7;
     --muted:#9db5aa;
+
     --accent:#52f5a7;
     --accent2:#1ed78a;
+
     --line:rgba(82,245,167,.14);
-    --shadow:0 24px 80px rgba(0,0,0,.35);
+
+    --shadow:0 25px 80px rgba(0,0,0,.35);
 }
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
@@ -34,16 +49,21 @@ html{
 }
 
 body{
+
     background:
         radial-gradient(
-            circle at 85% 0%,
+            circle at 80% 0%,
             rgba(30,215,138,.12),
             transparent 30%
         ),
         var(--bg);
+
     color:var(--text);
-    font-family:Inter,system-ui,sans-serif;
+
+    font-family:Inter,Arial,sans-serif;
+
     line-height:1.6;
+
     overflow-x:hidden;
 }
 
@@ -53,39 +73,57 @@ a{
 }
 
 .container{
+
     width:min(1160px,92%);
+
     margin:auto;
 }
 
-/* ================= NAVBAR ================= */
+
+/* =====================================================
+   NAVBAR
+===================================================== */
 
 nav{
+
     position:fixed;
+
     top:18px;
     left:50%;
+
     transform:translateX(-50%);
+
     z-index:100;
+
     width:min(1050px,92%);
 
     display:flex;
+
     justify-content:space-between;
     align-items:center;
 
-    padding:12px 16px 12px 20px;
+    padding:13px 18px 13px 22px;
 
-    background:rgba(7,18,14,.72);
+    background:rgba(7,18,14,.75);
+
     border:1px solid var(--line);
+
     backdrop-filter:blur(18px);
 
     border-radius:18px;
 
-    box-shadow:0 10px 40px rgba(0,0,0,.2);
+    box-shadow:0 12px 45px rgba(0,0,0,.25);
 }
 
 .logo{
+
     font-family:"Space Grotesk";
+
+    font-size:18px;
+
     font-weight:700;
-    letter-spacing:-.04em;
+
+    letter-spacing:-.05em;
 }
 
 .logo span{
@@ -93,154 +131,97 @@ nav{
 }
 
 .links{
+
     display:flex;
-    gap:25px;
-    font-size:13px;
+
+    gap:26px;
+
     color:var(--muted);
+
+    font-size:13px;
 }
 
 .links a{
+
     transition:.25s;
 }
 
-.links a:hover,
-.links .active{
+.links a:hover{
+
     color:var(--accent);
 }
 
 .navbtn{
+
     border:1px solid rgba(82,245,167,.35);
+
     padding:8px 13px;
+
     border-radius:10px;
+
     color:var(--accent);
+
     font-size:13px;
 }
 
-/* ================= HERO ================= */
 
-.about-hero{
-    padding:160px 0 80px;
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    min-height:100vh;
+
+    display:grid;
+
+    place-items:center;
+
+    padding:140px 0 80px;
+
     position:relative;
 }
 
 .hero-grid{
+
     display:grid;
-    grid-template-columns:.75fr 1.25fr;
-    gap:70px;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:55px;
+
     align-items:center;
 }
-
-/* PROFILE PHOTO */
-
-.photo-wrapper{
-    position:relative;
-    width:min(390px,100%);
-    aspect-ratio:1/1;
-    margin:auto;
-}
-
-.photo-wrapper::before{
-    content:"";
-    position:absolute;
-    inset:-12px;
-
-    border:1px solid rgba(82,245,167,.25);
-    border-radius:30px;
-
-    transform:rotate(-5deg);
-}
-
-.photo-wrapper::after{
-    content:"";
-    position:absolute;
-    inset:-25px;
-
-    border:1px dashed rgba(82,245,167,.12);
-    border-radius:40px;
-
-    animation:rotateRing 18s linear infinite;
-}
-
-.profile-photo{
-    position:relative;
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    border-radius:28px;
-
-    border:1px solid rgba(82,245,167,.25);
-
-    box-shadow:
-        0 0 60px rgba(82,245,167,.10),
-        var(--shadow);
-
-    z-index:2;
-}
-
-/* FLOATING DATA LABELS */
-
-.float-card{
-    position:absolute;
-    z-index:5;
-
-    padding:10px 14px;
-
-    background:rgba(7,18,14,.85);
-    border:1px solid var(--line);
-
-    backdrop-filter:blur(12px);
-
-    border-radius:12px;
-
-    font-size:11px;
-    color:var(--accent);
-
-    box-shadow:0 10px 30px rgba(0,0,0,.3);
-
-    animation:float 4s ease-in-out infinite;
-}
-
-.float-card.one{
-    top:15%;
-    right:-35px;
-}
-
-.float-card.two{
-    bottom:18%;
-    left:-35px;
-    animation-delay:1s;
-}
-
-.float-card.three{
-    bottom:5%;
-    right:12%;
-    animation-delay:2s;
-}
-
-/* TEXT */
 
 .eyebrow{
+
     display:inline-flex;
+
     align-items:center;
+
     gap:9px;
 
     border:1px solid var(--line);
+
     background:rgba(82,245,167,.05);
 
     padding:7px 11px;
+
     border-radius:999px;
 
     color:var(--accent);
 
-    font-size:12px;
-    font-weight:600;
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.08em;
 
     margin-bottom:20px;
 }
 
 .dot{
+
     width:7px;
     height:7px;
 
@@ -254,85 +235,523 @@ nav{
 }
 
 h1{
-    font:700 clamp(48px,6vw,78px)/.95 "Space Grotesk";
+
+    font:
+        700
+        clamp(50px,7vw,88px)
+        /.94
+        "Space Grotesk";
+
     letter-spacing:-.07em;
+
     margin-bottom:24px;
 }
 
 h1 em{
+
     color:var(--accent);
+
     font-style:normal;
 }
 
-.hero-text{
+.hero p{
+
+    max-width:620px;
+
     color:var(--muted);
+
     font-size:17px;
-    max-width:650px;
 }
 
-.contact-info{
+.actions{
+
     display:flex;
+
+    gap:12px;
+
+    margin-top:30px;
+
     flex-wrap:wrap;
-    gap:10px;
-    margin-top:28px;
 }
 
-.contact-item{
-    padding:10px 14px;
+.btn{
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    font-weight:700;
+
+    font-size:14px;
 
     border:1px solid var(--line);
-    background:rgba(82,245,167,.04);
+
+    transition:.25s;
+}
+
+.btn.primary{
+
+    background:var(--accent);
+
+    color:#04100a;
+
+    box-shadow:
+        0 0 35px
+        rgba(82,245,167,.18);
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+}
+
+
+/* =====================================================
+   PIPELINE VISUAL
+===================================================== */
+
+.visual{
+
+    position:relative;
+
+    height:650px;
+
+    border:1px solid rgba(82,245,167,.16);
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(82,245,167,.10),
+            transparent 45%
+        ),
+
+        rgba(7,20,15,.85);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.35);
+}
+
+.grid-bg{
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(82,245,167,.08) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(82,245,167,.08) 1px,
+            transparent 1px
+        );
+
+    background-size:55px 55px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent
+        );
+}
+
+
+/* Pipeline title */
+
+.pipeline-title{
+
+    position:absolute;
+
+    top:25px;
+    left:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:.16em;
+
+    color:#75958a;
+}
+
+.live-dot{
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#52f5a7;
+
+    box-shadow:
+        0 0 12px #52f5a7;
+
+    animation:pulse 1.5s infinite;
+}
+
+
+/* Pipeline */
+
+.pipeline-flow{
+
+    position:absolute;
+
+    top:70px;
+
+    left:30px;
+    right:30px;
+
+    bottom:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+}
+
+
+/* Node */
+
+.pipeline-node{
+
+    width:100%;
+
+    min-height:57px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:10px 15px;
+
+    border-radius:15px;
+
+    border:1px solid rgba(82,245,167,.16);
+
+    background:rgba(4,15,11,.90);
+
+    position:relative;
+
+    z-index:2;
+
+    transition:.3s;
+
+    animation:
+        pipelineAppear .7s ease both;
+}
+
+.pipeline-node:hover{
+
+    transform:translateX(5px);
+
+    border-color:
+        rgba(82,245,167,.45);
+
+    background:
+        rgba(12,35,26,.95);
+}
+
+
+/* Icons */
+
+.pipeline-icon{
+
+    width:40px;
+    height:40px;
+
+    min-width:40px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
 
     border-radius:11px;
 
+    background:
+        linear-gradient(
+            145deg,
+            rgba(82,245,167,.14),
+            rgba(82,245,167,.04)
+        );
+
+    border:1px solid
+        rgba(82,245,167,.14);
+
+    color:#52f5a7;
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+.pipeline-node strong{
+
+    display:block;
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:13px;
+}
+
+.pipeline-node small{
+
+    display:block;
+
+    margin-top:2px;
+
+    color:#79958a;
+
+    font-size:10px;
+}
+
+
+/* Arrows */
+
+.arrow{
+
+    height:28px;
+
+    width:2px;
+
+    margin-left:35px;
+
+    position:relative;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(82,245,167,.45),
+            rgba(82,245,167,.10)
+        );
+
+    z-index:1;
+}
+
+.arrow::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-1px;
+
+    left:-3px;
+
+    width:7px;
+    height:7px;
+
+    border-right:2px solid #52f5a7;
+    border-bottom:2px solid #52f5a7;
+
+    transform:rotate(45deg);
+}
+
+
+/* Moving particle */
+
+.arrow span{
+
+    position:absolute;
+
+    width:5px;
+    height:5px;
+
+    left:-2px;
+    top:-5px;
+
+    border-radius:50%;
+
+    background:#52f5a7;
+
+    box-shadow:
+        0 0 10px #52f5a7;
+
+    animation:
+        dataFlow 1.8s linear infinite;
+}
+
+
+/* Stagger */
+
+.pipeline-node:nth-child(1){
+    animation-delay:.05s;
+}
+
+.pipeline-node:nth-child(3){
+    animation-delay:.15s;
+}
+
+.pipeline-node:nth-child(5){
+    animation-delay:.25s;
+}
+
+.pipeline-node:nth-child(7){
+    animation-delay:.35s;
+}
+
+.pipeline-node:nth-child(9){
+    animation-delay:.45s;
+}
+
+.pipeline-node:nth-child(11){
+    animation-delay:.55s;
+}
+
+.pipeline-node:nth-child(13){
+    animation-delay:.65s;
+}
+
+
+/* Final */
+
+.final-node{
+
+    border-color:
+        rgba(82,245,167,.28);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(82,245,167,.08),
+            rgba(4,15,11,.9)
+        );
+}
+
+
+/* =====================================================
+   GENERAL SECTIONS
+===================================================== */
+
+section{
+    padding:105px 0;
+}
+
+.section-label{
+
+    color:var(--accent);
+
+    font-size:11px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.18em;
+
+    font-weight:800;
+
+    margin-bottom:12px;
+}
+
+.section-title{
+
+    font:
+        700
+        clamp(34px,4vw,54px)
+        /1
+        "Space Grotesk";
+
+    letter-spacing:-.05em;
+
+    margin-bottom:18px;
+}
+
+.section-copy{
+
+    color:var(--muted);
+
+    max-width:700px;
+}
+
+
+/* =====================================================
+   SKILLS
+===================================================== */
+
+.skills{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:28px;
+}
+
+.tag{
+
+    padding:9px 12px;
+
+    border:1px solid var(--line);
+
+    background:
+        rgba(82,245,167,.04);
+
+    border-radius:999px;
+
     font-size:12px;
+
     color:#d9eee5;
 
     transition:.25s;
 }
 
-.contact-item:hover{
-    border-color:rgba(82,245,167,.4);
+.tag:hover{
+
+    color:var(--accent);
+
+    border-color:
+        rgba(82,245,167,.35);
+
     transform:translateY(-3px);
-    color:var(--accent);
 }
 
-/* ================= SECTIONS ================= */
 
-section{
-    padding:100px 0;
-}
+/* =====================================================
+   PROJECTS
+===================================================== */
 
-.section-label{
-    color:var(--accent);
-    font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:.18em;
-    font-weight:800;
-    margin-bottom:12px;
-}
+.projects{
 
-.section-title{
-    font:700 clamp(34px,4vw,54px)/1 "Space Grotesk";
-    letter-spacing:-.05em;
-    margin-bottom:20px;
-}
-
-.section-copy{
-    color:var(--muted);
-    max-width:780px;
-}
-
-/* ================= ABOUT ME ================= */
-
-.about-box{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+
     margin-top:35px;
 }
 
 .card{
+
+    min-height:270px;
+
+    position:relative;
+
+    overflow:hidden;
+
     border:1px solid var(--line);
 
     background:
@@ -344,7 +763,7 @@ section{
 
     border-radius:20px;
 
-    padding:28px;
+    padding:24px;
 
     box-shadow:var(--shadow);
 
@@ -352,191 +771,208 @@ section{
 }
 
 .card:hover{
-    transform:translateY(-5px);
-    border-color:rgba(82,245,167,.3);
+
+    transform:translateY(-7px);
+
+    border-color:
+        rgba(82,245,167,.35);
+}
+
+.project-num{
+
+    font:
+        700
+        11px
+        "Space Grotesk";
+
+    color:var(--accent);
 }
 
 .card h3{
-    font:700 22px "Space Grotesk";
-    margin-bottom:12px;
+
+    font:
+        700
+        23px
+        "Space Grotesk";
+
+    margin:22px 0 10px;
 }
 
 .card p{
+
+    font-size:13px;
+
     color:var(--muted);
-    font-size:14px;
 }
 
-/* ================= PRIMARY SKILLS ================= */
+.card .mini{
 
-.skills-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:14px;
-    margin-top:35px;
-}
+    position:absolute;
 
-.skill{
-    padding:22px;
-
-    border:1px solid var(--line);
-
-    background:rgba(82,245,167,.035);
-
-    border-radius:17px;
-
-    transition:.3s;
-}
-
-.skill:hover{
-    transform:translateY(-6px);
-    background:rgba(82,245,167,.07);
-    border-color:rgba(82,245,167,.3);
-}
-
-.skill-icon{
-    width:42px;
-    height:42px;
-
-    display:grid;
-    place-items:center;
-
-    border-radius:12px;
-
-    background:rgba(82,245,167,.1);
+    right:18px;
+    bottom:18px;
 
     color:var(--accent);
-
-    font-weight:800;
-
-    margin-bottom:16px;
-}
-
-.skill h4{
-    font-size:15px;
-    margin-bottom:6px;
-}
-
-.skill p{
-    color:var(--muted);
-    font-size:12px;
-}
-
-/* ================= TECHNOLOGIES ================= */
-
-.tech-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-    margin-top:35px;
-}
-
-.tech-card{
-    padding:25px;
-
-    border:1px solid var(--line);
-
-    background:linear-gradient(
-        145deg,
-        rgba(15,33,27,.8),
-        rgba(8,18,14,.7)
-    );
-
-    border-radius:20px;
-
-    transition:.3s;
-}
-
-.tech-card:hover{
-    transform:translateY(-5px);
-    border-color:rgba(82,245,167,.3);
-}
-
-.tech-card h3{
-    font:700 19px "Space Grotesk";
-    margin-bottom:15px;
-}
-
-.tech-tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-}
-
-.tech-tag{
-    padding:7px 10px;
-
-    border:1px solid rgba(82,245,167,.12);
-
-    background:rgba(82,245,167,.04);
-
-    border-radius:8px;
-
-    color:#cce5da;
 
     font-size:11px;
 }
 
-/* ================= CTA ================= */
 
-.cta{
+/* =====================================================
+   EXPERIENCE
+===================================================== */
+
+.experience{
+
+    display:grid;
+
+    gap:16px;
+
+    margin-top:35px;
+}
+
+.role{
+
+    display:grid;
+
+    grid-template-columns:180px 1fr;
+
+    gap:30px;
+
+    padding:25px;
+
+    border-top:1px solid var(--line);
+}
+
+.role time{
+
+    color:var(--accent);
+
+    font-size:11px;
+}
+
+.role h3{
+
+    font:
+        700
+        22px
+        "Space Grotesk";
+}
+
+.role p{
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    margin-top:7px;
+}
+
+
+/* =====================================================
+   METRICS
+===================================================== */
+
+.metrics{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+
+    margin-top:35px;
+}
+
+.metric{
+
+    padding:25px;
+
+    border:1px solid var(--line);
+
+    background:
+        rgba(82,245,167,.035);
+
+    border-radius:18px;
+
+    transition:.3s;
+}
+
+.metric:hover{
+
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(82,245,167,.3);
+}
+
+.metric strong{
+
+    display:block;
+
+    font:
+        700
+        36px
+        "Space Grotesk";
+
+    color:var(--accent);
+}
+
+.metric span{
+
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact{
+
     border:1px solid var(--line);
 
     border-radius:30px;
 
-    padding:60px 30px;
-
-    text-align:center;
+    padding:55px;
 
     background:
+
         radial-gradient(
             circle at 90% 0%,
             rgba(82,245,167,.12),
             transparent 40%
         ),
+
         var(--panel);
+
+    text-align:center;
 }
 
-.cta p{
+.contact p{
+
     color:var(--muted);
+
     max-width:650px;
-    margin:auto;
+
+    margin:0 auto;
 }
 
-.buttons{
-    display:flex;
+.contact .actions{
+
     justify-content:center;
-    gap:12px;
-    margin-top:28px;
-    flex-wrap:wrap;
 }
 
-.btn{
-    padding:12px 18px;
 
-    border-radius:12px;
-
-    font-weight:700;
-    font-size:13px;
-
-    border:1px solid var(--line);
-
-    transition:.25s;
-}
-
-.btn.primary{
-    background:var(--accent);
-    color:#04100a;
-
-    box-shadow:0 0 35px rgba(82,245,167,.18);
-}
-
-.btn:hover{
-    transform:translateY(-3px);
-}
-
-/* ================= FOOTER ================= */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
+
     padding:35px 0 55px;
 
     color:#71877e;
@@ -544,13 +980,19 @@ footer{
     font-size:12px;
 
     display:flex;
+
     justify-content:space-between;
 }
 
-/* ================= ANIMATIONS ================= */
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
 
 .reveal{
+
     opacity:0;
+
     transform:translateY(25px);
 
     transition:
@@ -559,218 +1001,479 @@ footer{
 }
 
 .reveal.show{
+
     opacity:1;
+
     transform:none;
 }
 
 @keyframes pulse{
+
     50%{
+
         opacity:.35;
+
         transform:scale(.7);
     }
 }
 
-@keyframes float{
-    50%{
-        transform:translateY(-8px);
+@keyframes dataFlow{
+
+    0%{
+
+        transform:translateY(0);
+
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    80%{
+        opacity:1;
+    }
+
+    100%{
+
+        transform:translateY(28px);
+
+        opacity:0;
     }
 }
 
-@keyframes rotateRing{
+@keyframes pipelineAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(12px);
+    }
+
     to{
-        transform:rotate(360deg);
+
+        opacity:1;
+
+        transform:translateY(0);
     }
 }
 
-#cursor{
-    position:fixed;
 
-    width:18px;
-    height:18px;
+/* =====================================================
+   MOBILE
+===================================================== */
 
-    border:1px solid var(--accent);
-
-    border-radius:50%;
-
-    pointer-events:none;
-
-    z-index:999;
-
-    mix-blend-mode:screen;
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:900px){
-
-    .hero-grid{
-        grid-template-columns:1fr;
-        gap:60px;
-    }
-
-    .photo-wrapper{
-        width:min(330px,80%);
-    }
-
-    .about-box{
-        grid-template-columns:1fr;
-    }
-
-    .skills-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .tech-grid{
-        grid-template-columns:1fr;
-    }
-}
-
-@media(max-width:600px){
+@media(max-width:850px){
 
     nav .links{
         display:none;
     }
 
-    .about-hero{
-        padding-top:130px;
-    }
+    .hero-grid{
 
-    h1{
-        font-size:55px;
-    }
-
-    .skills-grid{
         grid-template-columns:1fr;
     }
 
-    .float-card.one{
-        right:-10px;
+    .projects{
+
+        grid-template-columns:1fr;
     }
 
-    .float-card.two{
-        left:-10px;
+    .metrics{
+
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
-    .float-card.four{
-    top:45%;
-    right:-35px;
-    animation-delay:1.5s;
+    .role{
+
+        grid-template-columns:1fr;
+
+        gap:5px;
+    }
+
+    .hero{
+
+        padding-top:120px;
+    }
+
+    h1{
+
+        font-size:58px;
+    }
 }
 
+@media(max-width:550px){
+
+    .metrics{
+
+        grid-template-columns:1fr;
+    }
+
+    .visual{
+
+        height:680px;
+    }
+
+    .pipeline-flow{
+
+        top:70px;
+
+        left:18px;
+        right:18px;
+
+        bottom:18px;
+    }
+
+    .pipeline-node{
+
+        min-height:55px;
+    }
+
+    .pipeline-node strong{
+
+        font-size:12px;
+    }
+
+    .pipeline-node small{
+
+        font-size:9px;
+    }
+
+    .contact{
+
+        padding:40px 20px;
+    }
+
     footer{
+
         flex-direction:column;
+
         gap:8px;
     }
 }
+
 </style>
+
 </head>
+
 
 <body>
 
-<!-- ================= NAVIGATION ================= -->
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
 <nav>
 
-    <a href="index.html" class="logo">
+    <a class="logo" href="index.html">
         ABHAY<span>.</span>
     </a>
 
     <div class="links">
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active">About</a>
-        <a href="index.html#skills">Skills</a>
-        <a href="index.html#projects">Projects</a>
-        <a href="index.html#experience">Experience</a>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="#skills">
+            Skills
+        </a>
+
+        <a href="#projects">
+            Projects
+        </a>
+
+        <a href="#experience">
+            Experience
+        </a>
+
     </div>
 
-    <a href="#contact" class="navbtn">
+    <a class="navbtn" href="#contact">
         Let's talk
     </a>
 
 </nav>
 
 
-<!-- ================= HERO ================= -->
 
-<section class="about-hero">
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
 
 <div class="container hero-grid">
 
-    <!-- PHOTO -->
-
-    <div class="photo-wrapper reveal">
-
-        <!-- CHANGE profile.jpg TO YOUR PHOTO -->
-
-        <img
-            src="https://ik.imagekit.io/w4cjtibtu/profile.png"
-            alt="Abhay Jaiswal"
-            class="profile-photo"
-        >
-
-        <div class="float-card one">
-            ⚡ PySpark
-        </div>
-
-        <div class="float-card two">
-            🔄 ETL
-        </div>
-
-        <div class="float-card three">
-            ☁ AWS
-        </div>
-
-        <div class="float-card four">
-            🐍 Python
-        </div>
-
-    </div>
-
-
-    <!-- INTRO -->
 
     <div class="reveal">
 
         <div class="eyebrow">
+
             <span class="dot"></span>
+
             DATA ENGINEER
+
         </div>
+
 
         <h1>
-            HELLO,<br>
-            I'M <em>ABHAY.</em>
+
+            BUILDING<br>
+
+            <em>DATA PIPELINES.</em>
+
         </h1>
 
-        <p class="hero-text">
-            I’m a Data Engineer passionate about building scalable,
-            reliable and efficient data pipelines that transform
-            raw data into meaningful business-ready information.
+
+        <p>
+
+            I design and build scalable data pipelines
+            that transform raw data into reliable,
+            analytics-ready information using Python,
+            PySpark, SQL and AWS.
+
         </p>
 
-        <div class="contact-info">
+
+        <div class="actions">
 
             <a
-                href="mailto:your-email@example.com"
-                class="contact-item"
+                class="btn primary"
+                href="#projects"
             >
-                ✉ your-email@example.com
+                Explore my work ↓
             </a>
 
-            <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                class="contact-item"
-            >
-                in LinkedIn
-            </a>
 
             <a
-                href="https://github.com/"
-                target="_blank"
-                class="contact-item"
+                class="btn"
+                href="about.html"
             >
-                ◉ GitHub
+                About me
             </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PIPELINE -->
+
+    <div class="visual reveal">
+
+        <div class="grid-bg"></div>
+
+
+        <div class="pipeline-title">
+
+            <span class="live-dot"></span>
+
+            DATA PIPELINE
+
+        </div>
+
+
+        <div class="pipeline-flow">
+
+
+            <!-- SOURCE -->
+
+            <div class="pipeline-node">
+
+                <div class="pipeline-icon">
+                    CSV
+                </div>
+
+                <div>
+
+                    <strong>
+                        Source Files
+                    </strong>
+
+                    <small>
+                        CSV / Input Data
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="arrow">
+                <span></span>
+            </div>
+
+
+            <!-- S3 -->
+
+            <div class="pipeline-node">
+
+                <div class="pipeline-icon">
+                    S3
+                </div>
+
+                <div>
+
+                    <strong>
+                        AWS S3
+                    </strong>
+
+                    <small>
+                        Cloud Storage
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="arrow">
+                <span></span>
+            </div>
+
+
+            <!-- EMR -->
+
+            <div class="pipeline-node">
+
+                <div class="pipeline-icon">
+                    EMR
+                </div>
+
+                <div>
+
+                    <strong>
+                        AWS EMR
+                    </strong>
+
+                    <small>
+                        PySpark Processing
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="arrow">
+                <span></span>
+            </div>
+
+
+            <!-- RAW -->
+
+            <div class="pipeline-node">
+
+                <div class="pipeline-icon">
+                    R
+                </div>
+
+                <div>
+
+                    <strong>
+                        Raw Layer
+                    </strong>
+
+                    <small>
+                        Raw Data · Hive
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="arrow">
+                <span></span>
+            </div>
+
+
+            <!-- REFINED -->
+
+            <div class="pipeline-node">
+
+                <div class="pipeline-icon">
+                    P
+                </div>
+
+                <div>
+
+                    <strong>
+                        Refined Layer
+                    </strong>
+
+                    <small>
+                        PySpark Transform
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="arrow">
+                <span></span>
+            </div>
+
+
+            <!-- WORK -->
+
+            <div class="pipeline-node">
+
+                <div class="pipeline-icon">
+                    W
+                </div>
+
+                <div>
+
+                    <strong>
+                        Work Layer
+                    </strong>
+
+                    <small>
+                        Spark Views
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="arrow">
+                <span></span>
+            </div>
+
+
+            <!-- CONSUMPTION -->
+
+            <div class="pipeline-node final-node">
+
+                <div class="pipeline-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <strong>
+                        Consumption Layer
+                    </strong>
+
+                    <small>
+                        Analytics Ready Data
+                    </small>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -781,207 +1484,85 @@ footer{
 </section>
 
 
-<!-- ================= ABOUT ME ================= -->
 
-<section>
-
-<div class="container reveal">
-
-    <div class="section-label">
-        01 / About Me
-    </div>
-
-    <h2 class="section-title">
-        Engineering data with purpose.
-    </h2>
-
-    <p class="section-copy">
-        I work on data engineering solutions involving ETL pipelines,
-        distributed data processing, cloud platforms and data quality.
-        My experience includes building and supporting production
-        workflows using Python, SQL, PySpark and modern cloud data
-        technologies.
-    </p>
-
-
-    <div class="about-box">
-
-        <div class="card">
-
-            <h3>What I Do</h3>
-
-            <p>
-                I design and develop data pipelines that ingest,
-                transform, validate and deliver data to downstream
-                analytics systems. I focus on reliability,
-                scalability, performance and maintainability.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <h3>How I Work</h3>
-
-            <p>
-                I approach data problems by understanding the source,
-                designing the transformation logic, optimizing
-                distributed processing and adding appropriate
-                monitoring and data-quality checks.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-</section>
-
-
-<!-- ================= PRIMARY SKILLS ================= -->
+<!-- =====================================================
+     SKILLS
+===================================================== -->
 
 <section id="skills">
 
 <div class="container reveal">
 
     <div class="section-label">
-        02 / Primary Skills
+        01 / Expertise
     </div>
 
     <h2 class="section-title">
-        What I bring to the table.
+        Core data engineering skills.
     </h2>
 
-    <div class="skills-grid">
+    <p class="section-copy">
 
-        <div class="skill">
+        Building reliable pipelines, processing
+        large datasets and creating scalable
+        cloud-based data solutions.
 
-            <div class="skill-icon">
-                ETL
-            </div>
-
-            <h4>ETL / ELT</h4>
-
-            <p>
-                Designing reliable data ingestion
-                and transformation pipelines.
-            </p>
-
-        </div>
+    </p>
 
 
-        <div class="skill">
+    <div class="skills">
 
-            <div class="skill-icon">
-                ⚡
-            </div>
+        <span class="tag">
+            Data Engineering
+        </span>
 
-            <h4>PySpark</h4>
+        <span class="tag">
+            ETL / ELT
+        </span>
 
-            <p>
-                Distributed data processing,
-                transformations and optimization.
-            </p>
+        <span class="tag">
+            PySpark
+        </span>
 
-        </div>
+        <span class="tag">
+            Apache Spark
+        </span>
 
+        <span class="tag">
+            Python
+        </span>
 
-        <div class="skill">
+        <span class="tag">
+            SQL
+        </span>
 
-            <div class="skill-icon">
-                SQL
-            </div>
+        <span class="tag">
+            AWS
+        </span>
 
-            <h4>SQL</h4>
+        <span class="tag">
+            Data Pipelines
+        </span>
 
-            <p>
-                Complex queries, joins, windows,
-                aggregations and data analysis.
-            </p>
+        <span class="tag">
+            Data Quality
+        </span>
 
-        </div>
+        <span class="tag">
+            Performance Optimization
+        </span>
 
+        <span class="tag">
+            Data Modeling
+        </span>
 
-        <div class="skill">
+        <span class="tag">
+            Incremental Loads
+        </span>
 
-            <div class="skill-icon">
-                ☁
-            </div>
-
-            <h4>Cloud Data Engineering</h4>
-
-            <p>
-                Building pipelines across AWS
-                and Azure cloud environments.
-            </p>
-
-        </div>
-
-
-        <div class="skill">
-
-            <div class="skill-icon">
-                ✓
-            </div>
-
-            <h4>Data Quality</h4>
-
-            <p>
-                Validation, null handling,
-                duplicates and pipeline monitoring.
-            </p>
-
-        </div>
-
-
-        <div class="skill">
-
-            <div class="skill-icon">
-                ↯
-            </div>
-
-            <h4>Optimization</h4>
-
-            <p>
-                Improving Spark jobs, partitions,
-                joins and resource utilization.
-            </p>
-
-        </div>
-
-
-        <div class="skill">
-
-            <div class="skill-icon">
-                SCD
-            </div>
-
-            <h4>Data Modeling</h4>
-
-            <p>
-                Dimensional modeling, SCD and
-                analytics-ready data structures.
-            </p>
-
-        </div>
-
-
-        <div class="skill">
-
-            <div class="skill-icon">
-                DAG
-            </div>
-
-            <h4>Orchestration</h4>
-
-            <p>
-                Workflow scheduling and dependency
-                management using Airflow.
-            </p>
-
-        </div>
+        <span class="tag">
+            SCD
+        </span>
 
     </div>
 
@@ -990,170 +1571,277 @@ footer{
 </section>
 
 
-<!-- ================= TECH & TOOLS ================= -->
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section id="projects">
+
+<div class="container reveal">
+
+    <div class="section-label">
+        02 / Selected Work
+    </div>
+
+    <h2 class="section-title">
+        Data engineering projects.
+    </h2>
+
+    <p class="section-copy">
+
+        Practical data engineering solutions built
+        around distributed processing, cloud storage,
+        ETL and analytics-ready data.
+
+    </p>
+
+
+    <div class="projects">
+
+
+        <article class="card">
+
+            <span class="project-num">
+                01 — AWS DATA PIPELINE
+            </span>
+
+            <h3>
+                Multi-Layer ETL Pipeline
+            </h3>
+
+            <p>
+
+                Built a multi-layer data processing
+                pipeline that moves source files through
+                S3, EMR and PySpark into Raw, Refined,
+                Work and Consumption layers.
+
+            </p>
+
+            <div class="mini">
+                S3 · EMR · PySpark
+            </div>
+
+        </article>
+
+
+
+        <article class="card">
+
+            <span class="project-num">
+                02 — BIG DATA
+            </span>
+
+            <h3>
+                Distributed Data Processing
+            </h3>
+
+            <p>
+
+                Processed large datasets using
+                Apache Spark and PySpark with focus
+                on partitioning, joins, transformations
+                and performance optimization.
+
+            </p>
+
+            <div class="mini">
+                Spark · PySpark · Hive
+            </div>
+
+        </article>
+
+
+
+        <article class="card">
+
+            <span class="project-num">
+                03 — DATA QUALITY
+            </span>
+
+            <h3>
+                Production Data Quality
+            </h3>
+
+            <p>
+
+                Worked on identifying and resolving
+                missing records, null values, duplicate
+                records and pipeline processing issues.
+
+            </p>
+
+            <div class="mini">
+                SQL · Python · Monitoring
+            </div>
+
+        </article>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EXPERIENCE
+===================================================== -->
+
+<section id="experience">
+
+<div class="container reveal">
+
+    <div class="section-label">
+        03 / Experience
+    </div>
+
+    <h2 class="section-title">
+        Engineering journey.
+    </h2>
+
+
+    <div class="experience">
+
+
+        <div class="role">
+
+            <time>
+                JUN 2022 — PRESENT
+            </time>
+
+            <div>
+
+                <h3>
+                    Programmer Analyst · Cognizant
+                </h3>
+
+                <p>
+
+                    Developing and supporting data
+                    engineering solutions using
+                    PySpark, Spark, AWS and SQL.
+                    Working across ETL pipelines,
+                    data quality, performance
+                    optimization and production
+                    support.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="role">
+
+            <time>
+                JAN 2022 — MAY 2022
+            </time>
+
+            <div>
+
+                <h3>
+                    Data Science Intern · Cognizant
+                </h3>
+
+                <p>
+
+                    Worked with Big Data technologies
+                    including Hadoop, Hive, Spark,
+                    Python and data warehousing
+                    concepts.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     METRICS
+===================================================== -->
 
 <section>
 
 <div class="container reveal">
 
     <div class="section-label">
-        03 / Technology
+        04 / Impact
     </div>
 
     <h2 class="section-title">
-        Technologies & tools I've worked with.
+        Engineering at scale.
     </h2>
 
-    <p class="section-copy">
-        A combination of programming languages, distributed processing
-        frameworks, cloud platforms and data technologies used across
-        my engineering work.
-    </p>
+
+    <div class="metrics">
 
 
-    <div class="tech-grid">
+        <div class="metric">
 
-        <!-- PROGRAMMING -->
+            <strong>
+                4+
+            </strong>
 
-        <div class="tech-card">
-
-            <h3>Programming</h3>
-
-            <div class="tech-tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">SQL</span>
-                <span class="tech-tag">Pandas</span>
-            </div>
+            <span>
+                Years of experience
+            </span>
 
         </div>
 
 
-        <!-- BIG DATA -->
+        <div class="metric">
 
-        <div class="tech-card">
+            <strong>
+                50+
+            </strong>
 
-            <h3>Big Data</h3>
-
-            <div class="tech-tags">
-                <span class="tech-tag">PySpark</span>
-                <span class="tech-tag">Apache Spark</span>
-                <span class="tech-tag">Hadoop</span>
-                <span class="tech-tag">Hive</span>
-                <span class="tech-tag">HDFS</span>
-            </div>
+            <span>
+                Data processing workflows
+            </span>
 
         </div>
 
 
-        <!-- AWS -->
+        <div class="metric">
 
-        <div class="tech-card">
+            <strong>
+                400+
+            </strong>
 
-            <h3>AWS</h3>
-
-            <div class="tech-tags">
-                <span class="tech-tag">S3</span>
-                <span class="tech-tag">EMR</span>
-                <span class="tech-tag">Glue</span>
-                <span class="tech-tag">Lambda</span>
-                <span class="tech-tag">SQS</span>
-            </div>
+            <span>
+                Data issues resolved
+            </span>
 
         </div>
 
 
-        <!-- AZURE -->
+        <div class="metric">
 
-        <div class="tech-card">
+            <strong>
+                35GB+
+            </strong>
 
-            <h3>Azure</h3>
-
-            <div class="tech-tags">
-                <span class="tech-tag">ADLS</span>
-                <span class="tech-tag">Databricks</span>
-                <span class="tech-tag">Delta Lake</span>
-            </div>
+            <span>
+                Daily data movement
+            </span>
 
         </div>
 
-
-        <!-- DATA WAREHOUSE -->
-
-        <div class="tech-card">
-
-            <h3>Data Platforms</h3>
-
-            <div class="tech-tags">
-                <span class="tech-tag">Snowflake</span>
-                <span class="tech-tag">Teradata</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">PostgreSQL</span>
-            </div>
-
-        </div>
-
-
-        <!-- ORCHESTRATION -->
-
-        <div class="tech-card">
-
-            <h3>Orchestration & DevOps</h3>
-
-            <div class="tech-tags">
-                <span class="tech-tag">Airflow</span>
-                <span class="tech-tag">Git</span>
-                <span class="tech-tag">Jira</span>
-                <span class="tech-tag">CI/CD</span>
-            </div>
-
-        </div>
-
-
-        <!-- STREAMING -->
-
-        <div class="tech-card">
-
-            <h3>Streaming</h3>
-
-            <div class="tech-tags">
-                <span class="tech-tag">Kafka</span>
-                <span class="tech-tag">Event Processing</span>
-            </div>
-
-        </div>
-
-
-        <!-- DATA ENGINEERING -->
-
-        <div class="tech-card">
-
-            <h3>Data Engineering</h3>
-
-            <div class="tech-tags">
-                <span class="tech-tag">ETL</span>
-                <span class="tech-tag">ELT</span>
-                <span class="tech-tag">SCD</span>
-                <span class="tech-tag">Data Quality</span>
-                <span class="tech-tag">Optimization</span>
-            </div>
-
-        </div>
-
-
-        <!-- ARCHITECTURE -->
-
-        <div class="tech-card">
-
-            <h3>Architecture</h3>
-
-            <div class="tech-tags">
-                <span class="tech-tag">Data Lake</span>
-                <span class="tech-tag">Lakehouse</span>
-                <span class="tech-tag">Medallion Architecture</span>
-                <span class="tech-tag">Incremental Loads</span>
-            </div>
-
-        </div>
 
     </div>
 
@@ -1162,16 +1850,19 @@ footer{
 </section>
 
 
-<!-- ================= CONTACT ================= -->
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
 
 <section id="contact">
 
 <div class="container reveal">
 
-    <div class="cta">
+    <div class="contact">
 
         <div class="section-label">
-            04 / Contact
+            05 / Contact
         </div>
 
         <h2 class="section-title">
@@ -1179,19 +1870,27 @@ footer{
         </h2>
 
         <p>
-            I'm open to Data Engineering opportunities and
-            conversations around cloud data platforms,
-            PySpark, ETL and analytics engineering.
+
+            Open to Data Engineering opportunities
+            and conversations around PySpark,
+            AWS, ETL and cloud data engineering.
+
         </p>
 
-        <div class="buttons">
+
+        <div class="actions">
+
+            <!-- CHANGE EMAIL -->
 
             <a
                 class="btn primary"
                 href="mailto:your-email@example.com"
             >
-                Email Me
+                Email me
             </a>
+
+
+            <!-- CHANGE LINKEDIN -->
 
             <a
                 class="btn"
@@ -1200,6 +1899,9 @@ footer{
             >
                 LinkedIn ↗
             </a>
+
+
+            <!-- CHANGE GITHUB -->
 
             <a
                 class="btn"
@@ -1218,7 +1920,10 @@ footer{
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer class="container">
 
@@ -1227,30 +1932,16 @@ footer{
     </span>
 
     <span>
-        Data Engineer · Built for data, designed for humans.
+        Data Engineer · AWS · PySpark · SQL
     </span>
 
 </footer>
 
 
+
 <script>
 
-/* ================= CURSOR ================= */
-
-const cursor = document.getElementById("cursor");
-
-window.addEventListener("mousemove", e => {
-
-    cursor.style.left =
-        e.clientX - 9 + "px";
-
-    cursor.style.top =
-        e.clientY - 9 + "px";
-
-});
-
-
-/* ================= SCROLL ANIMATION ================= */
+/* Scroll reveal animation */
 
 const observer =
 new IntersectionObserver(
@@ -1261,7 +1952,9 @@ new IntersectionObserver(
 
             if(entry.isIntersecting){
 
-                entry.target.classList.add("show");
+                entry.target
+                .classList
+                .add("show");
 
             }
 
@@ -1278,9 +1971,14 @@ new IntersectionObserver(
 
 document
 .querySelectorAll(".reveal")
-.forEach(el => observer.observe(el));
+.forEach(
+    element =>
+    observer.observe(element)
+);
 
 </script>
 
+
 </body>
+
 </html>

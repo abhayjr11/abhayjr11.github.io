@@ -5,741 +5,1875 @@
 
 <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>About | Abhay Jaiswal</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link
-href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
 >
 
 <style>
 
-:root{
+/* =========================================================
+   ROOT
+========================================================= */
 
-    --bg:#06100d;
+:root {
 
-    --panel:#0b1814;
+    --bg: #06100d;
 
-    --text:#effff7;
+    --panel: #0a1813;
 
-    --muted:#9db5aa;
+    --panel-light: #0d2119;
 
-    --accent:#52f5a7;
+    --text: #effff7;
 
-    --line:rgba(82,245,167,.14);
+    --muted: #9db5aa;
 
-    --shadow:0 25px 80px rgba(0,0,0,.35);
+    --accent: #52f5a7;
+
+    --accent-dark: #1ed78a;
+
+    --line: rgba(82, 245, 167, .14);
+
+    --line-bright: rgba(82, 245, 167, .32);
+
 }
 
 
-*{
+/* =========================================================
+   RESET
+========================================================= */
 
-    margin:0;
-    padding:0;
+* {
 
-    box-sizing:border-box;
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
 }
 
 
-html{
+html {
 
-    scroll-behavior:smooth;
+    scroll-behavior: smooth;
+
 }
 
 
-body{
+body {
 
     background:
 
         radial-gradient(
-            circle at 80% 0%,
-            rgba(30,215,138,.12),
+            circle at 85% 5%,
+            rgba(30, 215, 138, .12),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 5% 55%,
+            rgba(82, 245, 167, .06),
             transparent 30%
         ),
 
         var(--bg);
 
-    color:var(--text);
+    color: var(--text);
 
-    font-family:Inter,Arial,sans-serif;
+    font-family: "Inter", sans-serif;
 
-    line-height:1.6;
+    line-height: 1.6;
+
+    overflow-x: hidden;
+
 }
 
 
-a{
+body::before {
 
-    color:inherit;
+    content: "";
 
-    text-decoration:none;
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+
+        linear-gradient(
+            rgba(82, 245, 167, .025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(82, 245, 167, .025) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+    );
+
 }
 
 
-.container{
+a {
 
-    width:min(1100px,92%);
+    text-decoration: none;
 
-    margin:auto;
+    color: inherit;
+
 }
 
 
-/* =====================================================
-   NAV
-===================================================== */
+.container {
 
-nav{
+    width: min(1120px, 92%);
 
-    position:fixed;
+    margin: auto;
 
-    top:18px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    z-index:100;
-
-    width:min(1050px,92%);
-
-    display:flex;
-
-    justify-content:space-between;
-    align-items:center;
-
-    padding:13px 18px 13px 22px;
-
-    background:rgba(7,18,14,.75);
-
-    border:1px solid var(--line);
-
-    backdrop-filter:blur(18px);
-
-    border-radius:18px;
-
-    box-shadow:0 12px 45px rgba(0,0,0,.25);
 }
 
 
-.logo{
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
-    font-family:"Space Grotesk";
+nav {
 
-    font-size:18px;
+    position: fixed;
 
-    font-weight:700;
+    top: 18px;
 
-    letter-spacing:-.05em;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(1050px, 92%);
+
+    z-index: 1000;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 13px 18px 13px 22px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 18px;
+
+    background: rgba(6, 18, 13, .78);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+
+        0 15px 50px rgba(0, 0, 0, .28);
+
 }
 
 
-.logo span{
+.logo {
 
-    color:var(--accent);
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    letter-spacing: -.05em;
+
 }
 
 
-.links{
+.logo span {
 
-    display:flex;
+    color: var(--accent);
 
-    gap:26px;
-
-    color:var(--muted);
-
-    font-size:13px;
 }
 
 
-.links a:hover{
+.nav-links {
 
-    color:var(--accent);
+    display: flex;
+
+    align-items: center;
+
+    gap: 27px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
 }
 
 
-.navbtn{
+.nav-links a {
 
-    border:1px solid rgba(82,245,167,.35);
+    transition: .25s;
 
-    padding:8px 13px;
-
-    border-radius:10px;
-
-    color:var(--accent);
-
-    font-size:13px;
 }
 
 
-/* =====================================================
-   ABOUT HERO
-===================================================== */
+.nav-links a:hover {
 
-.about{
+    color: var(--accent);
 
-    padding:150px 0 90px;
 }
 
 
-.about-grid{
+.nav-links a.active {
 
-    display:grid;
+    color: var(--accent);
 
-    grid-template-columns:380px 1fr;
-
-    gap:70px;
-
-    align-items:center;
 }
 
 
-/* =====================================================
-   PHOTO
-===================================================== */
+.nav-contact {
 
-.photo-card{
+    padding: 8px 14px;
 
-    position:relative;
+    border: 1px solid rgba(82, 245, 167, .35);
 
-    border-radius:28px;
+    border-radius: 10px;
 
-    padding:12px;
+    color: var(--accent);
 
-    border:1px solid var(--line);
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.about-hero {
+
+    min-height: 720px;
+
+    padding: 145px 0 80px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+}
+
+
+/* =========================================================
+   PROFILE ANIMATION AREA
+========================================================= */
+
+.profile-animation {
+
+    height: 520px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* =========================================================
+   PROFILE IMAGE
+========================================================= */
+
+.profile-ring {
+
+    position: relative;
+
+    width: 310px;
+
+    height: 310px;
+
+    padding: 7px;
+
+    border-radius: 50%;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--accent),
+            rgba(82, 245, 167, .08),
+            var(--accent-dark)
+        );
+
+    box-shadow:
+
+        0 0 35px rgba(82, 245, 167, .18),
+
+        0 0 100px rgba(82, 245, 167, .08);
+
+    animation:
+
+        profileFloat 5s ease-in-out infinite;
+
+    z-index: 5;
+
+}
+
+
+.profile-ring img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid #07150f;
+
+}
+
+
+/* =========================================================
+   ROTATING OUTER RING
+========================================================= */
+
+.profile-glow {
+
+    position: absolute;
+
+    inset: -42px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(82, 245, 167, .16);
+
+    animation:
+
+        rotateGlow 12s linear infinite;
+
+    pointer-events: none;
+
+}
+
+
+.profile-glow::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    box-shadow:
+
+        0 0 18px var(--accent);
+
+    top: 17px;
+
+    left: 50%;
+
+}
+
+
+.profile-glow::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    box-shadow:
+
+        0 0 15px var(--accent);
+
+    bottom: 30px;
+
+    right: 13px;
+
+}
+
+
+/* =========================================================
+   ORBITING SMALL DOTS
+========================================================= */
+
+.orbit {
+
+    position: absolute;
+
+    width: 430px;
+
+    height: 430px;
+
+    border: 1px dashed rgba(82, 245, 167, .08);
+
+    border-radius: 50%;
+
+    animation:
+
+        orbitRotate 25s linear infinite;
+
+}
+
+
+.orbit-dot {
+
+    position: absolute;
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    box-shadow:
+
+        0 0 15px var(--accent);
+
+}
+
+
+.orbit-dot.one {
+
+    top: 20px;
+
+    left: 50%;
+
+}
+
+
+.orbit-dot.two {
+
+    right: 30px;
+
+    bottom: 90px;
+
+}
+
+
+.orbit-dot.three {
+
+    left: 20px;
+
+    bottom: 120px;
+
+}
+
+
+/* =========================================================
+   FLOATING SKILL CARDS
+========================================================= */
+
+.float-card {
+
+    position: absolute;
+
+    z-index: 20;
+
+    padding: 12px 18px;
+
+    border-radius: 13px;
+
+    background:
+
+        rgba(7, 20, 15, .90);
+
+    border:
+
+        1px solid rgba(82, 245, 167, .25);
+
+    color: #eafff5;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+
+        0 15px 40px rgba(0, 0, 0, .35),
+
+        0 0 25px rgba(82, 245, 167, .05);
+
+    white-space: nowrap;
+
+}
+
+
+/* glowing dot attached to card */
+
+.float-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    box-shadow:
+
+        0 0 12px var(--accent);
+
+}
+
+
+/* AWS */
+
+.float-card.one {
+
+    top: 75px;
+
+    left: 3%;
+
+    animation:
+
+        floatOne 4.5s ease-in-out infinite;
+
+}
+
+
+.float-card.one::after {
+
+    right: -9px;
+
+    top: 50%;
+
+}
+
+
+/* PySpark */
+
+.float-card.two {
+
+    top: 40px;
+
+    right: 2%;
+
+    animation:
+
+        floatTwo 5s ease-in-out infinite;
+
+}
+
+
+.float-card.two::after {
+
+    left: -9px;
+
+    top: 50%;
+
+}
+
+
+/* Python */
+
+.float-card.three {
+
+    bottom: 100px;
+
+    left: 2%;
+
+    animation:
+
+        floatThree 4.8s ease-in-out infinite;
+
+}
+
+
+.float-card.three::after {
+
+    right: -9px;
+
+    top: 50%;
+
+}
+
+
+/* ETL */
+
+.float-card.four {
+
+    bottom: 60px;
+
+    right: 3%;
+
+    animation:
+
+        floatFour 5.2s ease-in-out infinite;
+
+}
+
+
+.float-card.four::after {
+
+    left: -9px;
+
+    top: 50%;
+
+}
+
+
+/* =========================================================
+   HERO TEXT
+========================================================= */
+
+.about-intro {
+
+    max-width: 600px;
+
+}
+
+
+.section-label {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 20px;
+
+    color: var(--accent);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: .16em;
+
+}
+
+
+.section-label span {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    box-shadow:
+
+        0 0 13px var(--accent);
+
+    animation: pulse 1.7s infinite;
+
+}
+
+
+.about-intro h1 {
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(45px, 6vw, 72px);
+
+    line-height: .96;
+
+    letter-spacing: -.065em;
+
+    margin-bottom: 25px;
+
+}
+
+
+.about-intro h1 span {
+
+    color: var(--accent);
+
+}
+
+
+.about-intro p {
+
+    max-width: 570px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.85;
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 25px;
+
+    padding: 13px 15px;
+
+    width: fit-content;
+
+    border: 1px solid var(--line);
+
+    border-radius: 12px;
+
+    background: rgba(82, 245, 167, .035);
+
+}
+
+
+.contact-icon {
+
+    width: 34px;
+
+    height: 34px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 9px;
+
+    color: var(--accent);
+
+    background: rgba(82, 245, 167, .08);
+
+    font-size: 14px;
+
+}
+
+
+.contact-info small {
+
+    display: block;
+
+    color: #6f897d;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .08em;
+
+}
+
+
+.contact-info a {
+
+    color: #d8eee4;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+.contact-info a:hover {
+
+    color: var(--accent);
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.about-buttons {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 27px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.about-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 10px 15px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--line);
+
+    color: #bfd3ca;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    transition: .25s;
+
+}
+
+
+.about-btn:hover {
+
+    transform: translateY(-3px);
+
+    border-color: var(--line-bright);
+
+    color: var(--accent);
+
+}
+
+
+.about-btn.primary {
+
+    background: var(--accent);
+
+    color: #04100a;
+
+    border-color: var(--accent);
+
+}
+
+
+.about-btn.primary:hover {
+
+    color: #04100a;
+
+    box-shadow:
+
+        0 10px 30px rgba(82, 245, 167, .15);
+
+}
+
+
+/* =========================================================
+   ABOUT ME SECTION
+========================================================= */
+
+.about-section {
+
+    padding: 80px 0 40px;
+
+}
+
+
+.section-heading {
+
+    margin-bottom: 35px;
+
+}
+
+
+.section-heading .label {
+
+    color: var(--accent);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: .15em;
+
+    margin-bottom: 9px;
+
+}
+
+
+.section-heading h2 {
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(32px, 5vw, 48px);
+
+    line-height: 1;
+
+    letter-spacing: -.055em;
+
+}
+
+
+.section-heading h2 span {
+
+    color: var(--accent);
+
+}
+
+
+.about-box {
+
+    display: grid;
+
+    grid-template-columns: 1.3fr .7fr;
+
+    gap: 25px;
+
+}
+
+
+.about-text {
+
+    padding: 30px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 22px;
 
     background:
 
         linear-gradient(
             145deg,
-            rgba(82,245,167,.10),
-            rgba(7,18,14,.8)
+            rgba(13, 33, 25, .85),
+            rgba(7, 18, 14, .85)
         );
 
-    box-shadow:var(--shadow);
-
-    overflow:hidden;
 }
 
 
-.photo-card::before{
+.about-text p {
 
-    content:"";
+    color: var(--muted);
 
-    position:absolute;
+    font-size: 13px;
 
-    width:180px;
-    height:180px;
+    line-height: 1.9;
 
-    top:-90px;
-    right:-90px;
+    margin-bottom: 17px;
+
+}
+
+
+.about-text p:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+/* =========================================================
+   QUICK STATS
+========================================================= */
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+}
+
+
+.stat {
+
+    padding: 25px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 18px;
 
     background:
-        rgba(82,245,167,.12);
 
-    border-radius:50%;
+        rgba(82, 245, 167, .025);
 
-    filter:blur(5px);
+    transition: .3s;
+
 }
 
 
-.profile-photo{
+.stat:hover {
 
-    display:block;
+    transform: translateY(-4px);
 
-    width:100%;
+    border-color: var(--line-bright);
 
-    aspect-ratio:1/1.1;
-
-    object-fit:cover;
-
-    border-radius:20px;
-
-    position:relative;
-
-    z-index:2;
 }
 
 
-.photo-label{
+.stat-number {
 
-    position:absolute;
+    color: var(--accent);
 
-    bottom:28px;
-    left:28px;
+    font-family: "Space Grotesk", sans-serif;
 
-    z-index:4;
+    font-size: 30px;
 
-    padding:8px 12px;
+    font-weight: 700;
 
-    border-radius:10px;
-
-    background:rgba(4,15,11,.82);
-
-    border:1px solid var(--line);
-
-    backdrop-filter:blur(10px);
-
-    font-size:11px;
-
-    color:var(--accent);
 }
 
 
-/* =====================================================
-   ABOUT CONTENT
-===================================================== */
+.stat-title {
 
-.eyebrow{
+    margin-top: 4px;
 
-    display:inline-flex;
+    color: #a8bdb4;
 
-    padding:7px 11px;
+    font-size: 10px;
 
-    border-radius:999px;
+    font-weight: 600;
 
-    border:1px solid var(--line);
-
-    background:rgba(82,245,167,.05);
-
-    color:var(--accent);
-
-    font-size:11px;
-
-    font-weight:700;
-
-    letter-spacing:.08em;
-
-    margin-bottom:18px;
 }
 
 
-h1{
+/* =========================================================
+   PRIMARY SKILLS
+========================================================= */
 
-    font:
-        700
-        clamp(48px,6vw,72px)
-        /.95
-        "Space Grotesk";
+.skills-section {
 
-    letter-spacing:-.07em;
+    padding: 85px 0 40px;
 
-    margin-bottom:25px;
 }
 
 
-h1 span{
+.skills-grid {
 
-    color:var(--accent);
-}
-
-
-.about-text{
-
-    color:var(--muted);
-
-    font-size:16px;
-
-    max-width:650px;
-}
-
-
-.about-text + .about-text{
-
-    margin-top:16px;
-}
-
-
-/* =====================================================
-   CONTACT DETAILS
-===================================================== */
-
-.contact-info{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
-    margin-top:28px;
-}
-
-
-.contact-item{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:9px;
-
-    padding:10px 13px;
-
-    border:1px solid var(--line);
-
-    border-radius:11px;
-
-    background:rgba(82,245,167,.04);
-
-    color:#d9eee5;
-
-    font-size:12px;
-}
-
-
-.contact-item span{
-
-    color:var(--accent);
-}
-
-
-/* =====================================================
-   SECTION
-===================================================== */
-
-section{
-
-    padding:90px 0;
-}
-
-
-.section-label{
-
-    color:var(--accent);
-
-    font-size:11px;
-
-    text-transform:uppercase;
-
-    letter-spacing:.18em;
-
-    font-weight:800;
-
-    margin-bottom:12px;
-}
-
-
-.section-title{
-
-    font:
-        700
-        clamp(34px,4vw,52px)
-        /1
-        "Space Grotesk";
-
-    letter-spacing:-.05em;
-
-    margin-bottom:18px;
-}
-
-
-.section-copy{
-
-    color:var(--muted);
-
-    max-width:750px;
-
-    font-size:15px;
-}
-
-
-/* =====================================================
-   SKILLS
-===================================================== */
-
-.skill-grid{
-
-    display:grid;
+    display: grid;
 
     grid-template-columns:
-        repeat(3,1fr);
 
-    gap:16px;
+        repeat(4, 1fr);
 
-    margin-top:35px;
+    gap: 15px;
+
 }
 
 
-.skill-card{
+.skill-card {
 
-    padding:25px;
+    position: relative;
 
-    border:1px solid var(--line);
+    padding: 23px;
 
-    border-radius:18px;
+    min-height: 160px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 18px;
 
     background:
 
         linear-gradient(
             145deg,
-            rgba(15,33,27,.8),
-            rgba(8,18,14,.8)
+            rgba(13, 33, 25, .8),
+            rgba(7, 18, 14, .8)
         );
 
-    transition:.3s;
+    overflow: hidden;
+
+    transition: .3s;
+
 }
 
 
-.skill-card:hover{
+.skill-card::before {
 
-    transform:translateY(-6px);
+    content: "";
 
-    border-color:
-        rgba(82,245,167,.35);
+    position: absolute;
+
+    width: 100px;
+
+    height: 100px;
+
+    right: -45px;
+
+    top: -45px;
+
+    border-radius: 50%;
+
+    background: rgba(82, 245, 167, .08);
+
+    filter: blur(15px);
+
 }
 
 
-.skill-icon{
+.skill-card:hover {
 
-    width:45px;
-    height:45px;
+    transform: translateY(-6px);
 
-    display:grid;
+    border-color: var(--line-bright);
 
-    place-items:center;
-
-    border-radius:12px;
-
-    color:var(--accent);
-
-    background:rgba(82,245,167,.08);
-
-    border:1px solid var(--line);
-
-    font-weight:800;
-
-    margin-bottom:20px;
 }
 
 
-.skill-card h3{
+.skill-icon {
 
-    font:
-        700
-        20px
-        "Space Grotesk";
+    width: 38px;
 
-    margin-bottom:8px;
+    height: 38px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 10px;
+
+    color: var(--accent);
+
+    background: rgba(82, 245, 167, .08);
+
+    border: 1px solid rgba(82, 245, 167, .1);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    margin-bottom: 18px;
+
 }
 
 
-.skill-card p{
+.skill-card h3 {
 
-    color:var(--muted);
+    font-family: "Space Grotesk", sans-serif;
 
-    font-size:13px;
+    font-size: 17px;
+
+    margin-bottom: 6px;
+
 }
 
 
-/* =====================================================
-   TECHNOLOGIES
-===================================================== */
+.skill-card p {
 
-.tech-list{
+    color: #7f988d;
 
-    display:flex;
+    font-size: 10px;
 
-    flex-wrap:wrap;
+    line-height: 1.6;
 
-    gap:10px;
-
-    margin-top:30px;
 }
 
 
-.tech{
+/* =========================================================
+   TECHNOLOGY & TOOLS
+========================================================= */
 
-    padding:10px 14px;
+.tech-section {
 
-    border:1px solid var(--line);
+    padding: 85px 0 90px;
 
-    border-radius:999px;
-
-    background:rgba(82,245,167,.04);
-
-    font-size:12px;
-
-    color:#d9eee5;
-
-    transition:.25s;
 }
 
 
-.tech:hover{
+.tech-container {
 
-    color:var(--accent);
+    padding: 32px;
 
-    border-color:
-        rgba(82,245,167,.35);
+    border: 1px solid var(--line);
 
-    transform:translateY(-3px);
-}
-
-
-/* =====================================================
-   CTA
-===================================================== */
-
-.cta{
-
-    border:1px solid var(--line);
-
-    border-radius:28px;
-
-    padding:55px;
-
-    text-align:center;
+    border-radius: 24px;
 
     background:
 
         radial-gradient(
-            circle at 90% 0%,
-            rgba(82,245,167,.12),
-            transparent 40%
+            circle at 90% 10%,
+            rgba(82, 245, 167, .07),
+            transparent 30%
         ),
 
-        var(--panel);
+        rgba(7, 18, 14, .8);
+
 }
 
 
-.cta p{
+.tech-group {
 
-    color:var(--muted);
+    margin-bottom: 30px;
 
-    max-width:650px;
-
-    margin:auto;
 }
 
 
-.actions{
+.tech-group:last-child {
 
-    display:flex;
+    margin-bottom: 0;
 
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
-    margin-top:28px;
 }
 
 
-.btn{
+.tech-group-title {
 
-    padding:12px 18px;
+    display: flex;
 
-    border-radius:12px;
+    align-items: center;
 
-    font-weight:700;
+    gap: 10px;
 
-    font-size:14px;
+    margin-bottom: 13px;
 
-    border:1px solid var(--line);
+    color: #dff8eb;
 
-    transition:.25s;
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
 }
 
 
-.btn.primary{
+.tech-group-title span {
 
-    background:var(--accent);
+    width: 6px;
 
-    color:#04100a;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    box-shadow:
+
+        0 0 10px var(--accent);
+
 }
 
 
-.btn:hover{
+.tech-list {
 
-    transform:translateY(-3px);
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
 }
 
 
-/* =====================================================
+.tech {
+
+    padding: 8px 12px;
+
+    border: 1px solid rgba(82, 245, 167, .11);
+
+    border-radius: 8px;
+
+    background: rgba(82, 245, 167, .035);
+
+    color: #9bb7aa;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    transition: .25s;
+
+}
+
+
+.tech:hover {
+
+    color: var(--accent);
+
+    border-color:
+
+        rgba(82, 245, 167, .3);
+
+    background:
+
+        rgba(82, 245, 167, .07);
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta-section {
+
+    padding: 0 0 90px;
+
+}
+
+
+.cta {
+
+    padding: 55px 30px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(82, 245, 167, .08),
+            transparent 55%
+        );
+
+}
+
+
+.cta-label {
+
+    color: var(--accent);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: .16em;
+
+    margin-bottom: 10px;
+
+}
+
+
+.cta h2 {
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(30px, 4vw, 45px);
+
+    letter-spacing: -.05em;
+
+}
+
+
+.cta p {
+
+    max-width: 600px;
+
+    margin: 13px auto 0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+
+.cta-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+
+}
+
+
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
-footer{
+footer {
 
-    padding:35px 0 55px;
+    padding: 35px 0 50px;
 
-    color:#71877e;
+    border-top: 1px solid rgba(82, 245, 167, .06);
 
-    font-size:12px;
+    display: flex;
 
-    display:flex;
+    justify-content: space-between;
 
-    justify-content:space-between;
+    color: #71877e;
+
+    font-size: 11px;
+
 }
 
 
-/* =====================================================
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes profileFloat {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-12px);
+
+    }
+
+}
+
+
+@keyframes rotateGlow {
+
+    from {
+
+        transform: rotate(0deg);
+
+    }
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+
+@keyframes orbitRotate {
+
+    from {
+
+        transform: rotate(0deg);
+
+    }
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+
+@keyframes floatOne {
+
+    0%,
+    100% {
+
+        transform:
+            translate(0, 0)
+            rotate(-2deg);
+
+    }
+
+    50% {
+
+        transform:
+            translate(13px, -18px)
+            rotate(2deg);
+
+    }
+
+}
+
+
+@keyframes floatTwo {
+
+    0%,
+    100% {
+
+        transform:
+            translate(0, 0)
+            rotate(2deg);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-15px, 15px)
+            rotate(-2deg);
+
+    }
+
+}
+
+
+@keyframes floatThree {
+
+    0%,
+    100% {
+
+        transform:
+            translate(0, 0)
+            rotate(2deg);
+
+    }
+
+    50% {
+
+        transform:
+            translate(15px, -14px)
+            rotate(-2deg);
+
+    }
+
+}
+
+
+@keyframes floatFour {
+
+    0%,
+    100% {
+
+        transform:
+            translate(0, 0)
+            rotate(-2deg);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-13px, -17px)
+            rotate(2deg);
+
+    }
+
+}
+
+
+@keyframes pulse {
+
+    0%,
+    100% {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        opacity: .45;
+
+        transform: scale(.7);
+
+    }
+
+}
+
+
+.reveal {
+
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+
+        opacity .7s ease,
+
+        transform .7s ease;
+
+}
+
+
+.reveal.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width: 900px) {
+
+    .about-hero {
+
+        grid-template-columns: 1fr;
+
+        padding-top: 130px;
+
+        gap: 35px;
+
+        text-align: center;
+
+    }
+
+
+    .profile-animation {
+
+        height: 480px;
+
+        order: 1;
+
+    }
+
+
+    .about-intro {
+
+        order: 2;
+
+        margin: auto;
+
+    }
+
+
+    .about-intro p {
+
+        margin: auto;
+
+    }
+
+
+    .contact-card {
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+    }
+
+
+    .about-buttons {
+
+        justify-content: center;
+
+    }
+
+
+    .section-label {
+
+        justify-content: center;
+
+    }
+
+
+    .about-box {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .skills-grid {
+
+        grid-template-columns:
+
+            repeat(2, 1fr);
+
+    }
+
+
+    .nav-links {
+
+        display: none;
+
+    }
+
+}
+
+
+/* =========================================================
    MOBILE
-===================================================== */
+========================================================= */
 
-@media(max-width:850px){
+@media(max-width: 550px) {
 
-    nav .links{
+    nav {
 
-        display:none;
+        top: 10px;
+
     }
 
 
-    .about-grid{
+    .nav-contact {
 
-        grid-template-columns:1fr;
+        display: none;
 
-        gap:40px;
     }
 
 
-    .photo-card{
+    .about-hero {
 
-        max-width:430px;
+        padding-top: 110px;
 
-        margin:auto;
     }
 
 
-    .skill-grid{
+    .profile-animation {
 
-        grid-template-columns:1fr;
-    }
-}
+        height: 390px;
 
-
-@media(max-width:550px){
-
-    .about{
-
-        padding-top:120px;
     }
 
 
-    h1{
+    .profile-ring {
 
-        font-size:52px;
+        width: 235px;
+
+        height: 235px;
+
     }
 
 
-    .cta{
+    .orbit {
 
-        padding:40px 20px;
+        width: 320px;
+
+        height: 320px;
+
     }
 
 
-    footer{
+    .float-card {
 
-        flex-direction:column;
+        padding: 9px 12px;
 
-        gap:8px;
+        font-size: 10px;
+
     }
+
+
+    .float-card.one {
+
+        left: 0;
+
+        top: 45px;
+
+    }
+
+
+    .float-card.two {
+
+        right: 0;
+
+        top: 25px;
+
+    }
+
+
+    .float-card.three {
+
+        left: 0;
+
+        bottom: 55px;
+
+    }
+
+
+    .float-card.four {
+
+        right: 0;
+
+        bottom: 30px;
+
+    }
+
+
+    .about-intro h1 {
+
+        font-size: 45px;
+
+    }
+
+
+    .about-text {
+
+        padding: 22px;
+
+    }
+
+
+    .stats {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+
+    .stat {
+
+        padding: 18px;
+
+    }
+
+
+    .skills-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .tech-container {
+
+        padding: 22px;
+
+    }
+
+
+    footer {
+
+        flex-direction: column;
+
+        gap: 8px;
+
+    }
+
 }
 
 </style>
@@ -750,33 +1884,33 @@ footer{
 <body>
 
 
-<!-- =====================================================
+<!-- =========================================================
      NAVIGATION
-===================================================== -->
+========================================================= -->
 
 <nav>
 
-    <a class="logo" href="index.html">
+    <a href="index.html" class="logo">
         ABHAY<span>.</span>
     </a>
 
 
-    <div class="links">
+    <div class="nav-links">
 
         <a href="index.html">
             Home
         </a>
 
-        <a href="about.html">
+        <a href="about.html" class="active">
             About
+        </a>
+
+        <a href="projects.html">
+            Projects
         </a>
 
         <a href="index.html#skills">
             Skills
-        </a>
-
-        <a href="index.html#projects">
-            Projects
         </a>
 
         <a href="index.html#experience">
@@ -786,111 +1920,308 @@ footer{
     </div>
 
 
-    <a class="navbtn" href="#contact">
-        Contact
+    <a
+        href="mailto:YOUR_EMAIL@gmail.com"
+        class="nav-contact"
+    >
+        Let's talk
     </a>
 
 </nav>
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      ABOUT HERO
-===================================================== -->
+========================================================= -->
 
-<section class="about">
+<section class="about-hero">
 
-<div class="container about-grid">
+    <div class="profile-animation">
 
 
-    <!-- PHOTO -->
+        <!-- Orbit -->
 
-    <div class="photo-card">
+        <div class="orbit">
 
-        <img
-            src="https://ik.imagekit.io/w4cjtibtu/profile.png"
-            alt="Abhay Jaiswal"
-            class="profile-photo"
-        >
+            <div class="orbit-dot one"></div>
 
-        <div class="photo-label">
-            DATA ENGINEER
+            <div class="orbit-dot two"></div>
+
+            <div class="orbit-dot three"></div>
+
+        </div>
+
+
+        <!-- AWS -->
+
+        <div class="float-card one">
+
+            ☁️ AWS
+
+        </div>
+
+
+        <!-- PySpark -->
+
+        <div class="float-card two">
+
+            ⚡ PySpark
+
+        </div>
+
+
+        <!-- Python -->
+
+        <div class="float-card three">
+
+            🐍 Python
+
+        </div>
+
+
+        <!-- ETL -->
+
+        <div class="float-card four">
+
+            🔄 ETL
+
+        </div>
+
+
+        <!-- Profile -->
+
+        <div class="profile-ring">
+
+            <div class="profile-glow"></div>
+
+
+            <img
+                src="https://ik.imagekit.io/w4cjtibtu/profile.png"
+                alt="Abhay Jaiswal"
+            >
+
         </div>
 
     </div>
 
 
 
-    <!-- ABOUT -->
+    <!-- =====================================================
+         INTRO TEXT
+    ===================================================== -->
 
-    <div>
+    <div class="about-intro">
 
-        <div class="eyebrow">
+        <div class="section-label">
+
+            <span></span>
+
             ABOUT ME
+
         </div>
 
 
         <h1>
 
-            Hi, I'm <span>Abhay.</span>
+            Building data
+
+            <span>that matters.</span>
 
         </h1>
 
 
-        <p class="about-text">
+        <p>
 
-            I'm a Data Engineer focused on designing,
-            developing and optimizing scalable data
-            pipelines and ETL workflows.
-
-        </p>
-
-
-        <p class="about-text">
-
-            I work primarily with Python, PySpark,
-            SQL and AWS to transform large volumes
-            of raw data into reliable,
-            analytics-ready datasets.
+            I'm Abhay Jaiswal, a Data Engineer focused on
+            building scalable data pipelines, transforming
+            complex datasets and creating reliable data
+            solutions using cloud and big-data technologies.
 
         </p>
 
 
-        <p class="about-text">
+        <!-- Contact -->
 
-            I enjoy solving data problems, improving
-            pipeline performance and building
-            solutions that are reliable in production.
+        <div class="contact-card">
 
-        </p>
+            <div class="contact-icon">
 
-
-        <div class="contact-info">
-
-
-            <div class="contact-item">
-
-                <span>✉</span>
-
-                abhayjaiswal901@gmail.com
+                ✉
 
             </div>
 
 
-            <div class="contact-item">
+            <div class="contact-info">
 
-                <span>📍</span>
+                <small>
+                    Email
+                </small>
 
-                India
+                <a
+                    href="mailto:YOUR_EMAIL@gmail.com"
+                >
+                    YOUR_EMAIL@gmail.com
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Buttons -->
+
+        <div class="about-buttons">
+
+            <a
+                href="projects.html"
+                class="about-btn primary"
+            >
+                Explore My Projects →
+            </a>
+
+
+            <a
+                href="https://github.com/abhayjr11"
+                target="_blank"
+                class="about-btn"
+            >
+                GitHub ↗
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ABOUT ME
+========================================================= -->
+
+<section class="about-section reveal">
+
+<div class="container">
+
+
+    <div class="section-heading">
+
+        <div class="label">
+            WHO I AM
+        </div>
+
+        <h2>
+            About <span>me.</span>
+        </h2>
+
+    </div>
+
+
+
+    <div class="about-box">
+
+
+        <div class="about-text">
+
+            <p>
+
+                I am a Data Engineer with experience in
+                designing and developing data pipelines,
+                processing large datasets and working with
+                cloud-based data platforms.
+
+            </p>
+
+
+            <p>
+
+                My core experience includes Python,
+                PySpark, SQL, Apache Spark and AWS data
+                engineering technologies. I enjoy working
+                with data from ingestion through
+                transformation and finally delivering
+                analytics-ready datasets.
+
+            </p>
+
+
+            <p>
+
+                I have worked with distributed processing,
+                ETL development, data validation,
+                optimization and data quality while
+                solving real-world engineering problems.
+
+            </p>
+
+
+            <p>
+
+                Alongside professional work, I also build
+                personal projects around data engineering,
+                automation, machine learning and Python.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- Stats -->
+
+        <div class="stats">
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    4+
+                </div>
+
+                <div class="stat-title">
+                    Years Experience
+                </div>
 
             </div>
 
 
-            <div class="contact-item">
+            <div class="stat">
 
-                <span>💼</span>
+                <div class="stat-number">
+                    6
+                </div>
 
-                Data Engineer
+                <div class="stat-title">
+                    Featured Projects
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    5+
+                </div>
+
+                <div class="stat-title">
+                    Data Technologies
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    ∞
+                </div>
+
+                <div class="stat-title">
+                    Curiosity for Data
+                </div>
 
             </div>
 
@@ -905,42 +2236,80 @@ footer{
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      PRIMARY SKILLS
-===================================================== -->
+========================================================= -->
 
-<section>
+<section class="skills-section reveal">
 
 <div class="container">
 
 
-    <div class="section-label">
-        01 / Primary Skills
+    <div class="section-heading">
+
+        <div class="label">
+            WHAT I DO
+        </div>
+
+        <h2>
+            Primary <span>Skills.</span>
+        </h2>
+
     </div>
 
 
-    <h2 class="section-title">
-        What I work with.
-    </h2>
+
+    <div class="skills-grid">
 
 
-    <p class="section-copy">
-
-        My core strengths are focused on data
-        engineering, distributed processing,
-        cloud technologies and building
-        production-ready ETL pipelines.
-
-    </p>
-
-
-    <div class="skill-grid">
-
+        <!-- ETL -->
 
         <div class="skill-card">
 
             <div class="skill-icon">
-                ⚡
+                ETL
+            </div>
+
+            <h3>
+                ETL Development
+            </h3>
+
+            <p>
+                Designing reliable pipelines for
+                ingestion, transformation and
+                consumption.
+            </p>
+
+        </div>
+
+
+        <!-- PYTHON -->
+
+        <div class="skill-card">
+
+            <div class="skill-icon">
+                PY
+            </div>
+
+            <h3>
+                Python
+            </h3>
+
+            <p>
+                Python scripting, automation,
+                data processing and application
+                development.
+            </p>
+
+        </div>
+
+
+        <!-- PYSPARK -->
+
+        <div class="skill-card">
+
+            <div class="skill-icon">
+                SP
             </div>
 
             <h3>
@@ -948,38 +2317,15 @@ footer{
             </h3>
 
             <p>
-
                 Distributed data processing,
-                transformations, joins,
-                partitioning and optimization.
-
+                transformations, joins and
+                Spark optimization.
             </p>
 
         </div>
 
 
-
-        <div class="skill-card">
-
-            <div class="skill-icon">
-                ↻
-            </div>
-
-            <h3>
-                ETL / Data Pipelines
-            </h3>
-
-            <p>
-
-                Designing scalable ETL pipelines
-                for reliable and efficient
-                data movement.
-
-            </p>
-
-        </div>
-
-
+        <!-- SQL -->
 
         <div class="skill-card">
 
@@ -988,15 +2334,13 @@ footer{
             </div>
 
             <h3>
-                SQL & Data Modeling
+                SQL
             </h3>
 
             <p>
-
                 Complex queries, joins, window
-                functions, data transformations
-                and analytical datasets.
-
+                functions, aggregations and
+                analytical transformations.
             </p>
 
         </div>
@@ -1010,116 +2354,271 @@ footer{
 
 
 
-<!-- =====================================================
-     TECHNOLOGIES
-===================================================== -->
+<!-- =========================================================
+     TECHNOLOGY & TOOLS
+========================================================= -->
 
-<section>
+<section class="tech-section reveal">
 
 <div class="container">
 
 
-    <div class="section-label">
-        02 / Technologies & Tools
+    <div class="section-heading">
+
+        <div class="label">
+            MY TOOLKIT
+        </div>
+
+        <h2>
+            Technologies <span>& Tools.</span>
+        </h2>
+
     </div>
 
 
-    <h2 class="section-title">
-        Technologies I've worked with.
-    </h2>
+
+    <div class="tech-container">
 
 
-    <p class="section-copy">
+        <!-- Programming -->
 
-        A combination of cloud, big-data,
-        programming, database and orchestration
-        technologies used across my projects.
+        <div class="tech-group">
 
-    </p>
+            <div class="tech-group-title">
+
+                <span></span>
+
+                Programming & Query
+
+            </div>
 
 
-    <div class="tech-list">
+            <div class="tech-list">
+
+                <div class="tech">
+                    Python
+                </div>
+
+                <div class="tech">
+                    SQL
+                </div>
+
+                <div class="tech">
+                    PySpark
+                </div>
+
+                <div class="tech">
+                    Spark SQL
+                </div>
+
+            </div>
+
+        </div>
 
 
-        <span class="tech">
-            Python
-        </span>
 
-        <span class="tech">
-            PySpark
-        </span>
+        <!-- AWS -->
 
-        <span class="tech">
-            Apache Spark
-        </span>
+        <div class="tech-group">
 
-        <span class="tech">
-            SQL
-        </span>
+            <div class="tech-group-title">
 
-        <span class="tech">
-            AWS S3
-        </span>
+                <span></span>
 
-        <span class="tech">
-            AWS EMR
-        </span>
+                AWS Data Engineering
 
-        <span class="tech">
-            AWS Glue
-        </span>
+            </div>
 
-        <span class="tech">
-            AWS Lambda
-        </span>
 
-        <span class="tech">
-            Apache Airflow
-        </span>
+            <div class="tech-list">
 
-        <span class="tech">
-            Hadoop
-        </span>
+                <div class="tech">
+                    AWS S3
+                </div>
 
-        <span class="tech">
-            Hive
-        </span>
+                <div class="tech">
+                    AWS EMR
+                </div>
 
-        <span class="tech">
-            Kafka
-        </span>
+                <div class="tech">
+                    AWS Glue
+                </div>
 
-        <span class="tech">
-            Teradata
-        </span>
+                <div class="tech">
+                    AWS Lambda
+                </div>
 
-        <span class="tech">
-            Snowflake
-        </span>
+                <div class="tech">
+                    Amazon Redshift
+                </div>
 
-        <span class="tech">
-            Databricks
-        </span>
+            </div>
 
-        <span class="tech">
-            Delta Lake
-        </span>
+        </div>
 
-        <span class="tech">
-            Azure
-        </span>
 
-        <span class="tech">
-            ADLS
-        </span>
 
-        <span class="tech">
-            Git
-        </span>
+        <!-- Big Data -->
 
-        <span class="tech">
-            Jira
-        </span>
+        <div class="tech-group">
+
+            <div class="tech-group-title">
+
+                <span></span>
+
+                Big Data
+
+            </div>
+
+
+            <div class="tech-list">
+
+                <div class="tech">
+                    Apache Spark
+                </div>
+
+                <div class="tech">
+                    Hadoop
+                </div>
+
+                <div class="tech">
+                    Hive
+                </div>
+
+                <div class="tech">
+                    HDFS
+                </div>
+
+                <div class="tech">
+                    Parquet
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Cloud -->
+
+        <div class="tech-group">
+
+            <div class="tech-group-title">
+
+                <span></span>
+
+                Cloud & Data Platforms
+
+            </div>
+
+
+            <div class="tech-list">
+
+                <div class="tech">
+                    Azure
+                </div>
+
+                <div class="tech">
+                    Azure Databricks
+                </div>
+
+                <div class="tech">
+                    ADLS
+                </div>
+
+                <div class="tech">
+                    Azure Data Factory
+                </div>
+
+                <div class="tech">
+                    Delta Lake
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Databases -->
+
+        <div class="tech-group">
+
+            <div class="tech-group-title">
+
+                <span></span>
+
+                Databases
+
+            </div>
+
+
+            <div class="tech-list">
+
+                <div class="tech">
+                    MySQL
+                </div>
+
+                <div class="tech">
+                    PostgreSQL
+                </div>
+
+                <div class="tech">
+                    Hive
+                </div>
+
+                <div class="tech">
+                    Snowflake
+                </div>
+
+                <div class="tech">
+                    Teradata
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Orchestration -->
+
+        <div class="tech-group">
+
+            <div class="tech-group-title">
+
+                <span></span>
+
+                Orchestration & Development
+
+            </div>
+
+
+            <div class="tech-list">
+
+                <div class="tech">
+                    Apache Airflow
+                </div>
+
+                <div class="tech">
+                    Git
+                </div>
+
+                <div class="tech">
+                    GitHub
+                </div>
+
+                <div class="tech">
+                    Jira
+                </div>
+
+                <div class="tech">
+                    Linux
+                </div>
+
+            </div>
+
+        </div>
 
 
     </div>
@@ -1130,60 +2629,63 @@ footer{
 
 
 
-<!-- =====================================================
-     CONTACT
-===================================================== -->
+<!-- =========================================================
+     CTA
+========================================================= -->
 
-<section id="contact">
+<section class="cta-section reveal">
 
 <div class="container">
 
-
     <div class="cta">
 
-
-        <div class="section-label">
-            03 / Let's Connect
+        <div class="cta-label">
+            LET'S CONNECT
         </div>
 
 
-        <h2 class="section-title">
-            Have a data problem?
+        <h2>
+            Let's build something useful.
         </h2>
 
 
         <p>
 
-            I'm always interested in discussing
-            data engineering opportunities,
-            interesting projects and scalable
-            data solutions.
+            Interested in data engineering,
+            cloud platforms or building scalable
+            data solutions? Let's connect.
 
         </p>
 
 
-        <div class="actions">
+        <div class="cta-buttons">
 
-
-            <!-- CHANGE YOUR EMAIL -->
 
             <a
-                class="btn primary"
-                href="mailto:your-email@example.com"
+                href="mailto:YOUR_EMAIL@gmail.com"
+                class="about-btn primary"
             >
-                Email Me
+                Send me an Email →
             </a>
 
 
             <a
-                class="btn"
+                href="projects.html"
+                class="about-btn"
+            >
+                View Projects
+            </a>
+
+
+            <a
                 href="index.html"
+                class="about-btn"
             >
-                ← Back to Home
+                ← Home
             </a>
+
 
         </div>
-
 
     </div>
 
@@ -1193,9 +2695,9 @@ footer{
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer class="container">
 
@@ -1203,11 +2705,59 @@ footer{
         © 2026 Abhay Jaiswal
     </span>
 
+
     <span>
         Data Engineer · AWS · PySpark · SQL
     </span>
 
 </footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const observer = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("show");
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: .08
+    }
+
+);
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(element => {
+
+        observer.observe(element);
+
+    });
+
+
+</script>
 
 
 </body>

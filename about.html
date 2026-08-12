@@ -11,10 +11,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet"
->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
 
 <style>
 
@@ -25,22 +23,17 @@
 :root {
 
     --bg: #06100d;
-
     --panel: #0a1813;
-
     --panel-light: #0d2119;
 
     --text: #effff7;
-
     --muted: #9db5aa;
 
     --accent: #52f5a7;
-
     --accent-dark: #1ed78a;
 
-    --line: rgba(82, 245, 167, .14);
-
-    --line-bright: rgba(82, 245, 167, .32);
+    --line: rgba(82,245,167,.14);
+    --line-bright: rgba(82,245,167,.32);
 
 }
 
@@ -50,20 +43,14 @@
 ========================================================= */
 
 * {
-
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
-
 }
 
 
 html {
-
     scroll-behavior: smooth;
-
 }
 
 
@@ -73,13 +60,13 @@ body {
 
         radial-gradient(
             circle at 85% 5%,
-            rgba(30, 215, 138, .12),
+            rgba(30,215,138,.12),
             transparent 28%
         ),
 
         radial-gradient(
             circle at 5% 55%,
-            rgba(82, 245, 167, .06),
+            rgba(82,245,167,.06),
             transparent 30%
         ),
 
@@ -96,6 +83,8 @@ body {
 }
 
 
+/* Grid background */
+
 body::before {
 
     content: "";
@@ -109,13 +98,13 @@ body::before {
     background-image:
 
         linear-gradient(
-            rgba(82, 245, 167, .025) 1px,
+            rgba(82,245,167,.025) 1px,
             transparent 1px
         ),
 
         linear-gradient(
             90deg,
-            rgba(82, 245, 167, .025) 1px,
+            rgba(82,245,167,.025) 1px,
             transparent 1px
         );
 
@@ -131,17 +120,14 @@ body::before {
 
 
 a {
-
     text-decoration: none;
-
     color: inherit;
-
 }
 
 
 .container {
 
-    width: min(1120px, 92%);
+    width: min(1120px,92%);
 
     margin: auto;
 
@@ -162,7 +148,7 @@ nav {
 
     transform: translateX(-50%);
 
-    width: min(1050px, 92%);
+    width: min(1050px,92%);
 
     z-index: 1000;
 
@@ -178,20 +164,20 @@ nav {
 
     border-radius: 18px;
 
-    background: rgba(6, 18, 13, .78);
+    background: rgba(6,18,13,.78);
 
     backdrop-filter: blur(18px);
 
     box-shadow:
 
-        0 15px 50px rgba(0, 0, 0, .28);
+        0 15px 50px rgba(0,0,0,.28);
 
 }
 
 
 .logo {
 
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk",sans-serif;
 
     font-size: 18px;
 
@@ -203,9 +189,7 @@ nav {
 
 
 .logo span {
-
     color: var(--accent);
-
 }
 
 
@@ -225,23 +209,17 @@ nav {
 
 
 .nav-links a {
-
     transition: .25s;
-
 }
 
 
 .nav-links a:hover {
-
     color: var(--accent);
-
 }
 
 
 .nav-links a.active {
-
     color: var(--accent);
-
 }
 
 
@@ -249,7 +227,7 @@ nav {
 
     padding: 8px 14px;
 
-    border: 1px solid rgba(82, 245, 167, .35);
+    border: 1px solid rgba(82,245,167,.35);
 
     border-radius: 10px;
 
@@ -284,7 +262,7 @@ nav {
 
 
 /* =========================================================
-   PROFILE ANIMATION AREA
+   PROFILE ANIMATION
 ========================================================= */
 
 .profile-animation {
@@ -323,15 +301,15 @@ nav {
         linear-gradient(
             135deg,
             var(--accent),
-            rgba(82, 245, 167, .08),
+            rgba(82,245,167,.08),
             var(--accent-dark)
         );
 
     box-shadow:
 
-        0 0 35px rgba(82, 245, 167, .18),
+        0 0 35px rgba(82,245,167,.18),
 
-        0 0 100px rgba(82, 245, 167, .08);
+        0 0 100px rgba(82,245,167,.08);
 
     animation:
 
@@ -360,7 +338,7 @@ nav {
 
 
 /* =========================================================
-   ROTATING OUTER RING
+   ROTATING RING
 ========================================================= */
 
 .profile-glow {
@@ -371,7 +349,7 @@ nav {
 
     border-radius: 50%;
 
-    border: 1px solid rgba(82, 245, 167, .16);
+    border: 1px solid rgba(82,245,167,.16);
 
     animation:
 
@@ -433,7 +411,7 @@ nav {
 
 
 /* =========================================================
-   ORBITING SMALL DOTS
+   ORBIT
 ========================================================= */
 
 .orbit {
@@ -444,7 +422,7 @@ nav {
 
     height: 430px;
 
-    border: 1px dashed rgba(82, 245, 167, .08);
+    border: 1px dashed rgba(82,245,167,.08);
 
     border-radius: 50%;
 
@@ -477,7 +455,6 @@ nav {
 .orbit-dot.one {
 
     top: 20px;
-
     left: 50%;
 
 }
@@ -486,7 +463,6 @@ nav {
 .orbit-dot.two {
 
     right: 30px;
-
     bottom: 90px;
 
 }
@@ -495,14 +471,13 @@ nav {
 .orbit-dot.three {
 
     left: 20px;
-
     bottom: 120px;
 
 }
 
 
 /* =========================================================
-   FLOATING SKILL CARDS
+   FLOATING CARDS
 ========================================================= */
 
 .float-card {
@@ -517,11 +492,11 @@ nav {
 
     background:
 
-        rgba(7, 20, 15, .90);
+        rgba(7,20,15,.90);
 
     border:
 
-        1px solid rgba(82, 245, 167, .25);
+        1px solid rgba(82,245,167,.25);
 
     color: #eafff5;
 
@@ -533,16 +508,14 @@ nav {
 
     box-shadow:
 
-        0 15px 40px rgba(0, 0, 0, .35),
+        0 15px 40px rgba(0,0,0,.35),
 
-        0 0 25px rgba(82, 245, 167, .05);
+        0 0 25px rgba(82,245,167,.05);
 
     white-space: nowrap;
 
 }
 
-
-/* glowing dot attached to card */
 
 .float-card::after {
 
@@ -569,7 +542,7 @@ nav {
 
 .float-card.one {
 
-    top: 75px;
+    top: 65px;
 
     left: 3%;
 
@@ -593,7 +566,7 @@ nav {
 
 .float-card.two {
 
-    top: 40px;
+    top: 35px;
 
     right: 2%;
 
@@ -641,7 +614,7 @@ nav {
 
 .float-card.four {
 
-    bottom: 60px;
+    bottom: 55px;
 
     right: 3%;
 
@@ -653,6 +626,30 @@ nav {
 
 
 .float-card.four::after {
+
+    left: -9px;
+
+    top: 50%;
+
+}
+
+
+/* MySQL */
+
+.float-card.five {
+
+    top: 50%;
+
+    right: -2%;
+
+    animation:
+
+        floatFive 5.5s ease-in-out infinite;
+
+}
+
+
+.float-card.five::after {
 
     left: -9px;
 
@@ -707,16 +704,18 @@ nav {
 
         0 0 13px var(--accent);
 
-    animation: pulse 1.7s infinite;
+    animation:
+
+        pulse 1.7s infinite;
 
 }
 
 
 .about-intro h1 {
 
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk",sans-serif;
 
-    font-size: clamp(45px, 6vw, 72px);
+    font-size: clamp(45px,6vw,72px);
 
     line-height: .96;
 
@@ -728,9 +727,7 @@ nav {
 
 
 .about-intro h1 span {
-
     color: var(--accent);
-
 }
 
 
@@ -769,7 +766,9 @@ nav {
 
     border-radius: 12px;
 
-    background: rgba(82, 245, 167, .035);
+    background:
+
+        rgba(82,245,167,.035);
 
 }
 
@@ -788,9 +787,9 @@ nav {
 
     color: var(--accent);
 
-    background: rgba(82, 245, 167, .08);
+    background:
 
-    font-size: 14px;
+        rgba(82,245,167,.08);
 
 }
 
@@ -822,89 +821,12 @@ nav {
 
 
 .contact-info a:hover {
-
     color: var(--accent);
-
 }
 
 
 /* =========================================================
-   BUTTONS
-========================================================= */
-
-.about-buttons {
-
-    display: flex;
-
-    gap: 10px;
-
-    margin-top: 27px;
-
-    flex-wrap: wrap;
-
-}
-
-
-.about-btn {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 10px 15px;
-
-    border-radius: 10px;
-
-    border: 1px solid var(--line);
-
-    color: #bfd3ca;
-
-    font-size: 11px;
-
-    font-weight: 700;
-
-    transition: .25s;
-
-}
-
-
-.about-btn:hover {
-
-    transform: translateY(-3px);
-
-    border-color: var(--line-bright);
-
-    color: var(--accent);
-
-}
-
-
-.about-btn.primary {
-
-    background: var(--accent);
-
-    color: #04100a;
-
-    border-color: var(--accent);
-
-}
-
-
-.about-btn.primary:hover {
-
-    color: #04100a;
-
-    box-shadow:
-
-        0 10px 30px rgba(82, 245, 167, .15);
-
-}
-
-
-/* =========================================================
-   ABOUT ME SECTION
+   ABOUT
 ========================================================= */
 
 .about-section {
@@ -938,9 +860,9 @@ nav {
 
 .section-heading h2 {
 
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk",sans-serif;
 
-    font-size: clamp(32px, 5vw, 48px);
+    font-size: clamp(32px,5vw,48px);
 
     line-height: 1;
 
@@ -950,9 +872,7 @@ nav {
 
 
 .section-heading h2 span {
-
     color: var(--accent);
-
 }
 
 
@@ -979,8 +899,8 @@ nav {
 
         linear-gradient(
             145deg,
-            rgba(13, 33, 25, .85),
-            rgba(7, 18, 14, .85)
+            rgba(13,33,25,.85),
+            rgba(7,18,14,.85)
         );
 
 }
@@ -1000,14 +920,12 @@ nav {
 
 
 .about-text p:last-child {
-
     margin-bottom: 0;
-
 }
 
 
 /* =========================================================
-   QUICK STATS
+   STATS
 ========================================================= */
 
 .stats {
@@ -1031,7 +949,7 @@ nav {
 
     background:
 
-        rgba(82, 245, 167, .025);
+        rgba(82,245,167,.025);
 
     transition: .3s;
 
@@ -1051,7 +969,7 @@ nav {
 
     color: var(--accent);
 
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk",sans-serif;
 
     font-size: 30px;
 
@@ -1088,9 +1006,7 @@ nav {
 
     display: grid;
 
-    grid-template-columns:
-
-        repeat(4, 1fr);
+    grid-template-columns: repeat(4,1fr);
 
     gap: 15px;
 
@@ -1113,8 +1029,8 @@ nav {
 
         linear-gradient(
             145deg,
-            rgba(13, 33, 25, .8),
-            rgba(7, 18, 14, .8)
+            rgba(13,33,25,.8),
+            rgba(7,18,14,.8)
         );
 
     overflow: hidden;
@@ -1140,7 +1056,7 @@ nav {
 
     border-radius: 50%;
 
-    background: rgba(82, 245, 167, .08);
+    background: rgba(82,245,167,.08);
 
     filter: blur(15px);
 
@@ -1170,11 +1086,11 @@ nav {
 
     color: var(--accent);
 
-    background: rgba(82, 245, 167, .08);
+    background: rgba(82,245,167,.08);
 
-    border: 1px solid rgba(82, 245, 167, .1);
+    border: 1px solid rgba(82,245,167,.1);
 
-    font-size: 12px;
+    font-size: 11px;
 
     font-weight: 800;
 
@@ -1185,7 +1101,7 @@ nav {
 
 .skill-card h3 {
 
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk",sans-serif;
 
     font-size: 17px;
 
@@ -1211,7 +1127,7 @@ nav {
 
 .tech-section {
 
-    padding: 85px 0 90px;
+    padding: 85px 0 40px;
 
 }
 
@@ -1228,11 +1144,11 @@ nav {
 
         radial-gradient(
             circle at 90% 10%,
-            rgba(82, 245, 167, .07),
+            rgba(82,245,167,.07),
             transparent 30%
         ),
 
-        rgba(7, 18, 14, .8);
+        rgba(7,18,14,.8);
 
 }
 
@@ -1245,9 +1161,7 @@ nav {
 
 
 .tech-group:last-child {
-
     margin-bottom: 0;
-
 }
 
 
@@ -1263,7 +1177,7 @@ nav {
 
     color: #dff8eb;
 
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk",sans-serif;
 
     font-size: 14px;
 
@@ -1304,11 +1218,11 @@ nav {
 
     padding: 8px 12px;
 
-    border: 1px solid rgba(82, 245, 167, .11);
+    border: 1px solid rgba(82,245,167,.11);
 
     border-radius: 8px;
 
-    background: rgba(82, 245, 167, .035);
+    background: rgba(82,245,167,.035);
 
     color: #9bb7aa;
 
@@ -1325,15 +1239,113 @@ nav {
 
     color: var(--accent);
 
-    border-color:
+    border-color: rgba(82,245,167,.3);
 
-        rgba(82, 245, 167, .3);
+    background: rgba(82,245,167,.07);
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.action-section {
+
+    padding: 35px 0 90px;
+
+}
+
+
+.action-box {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    padding: 30px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 20px;
 
     background:
 
-        rgba(82, 245, 167, .07);
+        rgba(82,245,167,.025);
 
-    transform: translateY(-2px);
+}
+
+
+.action-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    min-width: 150px;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--line-bright);
+
+    color: #c5dcd2;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    transition: .3s;
+
+}
+
+
+.action-btn:hover {
+
+    transform: translateY(-4px);
+
+    color: var(--accent);
+
+    border-color: var(--accent);
+
+    box-shadow:
+
+        0 10px 30px rgba(82,245,167,.08);
+
+}
+
+
+.action-btn.primary {
+
+    background: var(--accent);
+
+    border-color: var(--accent);
+
+    color: #04100a;
+
+}
+
+
+.action-btn.primary:hover {
+
+    color: #04100a;
+
+    box-shadow:
+
+        0 12px 35px rgba(82,245,167,.18);
 
 }
 
@@ -1363,7 +1375,7 @@ nav {
 
         radial-gradient(
             circle at center,
-            rgba(82, 245, 167, .08),
+            rgba(82,245,167,.08),
             transparent 55%
         );
 
@@ -1387,9 +1399,9 @@ nav {
 
 .cta h2 {
 
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk",sans-serif;
 
-    font-size: clamp(30px, 4vw, 45px);
+    font-size: clamp(30px,4vw,45px);
 
     letter-spacing: -.05em;
 
@@ -1432,7 +1444,7 @@ footer {
 
     padding: 35px 0 50px;
 
-    border-top: 1px solid rgba(82, 245, 167, .06);
+    border-top: 1px solid rgba(82,245,167,.06);
 
     display: flex;
 
@@ -1451,17 +1463,12 @@ footer {
 
 @keyframes profileFloat {
 
-    0%,
-    100% {
-
+    0%,100% {
         transform: translateY(0);
-
     }
 
     50% {
-
         transform: translateY(-12px);
-
     }
 
 }
@@ -1470,15 +1477,11 @@ footer {
 @keyframes rotateGlow {
 
     from {
-
         transform: rotate(0deg);
-
     }
 
     to {
-
         transform: rotate(360deg);
-
     }
 
 }
@@ -1487,15 +1490,11 @@ footer {
 @keyframes orbitRotate {
 
     from {
-
         transform: rotate(0deg);
-
     }
 
     to {
-
         transform: rotate(360deg);
-
     }
 
 }
@@ -1503,21 +1502,12 @@ footer {
 
 @keyframes floatOne {
 
-    0%,
-    100% {
-
-        transform:
-            translate(0, 0)
-            rotate(-2deg);
-
+    0%,100% {
+        transform: translate(0,0) rotate(-2deg);
     }
 
     50% {
-
-        transform:
-            translate(13px, -18px)
-            rotate(2deg);
-
+        transform: translate(13px,-18px) rotate(2deg);
     }
 
 }
@@ -1525,21 +1515,12 @@ footer {
 
 @keyframes floatTwo {
 
-    0%,
-    100% {
-
-        transform:
-            translate(0, 0)
-            rotate(2deg);
-
+    0%,100% {
+        transform: translate(0,0) rotate(2deg);
     }
 
     50% {
-
-        transform:
-            translate(-15px, 15px)
-            rotate(-2deg);
-
+        transform: translate(-15px,15px) rotate(-2deg);
     }
 
 }
@@ -1547,21 +1528,12 @@ footer {
 
 @keyframes floatThree {
 
-    0%,
-    100% {
-
-        transform:
-            translate(0, 0)
-            rotate(2deg);
-
+    0%,100% {
+        transform: translate(0,0) rotate(2deg);
     }
 
     50% {
-
-        transform:
-            translate(15px, -14px)
-            rotate(-2deg);
-
+        transform: translate(15px,-14px) rotate(-2deg);
     }
 
 }
@@ -1569,21 +1541,25 @@ footer {
 
 @keyframes floatFour {
 
-    0%,
-    100% {
-
-        transform:
-            translate(0, 0)
-            rotate(-2deg);
-
+    0%,100% {
+        transform: translate(0,0) rotate(-2deg);
     }
 
     50% {
+        transform: translate(-13px,-17px) rotate(2deg);
+    }
 
-        transform:
-            translate(-13px, -17px)
-            rotate(2deg);
+}
 
+
+@keyframes floatFive {
+
+    0%,100% {
+        transform: translate(0,0) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-12px,-15px) rotate(-2deg);
     }
 
 }
@@ -1591,25 +1567,22 @@ footer {
 
 @keyframes pulse {
 
-    0%,
-    100% {
-
+    0%,100% {
         opacity: 1;
-
         transform: scale(1);
-
     }
 
     50% {
-
         opacity: .45;
-
         transform: scale(.7);
-
     }
 
 }
 
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
 
 .reveal {
 
@@ -1639,7 +1612,7 @@ footer {
    TABLET
 ========================================================= */
 
-@media(max-width: 900px) {
+@media(max-width:900px) {
 
     .about-hero {
 
@@ -1673,9 +1646,7 @@ footer {
 
 
     .about-intro p {
-
         margin: auto;
-
     }
 
 
@@ -1688,40 +1659,23 @@ footer {
     }
 
 
-    .about-buttons {
-
-        justify-content: center;
-
-    }
-
-
     .section-label {
-
         justify-content: center;
-
     }
 
 
     .about-box {
-
         grid-template-columns: 1fr;
-
     }
 
 
     .skills-grid {
-
-        grid-template-columns:
-
-            repeat(2, 1fr);
-
+        grid-template-columns: repeat(2,1fr);
     }
 
 
     .nav-links {
-
         display: none;
-
     }
 
 }
@@ -1731,33 +1685,25 @@ footer {
    MOBILE
 ========================================================= */
 
-@media(max-width: 550px) {
+@media(max-width:550px) {
 
     nav {
-
         top: 10px;
-
     }
 
 
     .nav-contact {
-
         display: none;
-
     }
 
 
     .about-hero {
-
         padding-top: 110px;
-
     }
 
 
     .profile-animation {
-
-        height: 390px;
-
+        height: 410px;
     }
 
 
@@ -1824,45 +1770,52 @@ footer {
     }
 
 
+    .float-card.five {
+
+        right: 0;
+
+        top: 50%;
+
+    }
+
+
     .about-intro h1 {
-
         font-size: 45px;
-
     }
 
 
     .about-text {
-
         padding: 22px;
-
     }
 
 
     .stats {
-
         grid-template-columns: 1fr 1fr;
-
     }
 
 
     .stat {
-
         padding: 18px;
-
     }
 
 
     .skills-grid {
-
         grid-template-columns: 1fr;
-
     }
 
 
     .tech-container {
-
         padding: 22px;
+    }
 
+
+    .action-box {
+        padding: 22px 15px;
+    }
+
+
+    .action-btn {
+        width: 100%;
     }
 
 
@@ -1921,7 +1874,7 @@ footer {
 
 
     <a
-        href="mailto:YOUR_EMAIL@gmail.com"
+        href="mailto:abhayjaiswal901@gmail.com"
         class="nav-contact"
     >
         Let's talk
@@ -1932,15 +1885,16 @@ footer {
 
 
 <!-- =========================================================
-     ABOUT HERO
+     HERO
 ========================================================= -->
 
 <section class="about-hero">
 
+
+    <!-- PROFILE / ANIMATION -->
+
     <div class="profile-animation">
 
-
-        <!-- Orbit -->
 
         <div class="orbit">
 
@@ -1956,45 +1910,43 @@ footer {
         <!-- AWS -->
 
         <div class="float-card one">
-
             ☁️ AWS
-
         </div>
 
 
-        <!-- PySpark -->
+        <!-- PYSPARK -->
 
         <div class="float-card two">
-
             ⚡ PySpark
-
         </div>
 
 
-        <!-- Python -->
+        <!-- PYTHON -->
 
         <div class="float-card three">
-
             🐍 Python
-
         </div>
 
 
         <!-- ETL -->
 
         <div class="float-card four">
-
             🔄 ETL
-
         </div>
 
 
-        <!-- Profile -->
+        <!-- MYSQL -->
+
+        <div class="float-card five">
+            🗄️ MySQL
+        </div>
+
+
+        <!-- PROFILE -->
 
         <div class="profile-ring">
 
             <div class="profile-glow"></div>
-
 
             <img
                 src="https://ik.imagekit.io/w4cjtibtu/profile.png"
@@ -2007,11 +1959,10 @@ footer {
 
 
 
-    <!-- =====================================================
-         INTRO TEXT
-    ===================================================== -->
+    <!-- INTRO -->
 
     <div class="about-intro">
+
 
         <div class="section-label">
 
@@ -2041,14 +1992,10 @@ footer {
         </p>
 
 
-        <!-- Contact -->
-
         <div class="contact-card">
 
             <div class="contact-icon">
-
                 ✉
-
             </div>
 
 
@@ -2058,38 +2005,14 @@ footer {
                     Email
                 </small>
 
-                <a
-                    href="mailto:YOUR_EMAIL@gmail.com"
-                >
-                    YOUR_EMAIL@gmail.com
+                <a href="mailto:abhayjaiswal901@gmail.com">
+                    abhayjaiswal901@gmail.com
                 </a>
 
             </div>
 
         </div>
 
-
-        <!-- Buttons -->
-
-        <div class="about-buttons">
-
-            <a
-                href="projects.html"
-                class="about-btn primary"
-            >
-                Explore My Projects →
-            </a>
-
-
-            <a
-                href="https://github.com/abhayjr11"
-                target="_blank"
-                class="about-btn"
-            >
-                GitHub ↗
-            </a>
-
-        </div>
 
     </div>
 
@@ -2117,7 +2040,6 @@ footer {
         </h2>
 
     </div>
-
 
 
     <div class="about-box">
@@ -2168,8 +2090,6 @@ footer {
         </div>
 
 
-
-        <!-- Stats -->
 
         <div class="stats">
 
@@ -2258,11 +2178,8 @@ footer {
     </div>
 
 
-
     <div class="skills-grid">
 
-
-        <!-- ETL -->
 
         <div class="skill-card">
 
@@ -2283,8 +2200,6 @@ footer {
         </div>
 
 
-        <!-- PYTHON -->
-
         <div class="skill-card">
 
             <div class="skill-icon">
@@ -2304,8 +2219,6 @@ footer {
         </div>
 
 
-        <!-- PYSPARK -->
-
         <div class="skill-card">
 
             <div class="skill-icon">
@@ -2324,8 +2237,6 @@ footer {
 
         </div>
 
-
-        <!-- SQL -->
 
         <div class="skill-card">
 
@@ -2376,11 +2287,10 @@ footer {
     </div>
 
 
-
     <div class="tech-container">
 
 
-        <!-- Programming -->
+        <!-- PROGRAMMING -->
 
         <div class="tech-group">
 
@@ -2395,21 +2305,13 @@ footer {
 
             <div class="tech-list">
 
-                <div class="tech">
-                    Python
-                </div>
+                <div class="tech">Python</div>
 
-                <div class="tech">
-                    SQL
-                </div>
+                <div class="tech">SQL</div>
 
-                <div class="tech">
-                    PySpark
-                </div>
+                <div class="tech">PySpark</div>
 
-                <div class="tech">
-                    Spark SQL
-                </div>
+                <div class="tech">Spark SQL</div>
 
             </div>
 
@@ -2432,25 +2334,15 @@ footer {
 
             <div class="tech-list">
 
-                <div class="tech">
-                    AWS S3
-                </div>
+                <div class="tech">AWS S3</div>
 
-                <div class="tech">
-                    AWS EMR
-                </div>
+                <div class="tech">AWS EMR</div>
 
-                <div class="tech">
-                    AWS Glue
-                </div>
+                <div class="tech">AWS Glue</div>
 
-                <div class="tech">
-                    AWS Lambda
-                </div>
+                <div class="tech">AWS Lambda</div>
 
-                <div class="tech">
-                    Amazon Redshift
-                </div>
+                <div class="tech">Amazon Redshift</div>
 
             </div>
 
@@ -2458,7 +2350,7 @@ footer {
 
 
 
-        <!-- Big Data -->
+        <!-- BIG DATA -->
 
         <div class="tech-group">
 
@@ -2473,25 +2365,15 @@ footer {
 
             <div class="tech-list">
 
-                <div class="tech">
-                    Apache Spark
-                </div>
+                <div class="tech">Apache Spark</div>
 
-                <div class="tech">
-                    Hadoop
-                </div>
+                <div class="tech">Hadoop</div>
 
-                <div class="tech">
-                    Hive
-                </div>
+                <div class="tech">Hive</div>
 
-                <div class="tech">
-                    HDFS
-                </div>
+                <div class="tech">HDFS</div>
 
-                <div class="tech">
-                    Parquet
-                </div>
+                <div class="tech">Parquet</div>
 
             </div>
 
@@ -2499,7 +2381,7 @@ footer {
 
 
 
-        <!-- Cloud -->
+        <!-- CLOUD -->
 
         <div class="tech-group">
 
@@ -2514,25 +2396,15 @@ footer {
 
             <div class="tech-list">
 
-                <div class="tech">
-                    Azure
-                </div>
+                <div class="tech">Azure</div>
 
-                <div class="tech">
-                    Azure Databricks
-                </div>
+                <div class="tech">Azure Databricks</div>
 
-                <div class="tech">
-                    ADLS
-                </div>
+                <div class="tech">ADLS</div>
 
-                <div class="tech">
-                    Azure Data Factory
-                </div>
+                <div class="tech">Azure Data Factory</div>
 
-                <div class="tech">
-                    Delta Lake
-                </div>
+                <div class="tech">Delta Lake</div>
 
             </div>
 
@@ -2540,7 +2412,7 @@ footer {
 
 
 
-        <!-- Databases -->
+        <!-- DATABASE -->
 
         <div class="tech-group">
 
@@ -2555,25 +2427,15 @@ footer {
 
             <div class="tech-list">
 
-                <div class="tech">
-                    MySQL
-                </div>
+                <div class="tech">MySQL</div>
 
-                <div class="tech">
-                    PostgreSQL
-                </div>
+                <div class="tech">PostgreSQL</div>
 
-                <div class="tech">
-                    Hive
-                </div>
+                <div class="tech">Snowflake</div>
 
-                <div class="tech">
-                    Snowflake
-                </div>
+                <div class="tech">Teradata</div>
 
-                <div class="tech">
-                    Teradata
-                </div>
+                <div class="tech">Hive</div>
 
             </div>
 
@@ -2581,7 +2443,7 @@ footer {
 
 
 
-        <!-- Orchestration -->
+        <!-- TOOLS -->
 
         <div class="tech-group">
 
@@ -2596,29 +2458,79 @@ footer {
 
             <div class="tech-list">
 
-                <div class="tech">
-                    Apache Airflow
-                </div>
+                <div class="tech">Apache Airflow</div>
 
-                <div class="tech">
-                    Git
-                </div>
+                <div class="tech">Git</div>
 
-                <div class="tech">
-                    GitHub
-                </div>
+                <div class="tech">GitHub</div>
 
-                <div class="tech">
-                    Jira
-                </div>
+                <div class="tech">Jira</div>
 
-                <div class="tech">
-                    Linux
-                </div>
+                <div class="tech">Linux</div>
 
             </div>
 
         </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROJECT / GITHUB / LINKEDIN
+========================================================= -->
+
+<section class="action-section reveal">
+
+<div class="container">
+
+
+    <div class="action-box">
+
+
+        <!-- PROJECTS -->
+
+        <a
+            href="projects.html"
+            class="action-btn primary"
+        >
+
+            🚀 Explore My Projects
+
+        </a>
+
+
+        <!-- GITHUB -->
+
+        <a
+            href="https://github.com/abhayjr11/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="action-btn"
+        >
+
+            ◉ GitHub
+
+        </a>
+
+
+        <!-- LINKEDIN -->
+
+        <a
+            href="https://www.linkedin.com/in/abhayjr11/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="action-btn"
+        >
+
+            in LinkedIn
+
+        </a>
 
 
     </div>
@@ -2637,7 +2549,9 @@ footer {
 
 <div class="container">
 
+
     <div class="cta">
+
 
         <div class="cta-label">
             LET'S CONNECT
@@ -2662,8 +2576,8 @@ footer {
 
 
             <a
-                href="mailto:YOUR_EMAIL@gmail.com"
-                class="about-btn primary"
+                href="mailto:abhayjaiswal901@gmail.com"
+                class="action-btn primary"
             >
                 Send me an Email →
             </a>
@@ -2671,7 +2585,7 @@ footer {
 
             <a
                 href="projects.html"
-                class="about-btn"
+                class="action-btn"
             >
                 View Projects
             </a>
@@ -2679,13 +2593,14 @@ footer {
 
             <a
                 href="index.html"
-                class="about-btn"
+                class="action-btn"
             >
                 ← Home
             </a>
 
 
         </div>
+
 
     </div>
 
@@ -2720,11 +2635,6 @@ footer {
 
 <script>
 
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
 const observer = new IntersectionObserver(
 
     entries => {
@@ -2755,7 +2665,6 @@ document
         observer.observe(element);
 
     });
-
 
 </script>
 

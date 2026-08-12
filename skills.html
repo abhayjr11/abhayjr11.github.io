@@ -1,0 +1,3143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Skills | Abhay Jaiswal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+    --bg: #06100d;
+    --panel: #0a1813;
+    --panel2: #0d2119;
+
+    --text: #effff7;
+    --muted: #9db5aa;
+
+    --accent: #52f5a7;
+    --accent-dark: #1ed78a;
+
+    --line: rgba(82,245,167,.14);
+    --line-bright: rgba(82,245,167,.38);
+
+    --shadow:
+        0 20px 60px rgba(0,0,0,.35);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    background:
+        radial-gradient(
+            circle at 85% 5%,
+            rgba(30,215,138,.13),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 5% 50%,
+            rgba(82,245,167,.07),
+            transparent 30%
+        ),
+
+        var(--bg);
+
+    color: var(--text);
+
+    font-family: "Inter", sans-serif;
+
+    line-height: 1.6;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND GRID
+========================================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -2;
+
+    background-image:
+
+        linear-gradient(
+            rgba(82,245,167,.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(82,245,167,.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+}
+
+
+/* =========================================================
+   FLOATING BACKGROUND ORBS
+========================================================= */
+
+.bg-orb {
+
+    position: fixed;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    filter: blur(2px);
+
+    opacity: .16;
+}
+
+
+.orb-one {
+
+    width: 250px;
+    height: 250px;
+
+    top: 25%;
+    left: -120px;
+
+    border: 1px solid rgba(82,245,167,.35);
+
+    animation:
+        orbFloatOne 12s ease-in-out infinite;
+}
+
+
+.orb-two {
+
+    width: 180px;
+    height: 180px;
+
+    top: 60%;
+    right: -80px;
+
+    border: 1px solid rgba(82,245,167,.3);
+
+    animation:
+        orbFloatTwo 10s ease-in-out infinite;
+}
+
+
+@keyframes orbFloatOne {
+
+    0%,100% {
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(45px,-60px)
+            scale(1.15);
+    }
+}
+
+
+@keyframes orbFloatTwo {
+
+    0%,100% {
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-35px,50px)
+            scale(.85);
+    }
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.container {
+
+    width: min(1100px,92%);
+
+    margin: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+
+    position: fixed;
+
+    top: 18px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(1050px,92%);
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 13px 18px 13px 22px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 18px;
+
+    background: rgba(6,18,13,.78);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.28);
+
+    animation:
+        navDrop .8s ease forwards;
+}
+
+
+@keyframes navDrop {
+
+    from {
+        opacity: 0;
+        transform:
+            translate(-50%,-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translate(-50%,0);
+    }
+}
+
+
+.logo {
+
+    font-family: "Space Grotesk",sans-serif;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    letter-spacing: -.05em;
+}
+
+
+.logo span {
+    color: var(--accent);
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 27px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+.nav-links a {
+
+    position: relative;
+
+    transition:
+        color .25s ease;
+}
+
+
+.nav-links a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -7px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: var(--accent);
+
+    transition: width .3s ease;
+}
+
+
+.nav-links a:hover,
+.nav-links a.active {
+
+    color: var(--accent);
+}
+
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+
+    width: 100%;
+}
+
+
+.nav-contact {
+
+    padding: 8px 14px;
+
+    border: 1px solid
+        rgba(82,245,167,.35);
+
+    border-radius: 10px;
+
+    color: var(--accent);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+
+.nav-contact:hover {
+
+    background:
+        rgba(82,245,167,.08);
+
+    box-shadow:
+        0 0 25px
+        rgba(82,245,167,.12);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.menu-toggle {
+
+    display: none;
+
+    width: 42px;
+
+    height: 42px;
+
+    border: 1px solid
+        rgba(82,245,167,.25);
+
+    border-radius: 10px;
+
+    background:
+        rgba(82,245,167,.05);
+
+    cursor: pointer;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.menu-toggle span {
+
+    width: 19px;
+
+    height: 2px;
+
+    background: var(--accent);
+
+    border-radius: 5px;
+
+    transition: .3s;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.page-header {
+
+    padding:
+        165px 0 75px;
+
+    text-align: center;
+
+    animation:
+        headerAppear 1s ease forwards;
+}
+
+
+@keyframes headerAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(35px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+}
+
+
+.page-label {
+
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    color: var(--accent);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: .18em;
+
+    text-transform: uppercase;
+
+    animation:
+        labelPulse 3s ease-in-out infinite;
+}
+
+
+@keyframes labelPulse {
+
+    0%,100% {
+        opacity: .7;
+    }
+
+    50% {
+        opacity: 1;
+        text-shadow:
+            0 0 18px
+            rgba(82,245,167,.5);
+    }
+}
+
+
+.page-header h1 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(48px,7vw,78px);
+
+    line-height: .95;
+
+    letter-spacing: -.065em;
+}
+
+
+.page-header h1 span {
+
+    color: var(--accent);
+
+    text-shadow:
+        0 0 35px
+        rgba(82,245,167,.18);
+}
+
+
+.page-header p {
+
+    max-width: 650px;
+
+    margin: 20px auto 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(45px);
+
+    transition:
+
+        opacity .8s ease,
+
+        transform .8s ease;
+}
+
+
+.reveal.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.core-section {
+
+    padding:
+        20px 0 85px;
+}
+
+
+.section-title {
+
+    margin-bottom: 30px;
+}
+
+
+.section-label {
+
+    margin-bottom: 9px;
+
+    color: var(--accent);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: .17em;
+}
+
+
+.section-title h2 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 36px;
+
+    letter-spacing: -.05em;
+}
+
+
+.section-title h2 span {
+
+    color: var(--accent);
+}
+
+
+.section-title p {
+
+    max-width: 620px;
+
+    margin-top: 10px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   CORE GRID
+========================================================= */
+
+.core-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap: 13px;
+}
+
+
+/* =========================================================
+   CORE CARD
+========================================================= */
+
+.core-card {
+
+    position: relative;
+
+    min-height: 270px;
+
+    padding: 25px 19px;
+
+    border:
+        1px solid
+        rgba(82,245,167,.25);
+
+    border-radius: 20px;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(82,245,167,.11),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            145deg,
+            rgba(13,33,25,.95),
+            rgba(6,17,13,.95)
+        );
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform:
+        translateY(35px)
+        scale(.96);
+
+    animation:
+        cardAppear .7s ease forwards;
+
+    transition:
+
+        transform .4s ease,
+
+        border-color .4s ease,
+
+        box-shadow .4s ease;
+}
+
+
+.core-card:nth-child(1) {
+    animation-delay: .15s;
+}
+
+.core-card:nth-child(2) {
+    animation-delay: .30s;
+}
+
+.core-card:nth-child(3) {
+    animation-delay: .45s;
+}
+
+.core-card:nth-child(4) {
+    animation-delay: .60s;
+}
+
+.core-card:nth-child(5) {
+    animation-delay: .75s;
+}
+
+
+@keyframes cardAppear {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+.core-card:hover {
+
+    transform:
+        translateY(-12px)
+        scale(1.025);
+
+    border-color:
+        var(--accent);
+
+    box-shadow:
+
+        0 25px 60px
+        rgba(0,0,0,.4),
+
+        0 0 35px
+        rgba(82,245,167,.13);
+}
+
+
+/* rotating glow */
+
+.core-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+
+    height: 150px;
+
+    top: -80px;
+
+    right: -80px;
+
+    border-radius: 50%;
+
+    background:
+        var(--accent);
+
+    opacity: .06;
+
+    filter: blur(18px);
+
+    animation:
+        cardOrb 5s ease-in-out infinite;
+}
+
+
+@keyframes cardOrb {
+
+    0%,100% {
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-20px,20px)
+            scale(1.3);
+    }
+}
+
+
+/* moving shine */
+
+.core-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: -100%;
+
+    left: -70%;
+
+    width: 45%;
+
+    height: 300%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.035),
+            transparent
+        );
+
+    transform:
+        rotate(20deg);
+
+    transition:
+        left .8s ease;
+}
+
+
+.core-card:hover::after {
+
+    left: 130%;
+}
+
+
+.core-number {
+
+    position: absolute;
+
+    top: 16px;
+
+    right: 17px;
+
+    color:
+        rgba(82,245,167,.35);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+.core-icon {
+
+    width: 52px;
+
+    height: 52px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin-bottom: 22px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(82,245,167,.08);
+
+    border:
+        1px solid
+        rgba(82,245,167,.18);
+
+    color: var(--accent);
+
+    font-size: 23px;
+
+    animation:
+        iconFloat 3.5s ease-in-out infinite;
+}
+
+
+@keyframes iconFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-5px)
+            rotate(2deg);
+    }
+}
+
+
+.core-card h3 {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 21px;
+
+    margin-bottom: 11px;
+}
+
+
+.core-card p {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: #8fa99f;
+
+    font-size: 10px;
+
+    line-height: 1.75;
+}
+
+
+.core-tag {
+
+    position: absolute;
+
+    bottom: 18px;
+
+    left: 19px;
+
+    color: var(--accent);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: .1em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   OTHER SKILLS
+========================================================= */
+
+.other-section {
+
+    padding:
+        10px 0 100px;
+}
+
+
+.skills-category {
+
+    margin-bottom: 42px;
+}
+
+
+.category-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+}
+
+
+.category-icon {
+
+    width: 36px;
+
+    height: 36px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 10px;
+
+    background:
+        rgba(82,245,167,.07);
+
+    border:
+        1px solid var(--line);
+
+    color: var(--accent);
+
+    font-size: 13px;
+
+    animation:
+        categoryIcon 3s ease-in-out infinite;
+}
+
+
+@keyframes categoryIcon {
+
+    0%,100% {
+        box-shadow:
+            0 0 0
+            rgba(82,245,167,0);
+    }
+
+    50% {
+        box-shadow:
+            0 0 22px
+            rgba(82,245,167,.12);
+    }
+}
+
+
+.category-heading h3 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 19px;
+}
+
+
+.skills-list {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 10px;
+}
+
+
+.skill-item {
+
+    position: relative;
+
+    min-height: 110px;
+
+    padding: 17px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 14px;
+
+    background:
+        rgba(7,18,14,.75);
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+
+        transform .35s ease,
+
+        border-color .35s ease,
+
+        background .35s ease,
+
+        box-shadow .35s ease;
+
+    animation:
+        smallCardAppear .65s ease forwards;
+}
+
+
+.skill-item:nth-child(1) {
+    animation-delay: .1s;
+}
+
+.skill-item:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.skill-item:nth-child(3) {
+    animation-delay: .3s;
+}
+
+.skill-item:nth-child(4) {
+    animation-delay: .4s;
+}
+
+.skill-item:nth-child(5) {
+    animation-delay: .5s;
+}
+
+.skill-item:nth-child(6) {
+    animation-delay: .6s;
+}
+
+
+@keyframes smallCardAppear {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+.skill-item::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 4px;
+
+    height: 0;
+
+    left: 0;
+
+    top: 0;
+
+    background: var(--accent);
+
+    transition:
+        height .35s ease;
+}
+
+
+.skill-item:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        var(--line-bright);
+
+    background:
+        rgba(13,33,25,.85);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.25);
+}
+
+
+.skill-item:hover::before {
+
+    height: 100%;
+}
+
+
+.skill-item h4 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 14px;
+
+    margin-bottom: 5px;
+}
+
+
+.skill-item p {
+
+    color: #78948a;
+
+    font-size: 9px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   TECHNOLOGY STACK
+========================================================= */
+
+.tech-section {
+
+    padding:
+        0 0 100px;
+}
+
+
+.tech-box {
+
+    position: relative;
+
+    padding: 34px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 22px;
+
+    background:
+
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(82,245,167,.07),
+            transparent 35%
+        ),
+
+        rgba(7,18,14,.8);
+
+    overflow: hidden;
+}
+
+
+.tech-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 200px;
+
+    height: 200px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(82,245,167,.08);
+
+    right: -70px;
+
+    bottom: -90px;
+
+    animation:
+        techOrbit 8s linear infinite;
+}
+
+
+@keyframes techOrbit {
+
+    from {
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+.tech-box h2 {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 25px;
+
+    margin-bottom: 22px;
+}
+
+
+.tech-tags {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+}
+
+
+.tech-tag {
+
+    padding: 9px 13px;
+
+    border:
+        1px solid
+        rgba(82,245,167,.13);
+
+    border-radius: 9px;
+
+    background:
+        rgba(82,245,167,.035);
+
+    color: #9ab2a8;
+
+    font-size: 10px;
+
+    transition:
+        transform .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+
+    animation:
+        tagAppear .6s ease backwards;
+}
+
+
+.tech-tag:nth-child(1) { animation-delay:.05s; }
+.tech-tag:nth-child(2) { animation-delay:.10s; }
+.tech-tag:nth-child(3) { animation-delay:.15s; }
+.tech-tag:nth-child(4) { animation-delay:.20s; }
+.tech-tag:nth-child(5) { animation-delay:.25s; }
+.tech-tag:nth-child(6) { animation-delay:.30s; }
+.tech-tag:nth-child(7) { animation-delay:.35s; }
+.tech-tag:nth-child(8) { animation-delay:.40s; }
+
+
+@keyframes tagAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(10px)
+            scale(.9);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+.tech-tag:hover {
+
+    color: var(--accent);
+
+    border-color:
+        rgba(82,245,167,.4);
+
+    background:
+        rgba(82,245,167,.07);
+
+    transform:
+        translateY(-4px)
+        scale(1.04);
+
+    box-shadow:
+        0 7px 20px
+        rgba(82,245,167,.07);
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta {
+
+    padding:
+        10px 0 100px;
+}
+
+
+.cta-box {
+
+    position: relative;
+
+    padding:
+        55px 25px;
+
+    text-align: center;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 23px;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(82,245,167,.09),
+            transparent 60%
+        );
+
+    overflow: hidden;
+}
+
+
+.cta-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+
+    height: 100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(82,245,167,.08);
+
+    filter: blur(30px);
+
+    left: 50%;
+
+    top: 0;
+
+    transform:
+        translateX(-50%);
+
+    animation:
+        ctaGlow 4s ease-in-out infinite;
+}
+
+
+@keyframes ctaGlow {
+
+    0%,100% {
+        opacity: .4;
+        transform:
+            translateX(-50%)
+            scale(1);
+    }
+
+    50% {
+        opacity: .9;
+        transform:
+            translateX(-50%)
+            scale(1.5);
+    }
+}
+
+
+.cta-box h2 {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(30px,4vw,45px);
+
+    letter-spacing: -.05em;
+}
+
+
+.cta-box h2 span {
+    color: var(--accent);
+}
+
+
+.cta-box p {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 560px;
+
+    margin:
+        12px auto 24px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+.buttons {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+.btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    padding:
+        11px 17px;
+
+    border:
+        1px solid
+        var(--line-bright);
+
+    border-radius: 10px;
+
+    color: #c8ded4;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease,
+        color .3s ease;
+}
+
+
+.btn:hover {
+
+    color: var(--accent);
+
+    border-color:
+        var(--accent);
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(82,245,167,.08);
+}
+
+
+.btn.primary {
+
+    background:
+        var(--accent);
+
+    color:
+        #04100a;
+
+    border-color:
+        var(--accent);
+}
+
+
+.btn.primary:hover {
+
+    color:
+        #04100a;
+
+    box-shadow:
+        0 12px 30px
+        rgba(82,245,167,.2);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        35px 0 50px;
+
+    border-top:
+        1px solid
+        rgba(82,245,167,.06);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color:
+        #71877e;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width:900px) {
+
+    .menu-toggle {
+        display: flex;
+    }
+
+
+    .nav-contact {
+        display: none;
+    }
+
+
+    .nav-links {
+
+        position: absolute;
+
+        top:
+            calc(100% + 10px);
+
+        left: 0;
+
+        width: 100%;
+
+        padding: 10px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 3px;
+
+        border:
+            1px solid var(--line);
+
+        border-radius: 15px;
+
+        background:
+            rgba(6,18,13,.97);
+
+        backdrop-filter:
+            blur(20px);
+
+        box-shadow:
+            0 20px 50px
+            rgba(0,0,0,.45);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform:
+            translateY(-10px)
+            scale(.98);
+
+        transition:
+            opacity .25s ease,
+            transform .25s ease,
+            visibility .25s;
+    }
+
+
+    .nav-links.active {
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+
+    .nav-links a {
+
+        padding: 13px 15px;
+
+        border-radius: 9px;
+    }
+
+
+    .nav-links a:hover {
+
+        background:
+            rgba(82,245,167,.07);
+    }
+
+
+    .core-grid {
+
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+
+    .skills-list {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width:550px) {
+
+    nav {
+
+        top: 10px;
+
+        width:
+            calc(100% - 22px);
+
+        padding:
+            10px 12px 10px 16px;
+    }
+
+
+    .page-header {
+
+        padding:
+            125px 0 55px;
+    }
+
+
+    .page-header h1 {
+
+        font-size: 48px;
+    }
+
+
+    .page-header p {
+
+        font-size: 12px;
+    }
+
+
+    .core-section {
+
+        padding-bottom: 60px;
+    }
+
+
+    .core-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .core-card {
+
+        min-height: 225px;
+    }
+
+
+    .skills-list {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .tech-box {
+
+        padding: 22px;
+    }
+
+
+    .cta-box {
+
+        padding:
+            40px 20px;
+    }
+
+
+    .buttons {
+
+        flex-direction: column;
+    }
+
+
+    .buttons .btn {
+
+        width: 100%;
+    }
+
+
+    footer {
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+}
+
+
+/* =========================================================
+   HAMBURGER ANIMATION
+========================================================= */
+
+.menu-toggle.active span:nth-child(1) {
+
+    transform:
+        translateY(7px)
+        rotate(45deg);
+}
+
+
+.menu-toggle.active span:nth-child(2) {
+
+    opacity: 0;
+}
+
+
+.menu-toggle.active span:nth-child(3) {
+
+    transform:
+        translateY(-7px)
+        rotate(-45deg);
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion:reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: .01ms !important;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- BACKGROUND -->
+
+<div class="bg-orb orb-one"></div>
+<div class="bg-orb orb-two"></div>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a href="index.html" class="logo">
+        ABHAY<span>.</span>
+    </a>
+
+
+    <div class="nav-links" id="navLinks">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="projects.html">
+            Projects
+        </a>
+
+        <a href="skills.html" class="active">
+            Skills
+        </a>
+
+    </div>
+
+
+    <a
+        href="mailto:abhayjaiswal901@gmail.com"
+        class="nav-contact"
+    >
+        Let's talk
+    </a>
+
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation"
+    >
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+</nav>
+
+
+
+<!-- =========================================================
+     PAGE HEADER
+========================================================= -->
+
+<header class="page-header">
+
+    <div class="container">
+
+        <div class="page-label">
+            TECHNICAL EXPERTISE
+        </div>
+
+
+        <h1>
+            My <span>Skills.</span>
+        </h1>
+
+
+        <p>
+
+            A practical toolkit built through data engineering
+            projects, big-data processing, cloud platforms,
+            ETL development and Python-based applications.
+
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     PRIMARY SKILLS
+========================================================= -->
+
+<section class="core-section reveal">
+
+<div class="container">
+
+
+    <div class="section-title">
+
+        <div class="section-label">
+            PRIMARY SKILLS
+        </div>
+
+
+        <h2>
+            My core <span>strengths.</span>
+        </h2>
+
+
+        <p>
+
+            The technologies I use most extensively across
+            my data engineering work and projects.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="core-grid">
+
+
+        <!-- AWS -->
+
+        <div class="core-card">
+
+            <span class="core-number">
+                01
+            </span>
+
+
+            <div class="core-icon">
+                ☁️
+            </div>
+
+
+            <h3>
+                AWS
+            </h3>
+
+
+            <p>
+
+                Built and supported cloud-based data
+                pipelines using AWS services for
+                ingestion, processing and ETL workloads.
+
+            </p>
+
+
+            <span class="core-tag">
+                CLOUD & DATA
+            </span>
+
+        </div>
+
+
+
+        <!-- PYTHON -->
+
+        <div class="core-card">
+
+            <span class="core-number">
+                02
+            </span>
+
+
+            <div class="core-icon">
+                🐍
+            </div>
+
+
+            <h3>
+                Python
+            </h3>
+
+
+            <p>
+
+                Developed scripts for data extraction,
+                cleaning, transformation, validation
+                and pipeline automation.
+
+            </p>
+
+
+            <span class="core-tag">
+                PROGRAMMING
+            </span>
+
+        </div>
+
+
+
+        <!-- PYSPARK -->
+
+        <div class="core-card">
+
+            <span class="core-number">
+                03
+            </span>
+
+
+            <div class="core-icon">
+                ⚡
+            </div>
+
+
+            <h3>
+                PySpark
+            </h3>
+
+
+            <p>
+
+                Developed distributed data-processing
+                pipelines to transform, validate and
+                prepare datasets for analytics.
+
+            </p>
+
+
+            <span class="core-tag">
+                BIG DATA
+            </span>
+
+        </div>
+
+
+
+        <!-- MYSQL -->
+
+        <div class="core-card">
+
+            <span class="core-number">
+                04
+            </span>
+
+
+            <div class="core-icon">
+                🗄️
+            </div>
+
+
+            <h3>
+                MySQL
+            </h3>
+
+
+            <p>
+
+                Used MySQL for storing and querying
+                structured healthcare and analytical
+                datasets.
+
+            </p>
+
+
+            <span class="core-tag">
+                DATABASE
+            </span>
+
+        </div>
+
+
+
+        <!-- ETL -->
+
+        <div class="core-card">
+
+            <span class="core-number">
+                05
+            </span>
+
+
+            <div class="core-icon">
+                🔄
+            </div>
+
+
+            <h3>
+                ETL
+            </h3>
+
+
+            <p>
+
+                Designed ETL pipelines to extract,
+                transform, validate and load curated
+                datasets from multiple sources.
+
+            </p>
+
+
+            <span class="core-tag">
+                DATA ENGINEERING
+            </span>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     BIG DATA
+========================================================= -->
+
+<section class="other-section reveal">
+
+<div class="container">
+
+
+<div class="skills-category">
+
+
+    <div class="category-heading">
+
+        <div class="category-icon">
+            ⚡
+        </div>
+
+        <h3>
+            Big Data & Processing
+        </h3>
+
+    </div>
+
+
+
+    <div class="skills-list">
+
+
+        <div class="skill-item">
+
+            <h4>
+                Apache Spark
+            </h4>
+
+            <p>
+                Used for distributed processing,
+                transformation and data analysis.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                Spark SQL
+            </h4>
+
+            <p>
+                Used SQL-based transformations
+                on Spark DataFrames.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                Hadoop
+            </h4>
+
+            <p>
+                Worked with Hadoop-based big-data
+                storage and processing environments.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                Hive
+            </h4>
+
+            <p>
+                Used Hive tables and SQL processing
+                for big-data datasets.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                Sqoop
+            </h4>
+
+            <p>
+                Used for transferring data between
+                relational databases and Hadoop.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     CLOUD
+========================================================= -->
+
+<div class="skills-category">
+
+
+    <div class="category-heading">
+
+        <div class="category-icon">
+            ☁
+        </div>
+
+        <h3>
+            Cloud & Data Platforms
+        </h3>
+
+    </div>
+
+
+
+    <div class="skills-list">
+
+
+        <div class="skill-item">
+
+            <h4>
+                AWS S3
+            </h4>
+
+            <p>
+                Used as cloud landing and storage
+                layer for source files.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                AWS EMR
+            </h4>
+
+            <p>
+                Used to execute distributed Spark
+                and PySpark processing jobs.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                AWS Glue
+            </h4>
+
+            <p>
+                Used for cloud-based ETL and
+                data integration workloads.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                Azure Databricks
+            </h4>
+
+            <p>
+                Developed PySpark and Python
+                transformations in Databricks.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                ADLS
+            </h4>
+
+            <p>
+                Ingested raw CSV data into
+                Databricks Delta tables.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                Delta Lake
+            </h4>
+
+            <p>
+                Worked with curated Bronze,
+                Silver and Gold data layers.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     DATA ENGINEERING
+========================================================= -->
+
+<div class="skills-category">
+
+
+    <div class="category-heading">
+
+        <div class="category-icon">
+            ◈
+        </div>
+
+        <h3>
+            Data Engineering
+        </h3>
+
+    </div>
+
+
+
+    <div class="skills-list">
+
+
+        <div class="skill-item">
+
+            <h4>
+                Data Validation
+            </h4>
+
+            <p>
+                Implemented validation checks across
+                processed datasets.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                Data Quality
+            </h4>
+
+            <p>
+                Handled nulls, duplicates and
+                schema-related issues.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                Data Modeling
+            </h4>
+
+            <p>
+                Designed structured datasets for
+                downstream analytics.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                Parquet
+            </h4>
+
+            <p>
+                Worked with columnar storage for
+                analytical processing.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                Data Transformation
+            </h4>
+
+            <p>
+                Transformed raw data into refined
+                and business-ready datasets.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                Data Ingestion
+            </h4>
+
+            <p>
+                Built ingestion processes for
+                multiple source systems.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     PYTHON & ANALYTICS
+========================================================= -->
+
+<div class="skills-category">
+
+
+    <div class="category-heading">
+
+        <div class="category-icon">
+            🐍
+        </div>
+
+        <h3>
+            Python & Analytics
+        </h3>
+
+    </div>
+
+
+
+    <div class="skills-list">
+
+
+        <div class="skill-item">
+
+            <h4>
+                Pandas
+            </h4>
+
+            <p>
+                Used for Python-based data manipulation
+                and analysis.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                NumPy
+            </h4>
+
+            <p>
+                Used for numerical and data-processing
+                operations in Python.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                Jupyter Notebook
+            </h4>
+
+            <p>
+                Used for development, experimentation
+                and data analysis.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                Machine Learning
+            </h4>
+
+            <p>
+                Applied machine-learning concepts
+                in the ATS project.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                NLP
+            </h4>
+
+            <p>
+                Used NLP techniques for resume
+                analysis and skill matching.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                Tkinter
+            </h4>
+
+            <p>
+                Built the GUI for the ATS
+                resume-screening application.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     DEVELOPMENT
+========================================================= -->
+
+<div class="skills-category">
+
+
+    <div class="category-heading">
+
+        <div class="category-icon">
+            🛠
+        </div>
+
+        <h3>
+            Development & Tools
+        </h3>
+
+    </div>
+
+
+
+    <div class="skills-list">
+
+
+        <div class="skill-item">
+
+            <h4>
+                SQL
+            </h4>
+
+            <p>
+                Used for querying, transformation
+                and analysis of structured data.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                Unix / Linux
+            </h4>
+
+            <p>
+                Worked in Linux and Unix environments
+                for data engineering development.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                VS Code
+            </h4>
+
+            <p>
+                Used as a development environment
+                for Python and data projects.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                ServiceNow
+            </h4>
+
+            <p>
+                Used as part of project development
+                and support workflows.
+            </p>
+
+        </div>
+
+
+        <div class="skill-item">
+
+            <h4>
+                Git / GitHub
+            </h4>
+
+            <p>
+                Used for version control and
+                maintaining development projects.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     TECHNOLOGY STACK
+========================================================= -->
+
+<section class="tech-section reveal">
+
+<div class="container">
+
+
+<div class="tech-box">
+
+
+    <h2>
+        Technology <span style="color:var(--accent)">
+            stack.
+        </span>
+    </h2>
+
+
+    <div class="tech-tags">
+
+        <span class="tech-tag">AWS</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">PySpark</span>
+        <span class="tech-tag">MySQL</span>
+        <span class="tech-tag">ETL</span>
+
+        <span class="tech-tag">SQL</span>
+        <span class="tech-tag">Apache Spark</span>
+        <span class="tech-tag">Spark SQL</span>
+
+        <span class="tech-tag">Hadoop</span>
+        <span class="tech-tag">Hive</span>
+        <span class="tech-tag">Sqoop</span>
+
+        <span class="tech-tag">AWS S3</span>
+        <span class="tech-tag">AWS EMR</span>
+        <span class="tech-tag">AWS Glue</span>
+
+        <span class="tech-tag">Azure Databricks</span>
+        <span class="tech-tag">ADLS</span>
+        <span class="tech-tag">Delta Lake</span>
+
+        <span class="tech-tag">Parquet</span>
+        <span class="tech-tag">Data Modeling</span>
+        <span class="tech-tag">Data Validation</span>
+
+        <span class="tech-tag">Data Quality</span>
+        <span class="tech-tag">Data Transformation</span>
+        <span class="tech-tag">Data Ingestion</span>
+
+        <span class="tech-tag">Pandas</span>
+        <span class="tech-tag">NumPy</span>
+
+        <span class="tech-tag">Machine Learning</span>
+        <span class="tech-tag">NLP</span>
+
+        <span class="tech-tag">Jupyter Notebook</span>
+        <span class="tech-tag">VS Code</span>
+
+        <span class="tech-tag">Unix</span>
+        <span class="tech-tag">Linux</span>
+
+        <span class="tech-tag">Tkinter</span>
+        <span class="tech-tag">Git</span>
+        <span class="tech-tag">GitHub</span>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta reveal">
+
+<div class="container">
+
+
+<div class="cta-box">
+
+
+    <h2>
+        Let's build something
+        <span>data-driven.</span>
+    </h2>
+
+
+    <p>
+
+        Interested in working together or want to
+        explore my data engineering projects?
+
+    </p>
+
+
+    <div class="buttons">
+
+
+        <a
+            href="projects.html"
+            class="btn primary"
+        >
+            🚀 Explore Projects
+        </a>
+
+
+        <a
+            href="https://github.com/abhayjr11/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn"
+        >
+            GitHub ↗
+        </a>
+
+
+        <a
+            href="mailto:abhayjaiswal901@gmail.com"
+            class="btn"
+        >
+            Contact Me
+        </a>
+
+
+    </div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="container">
+
+    <span>
+        © 2026 Abhay Jaiswal
+    </span>
+
+    <span>
+        Data Engineer · AWS · PySpark · Python
+    </span>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuToggle.addEventListener(
+    "click",
+    function () {
+
+        menuToggle.classList.toggle("active");
+
+        navLinks.classList.toggle("active");
+
+    }
+);
+
+
+/* Close menu after navigation */
+
+document
+    .querySelectorAll("#navLinks a")
+    .forEach(function(link) {
+
+        link.addEventListener(
+            "click",
+            function() {
+
+                menuToggle.classList.remove(
+                    "active"
+                );
+
+                navLinks.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+    });
+
+
+/* Close menu when clicking outside */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            !navLinks.contains(event.target) &&
+            !menuToggle.contains(event.target)
+        ) {
+
+            menuToggle.classList.remove(
+                "active"
+            );
+
+            navLinks.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const observer =
+    new IntersectionObserver(
+
+        function(entries) {
+
+            entries.forEach(function(entry) {
+
+                if (
+                    entry.isIntersecting
+                ) {
+
+                    entry.target.classList.add(
+                        "show"
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: .08
+        }
+
+    );
+
+
+revealElements.forEach(function(element) {
+
+    observer.observe(element);
+
+});
+
+
+/* =========================================================
+   MOUSE PARALLAX ON CORE CARDS
+========================================================= */
+
+const cards =
+    document.querySelectorAll(".core-card");
+
+
+cards.forEach(function(card) {
+
+    card.addEventListener(
+        "mousemove",
+        function(event) {
+
+            const rect =
+                card.getBoundingClientRect();
+
+            const x =
+                event.clientX - rect.left;
+
+            const y =
+                event.clientY - rect.top;
+
+            const rotateX =
+                ((y - rect.height / 2) /
+                rect.height) * -5;
+
+            const rotateY =
+                ((x - rect.width / 2) /
+                rect.width) * 5;
+
+
+            card.style.transform =
+                `translateY(-12px)
+                 scale(1.025)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)`;
+
+        }
+    );
+
+
+    card.addEventListener(
+        "mouseleave",
+        function() {
+
+            card.style.transform = "";
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   MOUSE GLOW FOR CORE CARDS
+========================================================= */
+
+cards.forEach(function(card) {
+
+    card.addEventListener(
+        "mousemove",
+        function(event) {
+
+            const rect =
+                card.getBoundingClientRect();
+
+            const x =
+                event.clientX - rect.left;
+
+            const y =
+                event.clientY - rect.top;
+
+
+            card.style.background =
+
+                `radial-gradient(
+                    circle at ${x}px ${y}px,
+                    rgba(82,245,167,.13),
+                    transparent 42%
+                ),
+                linear-gradient(
+                    145deg,
+                    rgba(13,33,25,.96),
+                    rgba(6,17,13,.96)
+                )`;
+
+        }
+    );
+
+
+    card.addEventListener(
+        "mouseleave",
+        function() {
+
+            card.style.background = "";
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   TECHNOLOGY TAG RANDOM FLOAT
+========================================================= */
+
+const tags =
+    document.querySelectorAll(".tech-tag");
+
+
+tags.forEach(function(tag,index) {
+
+    tag.style.animationDelay =
+        `${(index % 12) * 0.07}s`;
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>

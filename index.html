@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,1147 +10,1879 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link
-href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* =====================================================
-   GLOBAL
-===================================================== */
+/* =========================================================
+   ROOT
+========================================================= */
 
-:root{
+:root {
+    --bg: #06100d;
+    --panel: #0a1813;
+    --panel2: #0d2119;
 
-    --bg:#06100d;
-    --panel:#0b1814;
-    --panel2:#0f211b;
+    --text: #effff7;
+    --muted: #9db5aa;
 
-    --text:#effff7;
-    --muted:#9db5aa;
+    --accent: #52f5a7;
+    --accent-dark: #1ed78a;
 
-    --accent:#52f5a7;
-    --accent2:#1ed78a;
+    --line: rgba(82,245,167,.14);
+    --line-bright: rgba(82,245,167,.38);
 
-    --line:rgba(82,245,167,.14);
-
-    --shadow:0 25px 80px rgba(0,0,0,.35);
+    --shadow:
+        0 20px 60px rgba(0,0,0,.35);
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
+body {
 
     background:
+
         radial-gradient(
-            circle at 80% 0%,
-            rgba(30,215,138,.12),
+            circle at 85% 5%,
+            rgba(30,215,138,.13),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 5% 50%,
+            rgba(82,245,167,.07),
             transparent 30%
         ),
+
         var(--bg);
 
-    color:var(--text);
+    color: var(--text);
 
-    font-family:Inter,Arial,sans-serif;
+    font-family: "Inter", sans-serif;
 
-    line-height:1.6;
+    line-height: 1.6;
 
-    overflow-x:hidden;
-}
-
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-.container{
-
-    width:min(1160px,92%);
-
-    margin:auto;
+    overflow-x: hidden;
 }
 
 
-/* =====================================================
-   NAVBAR
-===================================================== */
+/* =========================================================
+   GRID BACKGROUND
+========================================================= */
 
-nav{
+body::before {
 
-    position:fixed;
+    content: "";
 
-    top:18px;
-    left:50%;
+    position: fixed;
 
-    transform:translateX(-50%);
+    inset: 0;
 
-    z-index:100;
+    pointer-events: none;
 
-    width:min(1050px,92%);
-
-    display:flex;
-
-    justify-content:space-between;
-    align-items:center;
-
-    padding:13px 18px 13px 22px;
-
-    background:rgba(7,18,14,.75);
-
-    border:1px solid var(--line);
-
-    backdrop-filter:blur(18px);
-
-    border-radius:18px;
-
-    box-shadow:0 12px 45px rgba(0,0,0,.25);
-}
-
-.logo{
-
-    font-family:"Space Grotesk";
-
-    font-size:18px;
-
-    font-weight:700;
-
-    letter-spacing:-.05em;
-}
-
-.logo span{
-    color:var(--accent);
-}
-
-.links{
-
-    display:flex;
-
-    gap:26px;
-
-    color:var(--muted);
-
-    font-size:13px;
-}
-
-.links a{
-
-    transition:.25s;
-}
-
-.links a:hover{
-
-    color:var(--accent);
-}
-
-.navbtn{
-
-    border:1px solid rgba(82,245,167,.35);
-
-    padding:8px 13px;
-
-    border-radius:10px;
-
-    color:var(--accent);
-
-    font-size:13px;
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero{
-
-    min-height:100vh;
-
-    display:grid;
-
-    place-items:center;
-
-    padding:140px 0 80px;
-
-    position:relative;
-}
-
-.hero-grid{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:55px;
-
-    align-items:center;
-}
-
-.eyebrow{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:9px;
-
-    border:1px solid var(--line);
-
-    background:rgba(82,245,167,.05);
-
-    padding:7px 11px;
-
-    border-radius:999px;
-
-    color:var(--accent);
-
-    font-size:11px;
-
-    font-weight:700;
-
-    letter-spacing:.08em;
-
-    margin-bottom:20px;
-}
-
-.dot{
-
-    width:7px;
-    height:7px;
-
-    border-radius:50%;
-
-    background:var(--accent);
-
-    box-shadow:0 0 16px var(--accent);
-
-    animation:pulse 1.8s infinite;
-}
-
-h1{
-
-    font:
-        700
-        clamp(50px,7vw,88px)
-        /.94
-        "Space Grotesk";
-
-    letter-spacing:-.07em;
-
-    margin-bottom:24px;
-}
-
-h1 em{
-
-    color:var(--accent);
-
-    font-style:normal;
-}
-
-.hero p{
-
-    max-width:620px;
-
-    color:var(--muted);
-
-    font-size:17px;
-}
-
-.actions{
-
-    display:flex;
-
-    gap:12px;
-
-    margin-top:30px;
-
-    flex-wrap:wrap;
-}
-
-.btn{
-
-    padding:12px 18px;
-
-    border-radius:12px;
-
-    font-weight:700;
-
-    font-size:14px;
-
-    border:1px solid var(--line);
-
-    transition:.25s;
-}
-
-.btn.primary{
-
-    background:var(--accent);
-
-    color:#04100a;
-
-    box-shadow:
-        0 0 35px
-        rgba(82,245,167,.18);
-}
-
-.btn:hover{
-
-    transform:translateY(-3px);
-}
-
-
-/* =====================================================
-   PIPELINE VISUAL
-===================================================== */
-
-.visual{
-
-    position:relative;
-
-    height:650px;
-
-    border:1px solid rgba(82,245,167,.16);
-
-    border-radius:28px;
-
-    overflow:hidden;
-
-    background:
-
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(82,245,167,.10),
-            transparent 45%
-        ),
-
-        rgba(7,20,15,.85);
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.35);
-}
-
-.grid-bg{
-
-    position:absolute;
-
-    inset:0;
+    z-index: -2;
 
     background-image:
 
         linear-gradient(
-            rgba(82,245,167,.08) 1px,
+            rgba(82,245,167,.025) 1px,
             transparent 1px
         ),
 
         linear-gradient(
             90deg,
-            rgba(82,245,167,.08) 1px,
+            rgba(82,245,167,.025) 1px,
             transparent 1px
         );
 
-    background-size:55px 55px;
+    background-size: 55px 55px;
 
     mask-image:
         linear-gradient(
             to bottom,
             black,
-            transparent
+            transparent 90%
         );
 }
 
 
-/* Pipeline title */
+/* =========================================================
+   BACKGROUND ORBS
+========================================================= */
 
-.pipeline-title{
+.bg-orb {
 
-    position:absolute;
+    position: fixed;
 
-    top:25px;
-    left:30px;
+    border-radius: 50%;
 
-    display:flex;
+    pointer-events: none;
 
-    align-items:center;
+    z-index: -1;
 
-    gap:8px;
-
-    font-size:10px;
-
-    font-weight:700;
-
-    letter-spacing:.16em;
-
-    color:#75958a;
-}
-
-.live-dot{
-
-    width:6px;
-    height:6px;
-
-    border-radius:50%;
-
-    background:#52f5a7;
-
-    box-shadow:
-        0 0 12px #52f5a7;
-
-    animation:pulse 1.5s infinite;
+    opacity: .16;
 }
 
 
-/* Pipeline */
+.orb-one {
 
-.pipeline-flow{
+    width: 280px;
+    height: 280px;
 
-    position:absolute;
+    top: 15%;
+    left: -150px;
 
-    top:70px;
-
-    left:30px;
-    right:30px;
-
-    bottom:25px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-}
-
-
-/* Node */
-
-.pipeline-node{
-
-    width:100%;
-
-    min-height:57px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:14px;
-
-    padding:10px 15px;
-
-    border-radius:15px;
-
-    border:1px solid rgba(82,245,167,.16);
-
-    background:rgba(4,15,11,.90);
-
-    position:relative;
-
-    z-index:2;
-
-    transition:.3s;
+    border: 1px solid
+        rgba(82,245,167,.35);
 
     animation:
-        pipelineAppear .7s ease both;
+        orbOne 12s ease-in-out infinite;
 }
 
-.pipeline-node:hover{
 
-    transform:translateX(5px);
+.orb-two {
 
-    border-color:
-        rgba(82,245,167,.45);
+    width: 200px;
+    height: 200px;
+
+    top: 65%;
+    right: -100px;
+
+    border: 1px solid
+        rgba(82,245,167,.3);
+
+    animation:
+        orbTwo 10s ease-in-out infinite;
+}
+
+
+@keyframes orbOne {
+
+    0%,100% {
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(55px,-50px)
+            scale(1.15);
+    }
+}
+
+
+@keyframes orbTwo {
+
+    0%,100% {
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-40px,50px)
+            scale(.85);
+    }
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+
+    width:
+        min(1100px,92%);
+
+    margin:
+        auto;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+nav {
+
+    position: fixed;
+
+    top: 18px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        min(1050px,92%);
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding:
+        13px 18px 13px 22px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 18px;
 
     background:
-        rgba(12,35,26,.95);
+        rgba(6,18,13,.78);
+
+    backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 15px 50px
+        rgba(0,0,0,.28);
+
+    animation:
+        navDrop .8s ease forwards;
 }
 
 
-/* Icons */
+@keyframes navDrop {
 
-.pipeline-icon{
+    from {
+        opacity: 0;
 
-    width:40px;
-    height:40px;
+        transform:
+            translate(-50%,-25px);
+    }
 
-    min-width:40px;
+    to {
+        opacity: 1;
 
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    border-radius:11px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(82,245,167,.14),
-            rgba(82,245,167,.04)
-        );
-
-    border:1px solid
-        rgba(82,245,167,.14);
-
-    color:#52f5a7;
-
-    font-size:11px;
-
-    font-weight:800;
+        transform:
+            translate(-50%,0);
+    }
 }
 
-.pipeline-node strong{
 
-    display:block;
+.logo {
 
     font-family:
         "Space Grotesk",
         sans-serif;
 
-    font-size:13px;
-}
+    font-size: 18px;
 
-.pipeline-node small{
+    font-weight: 700;
 
-    display:block;
-
-    margin-top:2px;
-
-    color:#79958a;
-
-    font-size:10px;
+    letter-spacing:
+        -.05em;
 }
 
 
-/* Arrows */
+.logo span {
+    color:
+        var(--accent);
+}
 
-.arrow{
 
-    height:28px;
+.nav-links {
 
-    width:2px;
+    display: flex;
 
-    margin-left:35px;
+    align-items: center;
 
-    position:relative;
+    gap: 27px;
+
+    color:
+        var(--muted);
+
+    font-size: 13px;
+}
+
+
+.nav-links a {
+
+    position: relative;
+
+    transition:
+        color .25s ease;
+}
+
+
+.nav-links a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -7px;
+
+    width: 0;
+
+    height: 1px;
 
     background:
-        linear-gradient(
-            to bottom,
-            rgba(82,245,167,.45),
-            rgba(82,245,167,.10)
-        );
+        var(--accent);
 
-    z-index:1;
-}
-
-.arrow::after{
-
-    content:"";
-
-    position:absolute;
-
-    bottom:-1px;
-
-    left:-3px;
-
-    width:7px;
-    height:7px;
-
-    border-right:2px solid #52f5a7;
-    border-bottom:2px solid #52f5a7;
-
-    transform:rotate(45deg);
+    transition:
+        width .3s ease;
 }
 
 
-/* Moving particle */
+.nav-links a:hover {
 
-.arrow span{
+    color:
+        var(--accent);
+}
 
-    position:absolute;
 
-    width:5px;
-    height:5px;
+.nav-links a:hover::after {
 
-    left:-2px;
-    top:-5px;
+    width: 100%;
+}
 
-    border-radius:50%;
 
-    background:#52f5a7;
+.nav-contact {
+
+    padding:
+        8px 14px;
+
+    border:
+        1px solid
+        rgba(82,245,167,.35);
+
+    border-radius: 10px;
+
+    color:
+        var(--accent);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition:
+        .3s;
+}
+
+
+.nav-contact:hover {
+
+    background:
+        rgba(82,245,167,.08);
 
     box-shadow:
-        0 0 10px #52f5a7;
+        0 0 25px
+        rgba(82,245,167,.12);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.menu-toggle {
+
+    display: none;
+
+    width: 42px;
+
+    height: 42px;
+
+    border:
+        1px solid
+        rgba(82,245,167,.25);
+
+    border-radius: 10px;
+
+    background:
+        rgba(82,245,167,.05);
+
+    cursor: pointer;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.menu-toggle span {
+
+    width: 19px;
+
+    height: 2px;
+
+    background:
+        var(--accent);
+
+    border-radius: 5px;
+
+    transition:
+        .3s;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    min-height:
+        100vh;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    padding:
+        140px 0 70px;
+}
+
+
+.hero-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1.05fr .95fr;
+
+    gap:
+        60px;
+
+    align-items:
+        center;
+}
+
+
+/* =========================================================
+   HERO LEFT
+========================================================= */
+
+.hero-left {
 
     animation:
-        dataFlow 1.8s linear infinite;
+        heroLeft 1s ease forwards;
 }
 
 
-/* Stagger */
+@keyframes heroLeft {
 
-.pipeline-node:nth-child(1){
-    animation-delay:.05s;
-}
+    from {
 
-.pipeline-node:nth-child(3){
-    animation-delay:.15s;
-}
+        opacity: 0;
 
-.pipeline-node:nth-child(5){
-    animation-delay:.25s;
-}
+        transform:
+            translateX(-40px);
+    }
 
-.pipeline-node:nth-child(7){
-    animation-delay:.35s;
-}
+    to {
 
-.pipeline-node:nth-child(9){
-    animation-delay:.45s;
-}
+        opacity: 1;
 
-.pipeline-node:nth-child(11){
-    animation-delay:.55s;
-}
-
-.pipeline-node:nth-child(13){
-    animation-delay:.65s;
+        transform:
+            translateX(0);
+    }
 }
 
 
-/* Final */
+.eyebrow {
 
-.final-node{
+    display:
+        inline-flex;
 
-    border-color:
-        rgba(82,245,167,.28);
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    margin-bottom:
+        20px;
+
+    color:
+        var(--accent);
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .16em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.eyebrow-dot {
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    border-radius:
+        50%;
 
     background:
-        linear-gradient(
-            90deg,
-            rgba(82,245,167,.08),
-            rgba(4,15,11,.9)
-        );
+        var(--accent);
+
+    box-shadow:
+        0 0 12px
+        rgba(82,245,167,.8);
+
+    animation:
+        pulse 1.8s infinite;
 }
 
 
-/* =====================================================
-   GENERAL SECTIONS
-===================================================== */
+@keyframes pulse {
 
-section{
-    padding:105px 0;
-}
+    0%,100% {
+        opacity: .5;
 
-.section-label{
+        transform:
+            scale(.8);
+    }
 
-    color:var(--accent);
+    50% {
+        opacity: 1;
 
-    font-size:11px;
-
-    text-transform:uppercase;
-
-    letter-spacing:.18em;
-
-    font-weight:800;
-
-    margin-bottom:12px;
-}
-
-.section-title{
-
-    font:
-        700
-        clamp(34px,4vw,54px)
-        /1
-        "Space Grotesk";
-
-    letter-spacing:-.05em;
-
-    margin-bottom:18px;
-}
-
-.section-copy{
-
-    color:var(--muted);
-
-    max-width:700px;
+        transform:
+            scale(1.25);
+    }
 }
 
 
-/* =====================================================
-   SKILLS
-===================================================== */
+.hero h1 {
 
-.skills{
+    font-family:
+        "Space Grotesk",
+        sans-serif;
 
-    display:flex;
+    font-size:
+        clamp(55px,7vw,88px);
 
-    flex-wrap:wrap;
+    line-height:
+        .91;
 
-    gap:10px;
+    letter-spacing:
+        -.07em;
 
-    margin-top:28px;
-}
-
-.tag{
-
-    padding:9px 12px;
-
-    border:1px solid var(--line);
-
-    background:
-        rgba(82,245,167,.04);
-
-    border-radius:999px;
-
-    font-size:12px;
-
-    color:#d9eee5;
-
-    transition:.25s;
-}
-
-.tag:hover{
-
-    color:var(--accent);
-
-    border-color:
-        rgba(82,245,167,.35);
-
-    transform:translateY(-3px);
+    margin-bottom:
+        22px;
 }
 
 
-/* =====================================================
-   PROJECTS
-===================================================== */
+.hero h1 .green {
 
-.projects{
+    color:
+        var(--accent);
 
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:18px;
-
-    margin-top:35px;
-}
-
-.card{
-
-    min-height:270px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    border:1px solid var(--line);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(15,33,27,.85),
-            rgba(8,18,14,.8)
-        );
-
-    border-radius:20px;
-
-    padding:24px;
-
-    box-shadow:var(--shadow);
-
-    transition:.3s;
-}
-
-.card:hover{
-
-    transform:translateY(-7px);
-
-    border-color:
-        rgba(82,245,167,.35);
-}
-
-.project-num{
-
-    font:
-        700
-        11px
-        "Space Grotesk";
-
-    color:var(--accent);
-}
-
-.card h3{
-
-    font:
-        700
-        23px
-        "Space Grotesk";
-
-    margin:22px 0 10px;
-}
-
-.card p{
-
-    font-size:13px;
-
-    color:var(--muted);
-}
-
-.card .mini{
-
-    position:absolute;
-
-    right:18px;
-    bottom:18px;
-
-    color:var(--accent);
-
-    font-size:11px;
+    text-shadow:
+        0 0 35px
+        rgba(82,245,167,.13);
 }
 
 
-/* =====================================================
-   EXPERIENCE
-===================================================== */
+.hero-description {
 
-.experience{
+    max-width:
+        560px;
 
-    display:grid;
+    color:
+        var(--muted);
 
-    gap:16px;
+    font-size:
+        14px;
 
-    margin-top:35px;
-}
+    line-height:
+        1.8;
 
-.role{
-
-    display:grid;
-
-    grid-template-columns:180px 1fr;
-
-    gap:30px;
-
-    padding:25px;
-
-    border-top:1px solid var(--line);
-}
-
-.role time{
-
-    color:var(--accent);
-
-    font-size:11px;
-}
-
-.role h3{
-
-    font:
-        700
-        22px
-        "Space Grotesk";
-}
-
-.role p{
-
-    color:var(--muted);
-
-    font-size:14px;
-
-    margin-top:7px;
+    margin-bottom:
+        26px;
 }
 
 
-/* =====================================================
-   METRICS
-===================================================== */
+/* =========================================================
+   NAVIGATION BUTTONS
+========================================================= */
 
-.metrics{
+.hero-buttons {
 
-    display:grid;
+    display:
+        flex;
 
-    grid-template-columns:
-        repeat(4,1fr);
+    flex-wrap:
+        wrap;
 
-    gap:15px;
+    gap:
+        10px;
 
-    margin-top:35px;
+    margin-bottom:
+        30px;
 }
 
-.metric{
 
-    padding:25px;
+.hero-btn {
 
-    border:1px solid var(--line);
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        11px 18px;
+
+    border:
+        1px solid
+        rgba(82,245,167,.3);
+
+    border-radius:
+        10px;
+
+    color:
+        #c8ded4;
 
     background:
         rgba(82,245,167,.035);
 
-    border-radius:18px;
+    font-size:
+        11px;
 
-    transition:.3s;
+    font-weight:
+        700;
+
+    transition:
+        all .3s ease;
 }
 
-.metric:hover{
 
-    transform:translateY(-5px);
+.hero-btn:hover {
+
+    color:
+        #06100d;
+
+    background:
+        var(--accent);
+
+    border-color:
+        var(--accent);
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(82,245,167,.18);
+}
+
+
+/* =========================================================
+   JOB BANNER
+========================================================= */
+
+.job-banner {
+
+    position:
+        relative;
+
+    padding:
+        15px 17px;
+
+    margin-bottom:
+        25px;
+
+    border:
+        1px solid
+        rgba(82,245,167,.28);
+
+    border-radius:
+        13px;
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(82,245,167,.08),
+            rgba(82,245,167,.025)
+        );
+
+    overflow:
+        hidden;
+
+    animation:
+        bannerGlow 3s ease-in-out infinite;
+}
+
+
+@keyframes bannerGlow {
+
+    0%,100% {
+
+        box-shadow:
+            0 0 0
+            rgba(82,245,167,0);
+    }
+
+    50% {
+
+        box-shadow:
+            0 0 28px
+            rgba(82,245,167,.08);
+    }
+}
+
+
+.job-banner::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    width:
+        3px;
+
+    height:
+        100%;
+
+    background:
+        var(--accent);
+
+    box-shadow:
+        0 0 15px
+        var(--accent);
+}
+
+
+.job-label {
+
+    color:
+        var(--accent);
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .13em;
+
+    margin-bottom:
+        5px;
+}
+
+
+.job-title {
+
+    color:
+        #dff8eb;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+}
+
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.experience-mini {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        10px;
+
+    margin-bottom:
+        17px;
+}
+
+
+.info-card {
+
+    padding:
+        15px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        13px;
+
+    background:
+        rgba(8,22,16,.7);
+
+    transition:
+        .3s;
+}
+
+
+.info-card:hover {
 
     border-color:
         rgba(82,245,167,.3);
-}
 
-.metric strong{
+    transform:
+        translateY(-3px);
 
-    display:block;
-
-    font:
-        700
-        36px
-        "Space Grotesk";
-
-    color:var(--accent);
-}
-
-.metric span{
-
-    color:var(--muted);
-
-    font-size:12px;
+    background:
+        rgba(13,33,25,.8);
 }
 
 
-/* =====================================================
-   CONTACT
-===================================================== */
+.info-label {
 
-.contact{
+    color:
+        #71877e;
 
-    border:1px solid var(--line);
+    font-size:
+        8px;
 
-    border-radius:30px;
+    font-weight:
+        800;
 
-    padding:55px;
+    letter-spacing:
+        .13em;
+
+    text-transform:
+        uppercase;
+
+    margin-bottom:
+        6px;
+}
+
+
+.info-value {
+
+    color:
+        #d9f1e6;
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.5;
+}
+
+
+.info-sub {
+
+    color:
+        #7e998e;
+
+    font-size:
+        9px;
+
+    margin-top:
+        3px;
+}
+
+
+/* =========================================================
+   AVAILABILITY
+========================================================= */
+
+.availability {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        8px;
+}
+
+
+.availability span {
+
+    padding:
+        7px 10px;
+
+    border:
+        1px solid
+        rgba(82,245,167,.11);
+
+    border-radius:
+        8px;
+
+    background:
+        rgba(82,245,167,.025);
+
+    color:
+        #8fa99f;
+
+    font-size:
+        9px;
+
+    transition:
+        .25s;
+}
+
+
+.availability span:hover {
+
+    color:
+        var(--accent);
+
+    border-color:
+        rgba(82,245,167,.3);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO RIGHT - PIPELINE
+========================================================= */
+
+.hero-right {
+
+    position:
+        relative;
+
+    animation:
+        heroRight 1.1s ease forwards;
+}
+
+
+@keyframes heroRight {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(40px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+.pipeline-wrapper {
+
+    position:
+        relative;
+
+    padding:
+        28px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        25px;
 
     background:
 
         radial-gradient(
-            circle at 90% 0%,
-            rgba(82,245,167,.12),
-            transparent 40%
+            circle at 50% 0%,
+            rgba(82,245,167,.08),
+            transparent 45%
         ),
 
-        var(--panel);
+        rgba(7,18,14,.78);
 
-    text-align:center;
-}
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.3);
 
-.contact p{
-
-    color:var(--muted);
-
-    max-width:650px;
-
-    margin:0 auto;
-}
-
-.contact .actions{
-
-    justify-content:center;
+    overflow:
+        hidden;
 }
 
 
-/* =====================================================
-   FOOTER
-===================================================== */
+.pipeline-wrapper::before {
 
-footer{
+    content:
+        "";
 
-    padding:35px 0 55px;
+    position:
+        absolute;
 
-    color:#71877e;
+    width:
+        260px;
 
-    font-size:12px;
+    height:
+        260px;
 
-    display:flex;
+    border-radius:
+        50%;
 
-    justify-content:space-between;
+    border:
+        1px solid
+        rgba(82,245,167,.08);
+
+    top:
+        -130px;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    animation:
+        pipelineRing 8s linear infinite;
 }
 
 
-/* =====================================================
-   ANIMATIONS
-===================================================== */
+@keyframes pipelineRing {
 
-.reveal{
+    from {
+        transform:
+            translateX(-50%)
+            rotate(0deg);
+    }
 
-    opacity:0;
+    to {
+        transform:
+            translateX(-50%)
+            rotate(360deg);
+    }
+}
 
-    transform:translateY(25px);
+
+.pipeline-title {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    color:
+        var(--accent);
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .16em;
+
+    text-transform:
+        uppercase;
+
+    margin-bottom:
+        25px;
+}
+
+
+.pipeline {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+}
+
+
+.pipeline-node {
+
+    width:
+        min(280px,100%);
+
+    padding:
+        15px 17px;
+
+    border:
+        1px solid
+        rgba(82,245,167,.2);
+
+    border-radius:
+        13px;
+
+    background:
+        rgba(10,27,20,.85);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        13px;
 
     transition:
-        opacity .8s ease,
-        transform .8s ease;
+        .35s;
+
+    animation:
+        nodeFloat 4s ease-in-out infinite;
 }
 
-.reveal.show{
 
-    opacity:1;
-
-    transform:none;
+.pipeline-node:nth-child(1) {
+    animation-delay:
+        0s;
 }
 
-@keyframes pulse{
-
-    50%{
-
-        opacity:.35;
-
-        transform:scale(.7);
-    }
+.pipeline-node:nth-child(2) {
+    animation-delay:
+        .6s;
 }
 
-@keyframes dataFlow{
-
-    0%{
-
-        transform:translateY(0);
-
-        opacity:0;
-    }
-
-    20%{
-        opacity:1;
-    }
-
-    80%{
-        opacity:1;
-    }
-
-    100%{
-
-        transform:translateY(28px);
-
-        opacity:0;
-    }
+.pipeline-node:nth-child(3) {
+    animation-delay:
+        1.2s;
 }
 
-@keyframes pipelineAppear{
+.pipeline-node:nth-child(4) {
+    animation-delay:
+        1.8s;
+}
 
-    from{
+.pipeline-node:nth-child(5) {
+    animation-delay:
+        2.4s;
+}
 
-        opacity:0;
 
-        transform:translateY(12px);
+@keyframes nodeFloat {
+
+    0%,100% {
+        transform:
+            translateX(0);
     }
 
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
+    50% {
+        transform:
+            translateX(5px);
     }
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
+.pipeline-node:hover {
 
-@media(max-width:850px){
+    border-color:
+        var(--accent);
 
-    nav .links{
-        display:none;
+    transform:
+        translateX(8px)
+        scale(1.02);
+
+    box-shadow:
+        0 0 25px
+        rgba(82,245,167,.08);
+}
+
+
+.node-icon {
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(82,245,167,.07);
+
+    color:
+        var(--accent);
+
+    border:
+        1px solid
+        rgba(82,245,167,.15);
+
+    font-size:
+        15px;
+}
+
+
+.node-content strong {
+
+    display:
+        block;
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        13px;
+}
+
+
+.node-content small {
+
+    display:
+        block;
+
+    color:
+        #728c81;
+
+    font-size:
+        8px;
+
+    margin-top:
+        2px;
+}
+
+
+.pipeline-arrow {
+
+    position:
+        relative;
+
+    height:
+        31px;
+
+    width:
+        1px;
+
+    background:
+        rgba(82,245,167,.25);
+}
+
+
+.pipeline-arrow::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        50%;
+
+    bottom:
+        -1px;
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    border-right:
+        1px solid
+        var(--accent);
+
+    border-bottom:
+        1px solid
+        var(--accent);
+
+    transform:
+        translateX(-50%)
+        rotate(45deg);
+}
+
+
+.pipeline-particle {
+
+    position:
+        absolute;
+
+    width:
+        5px;
+
+    height:
+        5px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--accent);
+
+    box-shadow:
+        0 0 10px
+        var(--accent);
+
+    left:
+        50%;
+
+    top:
+        0;
+
+    transform:
+        translateX(-50%);
+
+    animation:
+        particleDown 2.3s linear infinite;
+}
+
+
+@keyframes particleDown {
+
+    from {
+        top:
+            0;
+
+        opacity:
+            0;
     }
 
-    .hero-grid{
-
-        grid-template-columns:1fr;
+    15% {
+        opacity:
+            1;
     }
 
-    .projects{
-
-        grid-template-columns:1fr;
+    85% {
+        opacity:
+            1;
     }
 
-    .metrics{
+    to {
+        top:
+            100%;
+
+        opacity:
+            0;
+    }
+}
+
+
+/* =========================================================
+   CURRENTLY LEARNING
+========================================================= */
+
+.learning {
+
+    padding:
+        5px 0 80px;
+}
+
+
+.learning-box {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        25px;
+
+    padding:
+        23px 25px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        17px;
+
+    background:
+        rgba(7,18,14,.65);
+
+    animation:
+        learningPulse 4s ease-in-out infinite;
+}
+
+
+@keyframes learningPulse {
+
+    0%,100% {
+
+        border-color:
+            var(--line);
+    }
+
+    50% {
+
+        border-color:
+            rgba(82,245,167,.28);
+    }
+}
+
+
+.learning-heading {
+
+    color:
+        var(--accent);
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .15em;
+
+    text-transform:
+        uppercase;
+
+    margin-bottom:
+        5px;
+}
+
+
+.learning-text {
+
+    color:
+        #839d92;
+
+    font-size:
+        10px;
+}
+
+
+.learning-tags {
+
+    display:
+        flex;
+
+    gap:
+        9px;
+
+    flex-wrap:
+        wrap;
+}
+
+
+.learning-tag {
+
+    padding:
+        9px 13px;
+
+    border:
+        1px solid
+        rgba(82,245,167,.25);
+
+    border-radius:
+        9px;
+
+    background:
+        rgba(82,245,167,.05);
+
+    color:
+        #d2eee1;
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    animation:
+        learningFloat 3s ease-in-out infinite;
+}
+
+
+.learning-tag:nth-child(2) {
+
+    animation-delay:
+        .8s;
+}
+
+
+@keyframes learningFloat {
+
+    0%,100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-4px);
+    }
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        30px 0 45px;
+
+    border-top:
+        1px solid
+        rgba(82,245,167,.06);
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    color:
+        #71877e;
+
+    font-size:
+        10px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width:900px) {
+
+    .menu-toggle {
+        display:
+            flex;
+    }
+
+
+    .nav-contact {
+        display:
+            none;
+    }
+
+
+    .nav-links {
+
+        position:
+            absolute;
+
+        top:
+            calc(100% + 10px);
+
+        left:
+            0;
+
+        width:
+            100%;
+
+        padding:
+            10px;
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+        gap:
+            3px;
+
+        border:
+            1px solid
+            var(--line);
+
+        border-radius:
+            15px;
+
+        background:
+            rgba(6,18,13,.97);
+
+        backdrop-filter:
+            blur(20px);
+
+        opacity:
+            0;
+
+        visibility:
+            hidden;
+
+        transform:
+            translateY(-10px)
+            scale(.98);
+
+        transition:
+            .25s;
+    }
+
+
+    .nav-links.active {
+
+        opacity:
+            1;
+
+        visibility:
+            visible;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+
+    .nav-links a {
+
+        padding:
+            13px 15px;
+
+        border-radius:
+            9px;
+    }
+
+
+    .nav-links a:hover {
+
+        background:
+            rgba(82,245,167,.07);
+    }
+
+
+    .hero-grid {
 
         grid-template-columns:
-            repeat(2,1fr);
+            1fr;
+
+        gap:
+            50px;
     }
 
-    .role{
 
-        grid-template-columns:1fr;
+    .hero-right {
 
-        gap:5px;
+        max-width:
+            650px;
+
+        width:
+            100%;
+
+        margin:
+            auto;
     }
 
-    .hero{
-
-        padding-top:120px;
-    }
-
-    h1{
-
-        font-size:58px;
-    }
 }
 
-@media(max-width:550px){
 
-    .metrics{
+/* =========================================================
+   MOBILE
+========================================================= */
 
-        grid-template-columns:1fr;
+@media (max-width:550px) {
+
+    nav {
+
+        top:
+            10px;
+
+        width:
+            calc(100% - 22px);
+
+        padding:
+            10px 12px 10px 16px;
     }
 
-    .visual{
 
-        height:680px;
+    .hero {
+
+        padding:
+            120px 0 50px;
     }
 
-    .pipeline-flow{
 
-        top:70px;
+    .hero h1 {
 
-        left:18px;
-        right:18px;
-
-        bottom:18px;
+        font-size:
+            53px;
     }
 
-    .pipeline-node{
 
-        min-height:55px;
+    .hero-description {
+
+        font-size:
+            12px;
     }
 
-    .pipeline-node strong{
 
-        font-size:12px;
+    .hero-buttons {
+
+        display:
+            grid;
+
+        grid-template-columns:
+            1fr 1fr;
     }
 
-    .pipeline-node small{
 
-        font-size:9px;
+    .hero-btn {
+
+        width:
+            100%;
+
+        padding:
+            12px 8px;
+
+        font-size:
+            10px;
     }
 
-    .contact{
 
-        padding:40px 20px;
+    .job-banner {
+
+        padding:
+            14px;
     }
 
-    footer{
 
-        flex-direction:column;
+    .experience-mini {
 
-        gap:8px;
+        grid-template-columns:
+            1fr;
     }
+
+
+    .availability {
+
+        gap:
+            6px;
+    }
+
+
+    .pipeline-wrapper {
+
+        padding:
+            20px 15px;
+    }
+
+
+    .pipeline-node {
+
+        width:
+            100%;
+    }
+
+
+    .learning-box {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+
+    footer {
+
+        flex-direction:
+            column;
+
+        gap:
+            8px;
+    }
+
+}
+
+
+/* =========================================================
+   HAMBURGER
+========================================================= */
+
+.menu-toggle.active span:nth-child(1) {
+
+    transform:
+        translateY(7px)
+        rotate(45deg);
+}
+
+
+.menu-toggle.active span:nth-child(2) {
+
+    opacity:
+        0;
+}
+
+
+.menu-toggle.active span:nth-child(3) {
+
+    transform:
+        translateY(-7px)
+        rotate(-45deg);
 }
 
 </style>
@@ -1162,17 +1893,25 @@ footer{
 <body>
 
 
-<!-- =====================================================
+<!-- BACKGROUND -->
+
+<div class="bg-orb orb-one"></div>
+<div class="bg-orb orb-two"></div>
+
+
+
+<!-- =========================================================
      NAVIGATION
-===================================================== -->
+========================================================= -->
 
 <nav>
 
-    <a class="logo" href="index.html">
-        ABHAY JAISWAL<span>.</span>
+    <a href="index.html" class="logo">
+        ABHAY<span>.</span>
     </a>
 
-    <div class="links">
+
+    <div class="nav-links" id="navLinks">
 
         <a href="index.html">
             Home
@@ -1182,581 +1921,426 @@ footer{
             About
         </a>
 
+        <a href="experience.html">
+            Experience
+        </a>
+
         <a href="skills.html">
             Skills
         </a>
 
         <a href="project.html">
-          Projects
-         </a>
-
-        <a href="experience.html">
-            Experience
+            Projects
         </a>
 
     </div>
 
-    <a class="navbtn" href="#contact">
+
+    <a
+        href="mailto:abhayjaiswal901@gmail.com"
+        class="nav-contact"
+    >
         Let's talk
     </a>
+
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation"
+    >
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
 
 </nav>
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      HERO
-===================================================== -->
+========================================================= -->
 
 <section class="hero">
 
-<div class="container hero-grid">
+<div class="container">
 
 
-    <div class="reveal">
-
-        <div class="eyebrow">
-
-            <span class="dot"></span>
-
-            DATA ENGINEER
-
-        </div>
-
-
-        <h1>
-
-            BUILDING<br>
-
-            <em>DATA PIPELINES.</em>
-
-        </h1>
-
-
-        <p>
-
-            I design and build scalable data pipelines
-            that transform raw data into reliable,
-            analytics-ready information using Python,
-            PySpark, SQL and AWS.
-
-        </p>
-
-
-        <div class="actions">
-
-            <a
-                class="btn primary"
-                href="#projects"
-            >
-                Explore my work ↓
-            </a>
-
-
-            <a
-                class="btn"
-                href="about.html"
-            >
-                About me
-            </a>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- PIPELINE -->
-
-    <div class="visual reveal">
-
-        <div class="grid-bg"></div>
-
-
-        <div class="pipeline-title">
-
-            <span class="live-dot"></span>
-
-            DATA PIPELINE
-
-        </div>
-
-
-        <div class="pipeline-flow">
-
-
-            <!-- SOURCE -->
-
-            <div class="pipeline-node">
-
-                <div class="pipeline-icon">
-                    CSV
-                </div>
-
-                <div>
-
-                    <strong>
-                        Source Files
-                    </strong>
-
-                    <small>
-                        CSV / Input Data
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <div class="arrow">
-                <span></span>
-            </div>
-
-
-            <!-- S3 -->
-
-            <div class="pipeline-node">
-
-                <div class="pipeline-icon">
-                    S3
-                </div>
-
-                <div>
-
-                    <strong>
-                        AWS S3
-                    </strong>
-
-                    <small>
-                        Cloud Storage
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <div class="arrow">
-                <span></span>
-            </div>
-
-
-            <!-- EMR -->
-
-            <div class="pipeline-node">
-
-                <div class="pipeline-icon">
-                    EMR
-                </div>
-
-                <div>
-
-                    <strong>
-                        AWS EMR
-                    </strong>
-
-                    <small>
-                        PySpark Processing
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <div class="arrow">
-                <span></span>
-            </div>
-
-
-            <!-- RAW -->
-
-            <div class="pipeline-node">
-
-                <div class="pipeline-icon">
-                    R
-                </div>
-
-                <div>
-
-                    <strong>
-                        Raw Layer
-                    </strong>
-
-                    <small>
-                        Raw Data · Hive
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <div class="arrow">
-                <span></span>
-            </div>
-
-
-            <!-- REFINED -->
-
-            <div class="pipeline-node">
-
-                <div class="pipeline-icon">
-                    P
-                </div>
-
-                <div>
-
-                    <strong>
-                        Refined Layer
-                    </strong>
-
-                    <small>
-                        PySpark Transform
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <div class="arrow">
-                <span></span>
-            </div>
-
-
-            <!-- WORK -->
-
-            <div class="pipeline-node">
-
-                <div class="pipeline-icon">
-                    W
-                </div>
-
-                <div>
-
-                    <strong>
-                        Work Layer
-                    </strong>
-
-                    <small>
-                        Spark Views
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <div class="arrow">
-                <span></span>
-            </div>
-
-
-            <!-- CONSUMPTION -->
-
-            <div class="pipeline-node final-node">
-
-                <div class="pipeline-icon">
-                    ✓
-                </div>
-
-                <div>
-
-                    <strong>
-                        Consumption Layer
-                    </strong>
-
-                    <small>
-                        Analytics Ready Data
-                    </small>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-</section>
-
+<div class="hero-grid">
 
 
 <!-- =====================================================
-     SKILLS
+     LEFT
 ===================================================== -->
 
-<section id="skills">
+<div class="hero-left">
 
-<div class="container reveal">
 
-    <div class="section-label">
-        01 / Expertise
+    <div class="eyebrow">
+
+        <span class="eyebrow-dot"></span>
+
+        ASSOCIATE DATA ENGINEER · COGNIZANT
+
     </div>
 
-    <h2 class="section-title">
-        Core data engineering skills.
-    </h2>
 
-    <p class="section-copy">
 
-        Building reliable pipelines, processing
-        large datasets and creating scalable
-        cloud-based data solutions.
+    <h1>
+
+        BUILDING
+        <br>
+
+        <span class="green">
+            DATA PIPELINES.
+        </span>
+
+    </h1>
+
+
+
+    <p class="hero-description">
+
+        Data Engineer focused on building scalable,
+        reliable and production-ready data pipelines
+        using Python, PySpark, SQL and AWS.
 
     </p>
 
 
-    <div class="skills">
 
-        <span class="tag">
-            Data Engineering
+    <!-- JOB CHANGE BANNER -->
+
+    <div class="job-banner">
+
+        <div class="job-label">
+
+            LOOKING FOR JOB CHANGE
+
+        </div>
+
+        <div class="job-title">
+
+            Data Engineer /
+            PySpark Developer /
+            AWS Data Engineer
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FOUR BUTTONS -->
+
+    <div class="hero-buttons">
+
+        <a
+            href="about.html"
+            class="hero-btn"
+        >
+            About
+        </a>
+
+
+        <a
+            href="experience.html"
+            class="hero-btn"
+        >
+            Experience
+        </a>
+
+
+        <a
+            href="skills.html"
+            class="hero-btn"
+        >
+            Skills
+        </a>
+
+
+        <a
+            href="project.html"
+            class="hero-btn"
+        >
+            Projects
+        </a>
+
+    </div>
+
+
+
+    <!-- EXPERIENCE -->
+
+    <div class="experience-mini">
+
+
+        <div class="info-card">
+
+            <div class="info-label">
+                Current Role
+            </div>
+
+            <div class="info-value">
+                Associate Data Engineer
+            </div>
+
+            <div class="info-sub">
+                Cognizant
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-label">
+                Experience
+            </div>
+
+            <div class="info-value">
+                4+ Years
+            </div>
+
+            <div class="info-sub">
+                Data Engineering
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-label">
+                Current Project
+            </div>
+
+            <div class="info-value">
+                AbbVie Healthcare
+            </div>
+
+            <div class="info-sub">
+                Data Ingestion
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-label">
+                Availability
+            </div>
+
+            <div class="info-value">
+                Open to Opportunities
+            </div>
+
+            <div class="info-sub">
+                Immediate / Flexible
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- AVAILABILITY -->
+
+    <div class="availability">
+
+        <span>
+            🌐 Remote
         </span>
 
-        <span class="tag">
-            ETL / ELT
+        <span>
+            📍 Ready to Relocate
         </span>
 
-        <span class="tag">
-            PySpark
+        <span>
+            ☀️ Day Shift
         </span>
 
-        <span class="tag">
-            Apache Spark
+        <span>
+            🌙 Night Shift
         </span>
 
-        <span class="tag">
-            Python
-        </span>
-
-        <span class="tag">
-            SQL
-        </span>
-
-        <span class="tag">
-            AWS
-        </span>
-
-        <span class="tag">
-            Data Pipelines
-        </span>
-
-        <span class="tag">
-            Data Quality
-        </span>
-
-        <span class="tag">
-            Performance Optimization
-        </span>
-
-        <span class="tag">
-            Data Modeling
-        </span>
-
-        <span class="tag">
-            Incremental Loads
-        </span>
-
-        <span class="tag">
-            SCD
+        <span>
+            ⏱ Flexible Shifts
         </span>
 
     </div>
 
-</div>
 
-</section>
+</div>
 
 
 
 <!-- =====================================================
-     PROJECTS
+     RIGHT - PIPELINE
 ===================================================== -->
 
-<section id="projects">
-
-<div class="container reveal">
-
-    <div class="section-label">
-        02 / Selected Work
-    </div>
-
-    <h2 class="section-title">
-        Data engineering projects.
-    </h2>
-
-    <p class="section-copy">
-
-        Practical data engineering solutions built
-        around distributed processing, cloud storage,
-        ETL and analytics-ready data.
-
-    </p>
+<div class="hero-right">
 
 
-    <div class="projects">
+<div class="pipeline-wrapper">
 
 
-        <article class="card">
+    <div class="pipeline-title">
 
-            <span class="project-num">
-                01 — AWS DATA PIPELINE
-            </span>
-
-            <h3>
-                Multi-Layer ETL Pipeline
-            </h3>
-
-            <p>
-
-                Built a multi-layer data processing
-                pipeline that moves source files through
-                S3, EMR and PySpark into Raw, Refined,
-                Work and Consumption layers.
-
-            </p>
-
-            <div class="mini">
-                S3 · EMR · PySpark
-            </div>
-
-        </article>
-
-
-
-        <article class="card">
-
-            <span class="project-num">
-                02 — BIG DATA
-            </span>
-
-            <h3>
-                Distributed Data Processing
-            </h3>
-
-            <p>
-
-                Processed large datasets using
-                Apache Spark and PySpark with focus
-                on partitioning, joins, transformations
-                and performance optimization.
-
-            </p>
-
-            <div class="mini">
-                Spark · PySpark · Hive
-            </div>
-
-        </article>
-
-
-
-        <article class="card">
-
-            <span class="project-num">
-                03 — DATA QUALITY
-            </span>
-
-            <h3>
-                Production Data Quality
-            </h3>
-
-            <p>
-
-                Worked on identifying and resolving
-                missing records, null values, duplicate
-                records and pipeline processing issues.
-
-            </p>
-
-            <div class="mini">
-                SQL · Python · Monitoring
-            </div>
-
-        </article>
-
+        DATA ENGINEERING PIPELINE
 
     </div>
 
-</div>
 
-</section>
-
+    <div class="pipeline">
 
 
-<!-- =====================================================
-     EXPERIENCE
-===================================================== -->
+        <!-- SOURCE -->
 
-<section id="experience">
+        <div class="pipeline-node">
 
-<div class="container reveal">
+            <div class="node-icon">
+                📄
+            </div>
 
-    <div class="section-label">
-        03 / Experience
-    </div>
+            <div class="node-content">
 
-    <h2 class="section-title">
-        Engineering journey.
-    </h2>
+                <strong>
+                    Source Files
+                </strong>
 
-
-    <div class="experience">
-
-
-        <div class="role">
-
-            <time>
-                JUN 2022 — PRESENT
-            </time>
-
-            <div>
-
-                <h3>
-                    Programmer Analyst · Cognizant
-                </h3>
-
-                <p>
-
-                    Developing and supporting data
-                    engineering solutions using
-                    PySpark, Spark, AWS and SQL.
-                    Working across ETL pipelines,
-                    data quality, performance
-                    optimization and production
-                    support.
-
-                </p>
+                <small>
+                    Input Data
+                </small>
 
             </div>
 
         </div>
 
 
+        <div class="pipeline-arrow">
 
-        <div class="role">
+            <span class="pipeline-particle"></span>
 
-            <time>
-                JAN 2022 — MAY 2022
-            </time>
+        </div>
 
-            <div>
 
-                <h3>
-                    Data Science Intern · Cognizant
-                </h3>
 
-                <p>
+        <!-- S3 -->
 
-                    Worked with Big Data technologies
-                    including Hadoop, Hive, Spark,
-                    Python and data warehousing
-                    concepts.
+        <div class="pipeline-node">
 
-                </p>
+            <div class="node-icon">
+                ☁
+            </div>
+
+            <div class="node-content">
+
+                <strong>
+                    AWS S3
+                </strong>
+
+                <small>
+                    Data Storage
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="pipeline-arrow">
+
+            <span class="pipeline-particle"></span>
+
+        </div>
+
+
+
+        <!-- EMR -->
+
+        <div class="pipeline-node">
+
+            <div class="node-icon">
+                ⚡
+            </div>
+
+            <div class="node-content">
+
+                <strong>
+                    AWS EMR
+                </strong>
+
+                <small>
+                    PySpark Processing
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="pipeline-arrow">
+
+            <span class="pipeline-particle"></span>
+
+        </div>
+
+
+
+        <!-- LAYERS -->
+
+        <div class="pipeline-node">
+
+            <div class="node-icon">
+                ◈
+            </div>
+
+            <div class="node-content">
+
+                <strong>
+                    Raw → Refined → Work
+                </strong>
+
+                <small>
+                    Data Transformation
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="pipeline-arrow">
+
+            <span class="pipeline-particle"></span>
+
+        </div>
+
+
+
+        <!-- CONSUMPTION -->
+
+        <div class="pipeline-node">
+
+            <div class="node-icon">
+                📊
+            </div>
+
+            <div class="node-content">
+
+                <strong>
+                    Consumption Layer
+                </strong>
+
+                <small>
+                    Analytics Ready Data
+                </small>
 
             </div>
 
@@ -1767,83 +2351,10 @@ footer{
 
 </div>
 
-</section>
+</div>
 
 
-
-<!-- =====================================================
-     METRICS
-===================================================== -->
-
-<section>
-
-<div class="container reveal">
-
-    <div class="section-label">
-        04 / Impact
-    </div>
-
-    <h2 class="section-title">
-        Engineering at scale.
-    </h2>
-
-
-    <div class="metrics">
-
-
-        <div class="metric">
-
-            <strong>
-                4+
-            </strong>
-
-            <span>
-                Years of experience
-            </span>
-
-        </div>
-
-
-        <div class="metric">
-
-            <strong>
-                50+
-            </strong>
-
-            <span>
-                Data processing workflows
-            </span>
-
-        </div>
-
-
-        <div class="metric">
-
-            <strong>
-                400+
-            </strong>
-
-            <span>
-                Data issues resolved
-            </span>
-
-        </div>
-
-
-        <div class="metric">
-
-            <strong>
-                35GB+
-            </strong>
-
-            <span>
-                Daily data movement
-            </span>
-
-        </div>
-
-
-    </div>
+</div>
 
 </div>
 
@@ -1851,69 +2362,50 @@ footer{
 
 
 
-<!-- =====================================================
-     CONTACT
-===================================================== -->
+<!-- =========================================================
+     CURRENTLY LEARNING
+========================================================= -->
 
-<section id="contact">
+<section class="learning">
 
-<div class="container reveal">
+<div class="container">
 
-    <div class="contact">
 
-        <div class="section-label">
-            05 / Contact
+<div class="learning-box">
+
+
+    <div>
+
+        <div class="learning-heading">
+
+            CURRENTLY LEARNING
+
         </div>
 
-        <h2 class="section-title">
-            Let's build something reliable.
-        </h2>
+        <div class="learning-text">
 
-        <p>
-
-            Open to Data Engineering opportunities
-            and conversations around PySpark,
-            AWS, ETL and cloud data engineering.
-
-        </p>
-
-
-        <div class="actions">
-
-            <!-- CHANGE EMAIL -->
-
-            <a
-                class="btn primary"
-                href="mailto:your-email@example.com"
-            >
-                Email me
-            </a>
-
-
-            <!-- CHANGE LINKEDIN -->
-
-            <a
-                class="btn"
-                href="https://www.linkedin.com/"
-                target="_blank"
-            >
-                LinkedIn ↗
-            </a>
-
-
-            <!-- CHANGE GITHUB -->
-
-            <a
-                class="btn"
-                href="https://github.com/"
-                target="_blank"
-            >
-                GitHub ↗
-            </a>
+            Expanding my cloud and lakehouse
+            engineering capabilities.
 
         </div>
 
     </div>
+
+
+    <div class="learning-tags">
+
+        <span class="learning-tag">
+            Databricks
+        </span>
+
+        <span class="learning-tag">
+            Azure Cloud
+        </span>
+
+    </div>
+
+
+</div>
 
 </div>
 
@@ -1921,9 +2413,9 @@ footer{
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer class="container">
 
@@ -1932,51 +2424,175 @@ footer{
     </span>
 
     <span>
-        Data Engineer · AWS · PySpark · SQL
+        Associate Data Engineer · Cognizant
     </span>
 
 </footer>
 
 
 
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
 <script>
 
-/* Scroll reveal animation */
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
 
-const observer =
-new IntersectionObserver(
+const menuToggle =
+    document.getElementById("menuToggle");
 
-    entries => {
+const navLinks =
+    document.getElementById("navLinks");
 
-        entries.forEach(entry => {
 
-            if(entry.isIntersecting){
+menuToggle.addEventListener(
+    "click",
+    function () {
 
-                entry.target
-                .classList
-                .add("show");
+        menuToggle.classList.toggle(
+            "active"
+        );
 
-            }
+        navLinks.classList.toggle(
+            "active"
+        );
 
-        });
-
-    },
-
-    {
-        threshold:.12
     }
-
 );
 
+
+/* Close mobile menu after clicking */
 
 document
-.querySelectorAll(".reveal")
-.forEach(
-    element =>
-    observer.observe(element)
+    .querySelectorAll("#navLinks a")
+    .forEach(function(link) {
+
+        link.addEventListener(
+            "click",
+            function() {
+
+                menuToggle.classList.remove(
+                    "active"
+                );
+
+                navLinks.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+    });
+
+
+/* Close when clicking outside */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            !navLinks.contains(event.target) &&
+            !menuToggle.contains(event.target)
+        ) {
+
+            menuToggle.classList.remove(
+                "active"
+            );
+
+            navLinks.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
 );
 
+
+/* =========================================================
+   PIPELINE NODE MOUSE EFFECT
+========================================================= */
+
+const nodes =
+    document.querySelectorAll(
+        ".pipeline-node"
+    );
+
+
+nodes.forEach(function(node) {
+
+    node.addEventListener(
+        "mouseenter",
+        function() {
+
+            node.style.boxShadow =
+                "0 0 30px rgba(82,245,167,.12)";
+
+        }
+    );
+
+
+    node.addEventListener(
+        "mouseleave",
+        function() {
+
+            node.style.boxShadow = "";
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   HERO BUTTON STAGGER
+========================================================= */
+
+const buttons =
+    document.querySelectorAll(
+        ".hero-btn"
+    );
+
+
+buttons.forEach(function(button,index) {
+
+    button.style.animation =
+        `buttonAppear .6s ease ${index * .1}s both`;
+
+});
+
+
 </script>
+
+
+<style>
+
+/* Button entrance animation */
+
+@keyframes buttonAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+</style>
 
 
 </body>

@@ -8,13 +8,18 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+rel="stylesheet"
+>
 
 <style>
 
 :root{
     --bg:#06100d;
     --panel:#0b1814;
+    --panel2:#0f211b;
     --text:#effff7;
     --muted:#9db5aa;
     --accent:#52f5a7;
@@ -34,6 +39,7 @@ html{
 }
 
 body{
+
     background:
         radial-gradient(
             circle at 80% 0%,
@@ -62,7 +68,9 @@ a{
 }
 
 
-/* ================= NAVBAR ================= */
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
 nav{
 
@@ -141,7 +149,9 @@ nav{
 }
 
 
-/* ================= HERO ================= */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
 
@@ -160,7 +170,7 @@ nav{
 
     display:grid;
 
-    grid-template-columns:1.05fr .95fr;
+    grid-template-columns:1fr 1fr;
 
     gap:55px;
 
@@ -278,13 +288,15 @@ h1 em{
 }
 
 
-/* ================= PIPELINE VISUAL ================= */
+/* =====================================================
+   DATA PIPELINE VISUAL
+===================================================== */
 
 .visual{
 
     position:relative;
 
-    min-height:500px;
+    height:650px;
 
     border:1px solid var(--line);
 
@@ -302,23 +314,26 @@ h1 em{
     overflow:hidden;
 }
 
-.visual:before{
+.visual::before{
 
     content:"";
 
     position:absolute;
 
-    inset:-30%;
+    width:500px;
+    height:500px;
+
+    top:-250px;
+    right:-200px;
 
     background:
-        conic-gradient(
-            from 180deg,
-            transparent,
-            rgba(82,245,167,.09),
-            transparent 30%
+        radial-gradient(
+            circle,
+            rgba(82,245,167,.10),
+            transparent 65%
         );
 
-    animation:spin 12s linear infinite;
+    animation:glow 6s ease-in-out infinite alternate;
 }
 
 .grid-bg{
@@ -348,20 +363,30 @@ h1 em{
         );
 }
 
+
+/* Pipeline */
+
 .pipeline{
 
     position:absolute;
 
-    inset:70px 40px;
+    top:35px;
+    bottom:35px;
+
+    left:35px;
+    right:35px;
 
     display:flex;
 
     flex-direction:column;
 
-    justify-content:center;
+    justify-content:space-between;
 
-    gap:16px;
+    z-index:3;
 }
+
+
+/* Nodes */
 
 .node{
 
@@ -371,53 +396,82 @@ h1 em{
 
     gap:14px;
 
-    padding:16px 18px;
+    width:82%;
+
+    padding:14px 16px;
 
     border:1px solid rgba(82,245,167,.18);
 
-    background:rgba(6,16,13,.75);
+    background:
+        rgba(6,16,13,.84);
 
     border-radius:16px;
 
     position:relative;
 
-    z-index:2;
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.20);
 
-    animation:float 4s ease-in-out infinite;
+    transition:.3s;
+
+    animation:nodeFloat 4s ease-in-out infinite;
+}
+
+.node:hover{
+
+    border-color:
+        rgba(82,245,167,.5);
+
+    transform:
+        translateX(5px)
+        scale(1.02);
+}
+
+
+/* Zig-zag layout */
+
+.node:nth-child(1){
+    margin-left:0;
+    animation-delay:0s;
 }
 
 .node:nth-child(2){
-
-    margin-left:34px;
-
-    animation-delay:.4s;
+    margin-left:8%;
+    animation-delay:.3s;
 }
 
 .node:nth-child(3){
-
-    margin-left:68px;
-
-    animation-delay:.8s;
+    margin-left:16%;
+    animation-delay:.6s;
 }
 
 .node:nth-child(4){
-
-    margin-left:102px;
-
-    animation-delay:1.2s;
+    margin-left:24%;
+    animation-delay:.9s;
 }
 
 .node:nth-child(5){
-
-    margin-left:136px;
-
-    animation-delay:1.6s;
+    margin-left:32%;
+    animation-delay:1.2s;
 }
+
+.node:nth-child(6){
+    margin-left:40%;
+    animation-delay:1.5s;
+}
+
+.node:nth-child(7){
+    margin-left:48%;
+    animation-delay:1.8s;
+}
+
 
 .icon{
 
-    width:38px;
-    height:38px;
+    width:42px;
+    height:42px;
+
+    min-width:42px;
 
     display:grid;
 
@@ -425,15 +479,24 @@ h1 em{
 
     border-radius:11px;
 
-    background:rgba(82,245,167,.1);
+    background:
+        rgba(82,245,167,.10);
 
     color:var(--accent);
 
     font-weight:800;
+
+    font-size:11px;
+
+    border:1px solid
+        rgba(82,245,167,.12);
 }
 
 .node b{
-    font-size:14px;
+
+    display:block;
+
+    font-size:13px;
 }
 
 .node small{
@@ -442,50 +505,118 @@ h1 em{
 
     color:var(--muted);
 
-    font-size:11px;
+    font-size:10px;
+
+    margin-top:2px;
 }
 
-.flow{
+
+/* Connecting line */
+
+.connector{
 
     position:absolute;
 
     width:2px;
 
-    height:55px;
-
     background:
         linear-gradient(
-            var(--accent),
-            transparent
+            to bottom,
+            rgba(82,245,167,.5),
+            rgba(82,245,167,.04)
         );
 
-    left:57px;
+    height:55px;
 
-    top:107px;
+    left:54px;
 
     z-index:1;
-
-    animation:
-        flow 1.3s linear infinite;
 }
 
-.flow.f2{
-    left:91px;
-    top:178px;
+.connector.c1{
+    top:104px;
 }
 
-.flow.f3{
-    left:125px;
-    top:249px;
+.connector.c2{
+    top:195px;
+    left:86px;
 }
 
-.flow.f4{
-    left:159px;
-    top:320px;
+.connector.c3{
+    top:286px;
+    left:118px;
+}
+
+.connector.c4{
+    top:377px;
+    left:150px;
+}
+
+.connector.c5{
+    top:468px;
+    left:182px;
 }
 
 
-/* ================= GENERAL SECTION ================= */
+/* Moving data particles */
+
+.particle{
+
+    position:absolute;
+
+    width:5px;
+    height:5px;
+
+    background:var(--accent);
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 12px
+        var(--accent);
+
+    z-index:5;
+
+    animation:particleMove 2.5s linear infinite;
+}
+
+.p1{
+    left:53px;
+    top:102px;
+}
+
+.p2{
+    left:85px;
+    top:193px;
+
+    animation-delay:.5s;
+}
+
+.p3{
+    left:117px;
+    top:284px;
+
+    animation-delay:1s;
+}
+
+.p4{
+    left:149px;
+    top:375px;
+
+    animation-delay:1.5s;
+}
+
+.p5{
+    left:181px;
+    top:466px;
+
+    animation-delay:2s;
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
 
 section{
     padding:105px 0;
@@ -527,7 +658,9 @@ section{
 }
 
 
-/* ================= SKILLS ================= */
+/* =====================================================
+   SKILLS
+===================================================== */
 
 .skills{
 
@@ -546,7 +679,8 @@ section{
 
     border:1px solid var(--line);
 
-    background:rgba(82,245,167,.04);
+    background:
+        rgba(82,245,167,.04);
 
     border-radius:999px;
 
@@ -568,7 +702,9 @@ section{
 }
 
 
-/* ================= PROJECTS ================= */
+/* =====================================================
+   PROJECTS
+===================================================== */
 
 .projects{
 
@@ -657,7 +793,9 @@ section{
 }
 
 
-/* ================= EXPERIENCE ================= */
+/* =====================================================
+   EXPERIENCE
+===================================================== */
 
 .experience{
 
@@ -706,7 +844,9 @@ section{
 }
 
 
-/* ================= METRICS ================= */
+/* =====================================================
+   METRICS
+===================================================== */
 
 .metrics{
 
@@ -762,7 +902,9 @@ section{
 }
 
 
-/* ================= CONTACT ================= */
+/* =====================================================
+   CONTACT
+===================================================== */
 
 .contact{
 
@@ -798,7 +940,9 @@ section{
 }
 
 
-/* ================= FOOTER ================= */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
 
@@ -814,7 +958,9 @@ footer{
 }
 
 
-/* ================= ANIMATIONS ================= */
+/* =====================================================
+   ANIMATIONS
+===================================================== */
 
 .reveal{
 
@@ -842,53 +988,53 @@ footer{
     }
 }
 
-@keyframes spin{
-
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-@keyframes float{
+@keyframes nodeFloat{
 
     50%{
-        transform:translateY(-5px);
+        transform:translateY(-4px);
     }
 }
 
-@keyframes flow{
+@keyframes particleMove{
+
+    0%{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    80%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+        transform:translateY(65px);
+    }
+}
+
+@keyframes glow{
+
+    from{
+        transform:scale(1);
+        opacity:.6;
+    }
 
     to{
-        transform:translateY(55px);
-        opacity:0;
+        transform:scale(1.25);
+        opacity:1;
     }
 }
 
 
-/* ================= CURSOR ================= */
+/* =====================================================
+   MOBILE
+===================================================== */
 
-#cursor{
-
-    position:fixed;
-
-    width:18px;
-    height:18px;
-
-    border:1px solid var(--accent);
-
-    border-radius:50%;
-
-    pointer-events:none;
-
-    z-index:999;
-
-    mix-blend-mode:screen;
-}
-
-
-/* ================= MOBILE ================= */
-
-@media(max-width:800px){
+@media(max-width:850px){
 
     nav .links{
         display:none;
@@ -899,7 +1045,7 @@ footer{
     }
 
     .visual{
-        min-height:410px;
+        height:620px;
     }
 
     .projects{
@@ -923,24 +1069,34 @@ footer{
     h1{
         font-size:58px;
     }
+}
+
+@media(max-width:550px){
+
+    .metrics{
+        grid-template-columns:1fr;
+    }
+
+    .visual{
+        height:610px;
+    }
 
     .pipeline{
-        inset:55px 18px;
+        left:18px;
+        right:18px;
+    }
+
+    .node{
+        width:95%;
     }
 
     .node:nth-child(n){
         margin-left:0;
     }
 
-    .flow{
+    .connector,
+    .particle{
         display:none;
-    }
-}
-
-@media(max-width:500px){
-
-    .metrics{
-        grid-template-columns:1fr;
     }
 
     .contact{
@@ -960,7 +1116,9 @@ footer{
 <body>
 
 
-<!-- ================= NAVBAR ================= -->
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
 <nav>
 
@@ -999,14 +1157,17 @@ footer{
 </nav>
 
 
-<!-- ================= HERO ================= -->
 
-<section class="hero" id="home">
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
 
 <div class="container hero-grid">
 
 
-    <!-- HERO TEXT -->
+    <!-- HERO CONTENT -->
 
     <div class="reveal">
 
@@ -1014,26 +1175,26 @@ footer{
 
             <span class="dot"></span>
 
-            AVAILABLE FOR OPPORTUNITIES
+            DATA ENGINEER
 
         </div>
 
 
         <h1>
 
-            DATA<br>
+            BUILDING<br>
 
-            <em>ENGINEER</em>
+            <em>DATA PIPELINES.</em>
 
         </h1>
 
 
         <p>
 
-            I build reliable, scalable data pipelines
-            that transform raw data into production-ready
-            analytics using PySpark, AWS, Databricks,
-            SQL and modern cloud data platforms.
+            I design and build scalable data pipelines
+            that transform raw data into reliable,
+            analytics-ready information using Python,
+            PySpark, SQL and AWS.
 
         </p>
 
@@ -1046,6 +1207,7 @@ footer{
             >
                 Explore my work ↓
             </a>
+
 
             <a
                 class="btn"
@@ -1060,7 +1222,9 @@ footer{
 
 
 
-    <!-- PIPELINE ANIMATION -->
+    <!-- =================================================
+         PIPELINE
+    ================================================= -->
 
     <div class="visual reveal">
 
@@ -1069,6 +1233,31 @@ footer{
 
         <div class="pipeline">
 
+
+            <!-- SOURCE -->
+
+            <div class="node">
+
+                <div class="icon">
+                    CSV
+                </div>
+
+                <div>
+
+                    <b>
+                        Source Files
+                    </b>
+
+                    <small>
+                        CSV / Input Data
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- S3 -->
 
             <div class="node">
 
@@ -1079,11 +1268,11 @@ footer{
                 <div>
 
                     <b>
-                        Raw Data
+                        AWS S3
                     </b>
 
                     <small>
-                        Ingestion layer
+                        Cloud Storage
                     </small>
 
                 </div>
@@ -1091,20 +1280,22 @@ footer{
             </div>
 
 
+            <!-- EMR -->
+
             <div class="node">
 
                 <div class="icon">
-                    ⚡
+                    EMR
                 </div>
 
                 <div>
 
                     <b>
-                        PySpark / EMR
+                        AWS EMR
                     </b>
 
                     <small>
-                        Transform & process
+                        Spark Cluster
                     </small>
 
                 </div>
@@ -1112,20 +1303,22 @@ footer{
             </div>
 
 
+            <!-- RAW -->
+
             <div class="node">
 
                 <div class="icon">
-                    DB
+                    R
                 </div>
 
                 <div>
 
                     <b>
-                        Databricks
+                        Raw Layer
                     </b>
 
                     <small>
-                        Delta / Lakehouse
+                        Raw Data · Hive
                     </small>
 
                 </div>
@@ -1133,20 +1326,22 @@ footer{
             </div>
 
 
+            <!-- REFINED -->
+
             <div class="node">
 
                 <div class="icon">
-                    ↯
+                    P
                 </div>
 
                 <div>
 
                     <b>
-                        Airflow
+                        Refined Layer
                     </b>
 
                     <small>
-                        Orchestration
+                        PySpark Transformations
                     </small>
 
                 </div>
@@ -1154,20 +1349,45 @@ footer{
             </div>
 
 
+            <!-- WORK -->
+
             <div class="node">
 
                 <div class="icon">
-                    SQL
+                    W
                 </div>
 
                 <div>
 
                     <b>
-                        Analytics
+                        Work Layer
                     </b>
 
                     <small>
-                        Consumption layer
+                        Spark Views
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONSUMPTION -->
+
+            <div class="node">
+
+                <div class="icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <b>
+                        Consumption Layer
+                    </b>
+
+                    <small>
+                        Analytics Ready Data
                     </small>
 
                 </div>
@@ -1178,13 +1398,22 @@ footer{
         </div>
 
 
-        <i class="flow"></i>
+        <!-- CONNECTORS -->
 
-        <i class="flow f2"></i>
+        <span class="connector c1"></span>
+        <span class="connector c2"></span>
+        <span class="connector c3"></span>
+        <span class="connector c4"></span>
+        <span class="connector c5"></span>
 
-        <i class="flow f3"></i>
 
-        <i class="flow f4"></i>
+        <!-- MOVING DATA -->
+
+        <span class="particle p1"></span>
+        <span class="particle p2"></span>
+        <span class="particle p3"></span>
+        <span class="particle p4"></span>
+        <span class="particle p5"></span>
 
 
     </div>
@@ -1195,7 +1424,9 @@ footer{
 
 
 
-<!-- ================= PRIMARY SKILLS ================= -->
+<!-- =====================================================
+     SKILLS
+===================================================== -->
 
 <section id="skills">
 
@@ -1214,9 +1445,9 @@ footer{
 
     <p class="section-copy">
 
-        My primary focus is building scalable data
-        processing systems, reliable ETL pipelines
-        and production-ready cloud data workflows.
+        Building reliable pipelines, processing
+        large datasets and creating scalable
+        cloud-based data solutions.
 
     </p>
 
@@ -1240,7 +1471,15 @@ footer{
         </span>
 
         <span class="tag">
+            Python
+        </span>
+
+        <span class="tag">
             SQL
+        </span>
+
+        <span class="tag">
+            AWS
         </span>
 
         <span class="tag">
@@ -1256,10 +1495,6 @@ footer{
         </span>
 
         <span class="tag">
-            Cloud Data Engineering
-        </span>
-
-        <span class="tag">
             Data Modeling
         </span>
 
@@ -1271,10 +1506,6 @@ footer{
             SCD
         </span>
 
-        <span class="tag">
-            Workflow Orchestration
-        </span>
-
     </div>
 
 </div>
@@ -1283,7 +1514,9 @@ footer{
 
 
 
-<!-- ================= PROJECTS ================= -->
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
 
 <section id="projects">
 
@@ -1296,15 +1529,15 @@ footer{
 
 
     <h2 class="section-title">
-        Projects that show how I think.
+        Data engineering projects.
     </h2>
 
 
     <p class="section-copy">
 
-        A selection of data engineering problems
-        involving cloud platforms, distributed
-        processing and production workflows.
+        Practical data engineering solutions built
+        around distributed processing, cloud storage,
+        ETL and analytics-ready data.
 
     </p>
 
@@ -1317,21 +1550,21 @@ footer{
         <article class="card">
 
             <span class="project-num">
-                01 — CLOUD ETL
+                01 — AWS DATA PIPELINE
             </span>
 
 
             <h3>
-                Cloud Data Pipeline
+                Multi-Layer ETL Pipeline
             </h3>
 
 
             <p>
 
-                Designed an incremental pipeline
-                moving CSV data from S3 through
-                processing layers into an
-                analytics-ready consumption layer.
+                Built a multi-layer data processing
+                pipeline that moves source files through
+                S3, EMR and PySpark into Raw, Refined,
+                Work and Consumption layers.
 
             </p>
 
@@ -1349,26 +1582,27 @@ footer{
         <article class="card">
 
             <span class="project-num">
-                02 — LAKEHOUSE
+                02 — BIG DATA
             </span>
 
 
             <h3>
-                Databricks Migration
+                Distributed Data Processing
             </h3>
 
 
             <p>
 
-                Worked with cloud lakehouse patterns,
-                Delta tables, ADLS and transformation
-                workflows for scalable analytics.
+                Processed large datasets using
+                Apache Spark and PySpark with focus
+                on partitioning, joins, transformations
+                and performance optimization.
 
             </p>
 
 
             <div class="mini">
-                Azure · Databricks · Delta
+                Spark · PySpark · Hive
             </div>
 
         </article>
@@ -1380,27 +1614,26 @@ footer{
         <article class="card">
 
             <span class="project-num">
-                03 — ORCHESTRATION
+                03 — DATA QUALITY
             </span>
 
 
             <h3>
-                Production Workflows
+                Production Data Quality
             </h3>
 
 
             <p>
 
-                Built and monitored orchestrated
-                workflows with scheduling,
-                dependencies, quality checks
-                and production issue handling.
+                Worked on identifying and resolving
+                missing records, null values, duplicate
+                records and pipeline processing issues.
 
             </p>
 
 
             <div class="mini">
-                Airflow · SQL · Monitoring
+                SQL · Python · Monitoring
             </div>
 
         </article>
@@ -1414,7 +1647,9 @@ footer{
 
 
 
-<!-- ================= EXPERIENCE ================= -->
+<!-- =====================================================
+     EXPERIENCE
+===================================================== -->
 
 <section id="experience">
 
@@ -1452,11 +1687,11 @@ footer{
 
                     Developing and supporting data
                     engineering solutions using
-                    PySpark, Spark, cloud services
-                    and SQL. Working across ETL
-                    pipelines, data quality,
-                    performance optimization
-                    and production support.
+                    PySpark, Spark, AWS and SQL.
+                    Working across ETL pipelines,
+                    data quality, performance
+                    optimization and production
+                    support.
 
                 </p>
 
@@ -1502,7 +1737,9 @@ footer{
 
 
 
-<!-- ================= CAREER METRICS ================= -->
+<!-- =====================================================
+     METRICS
+===================================================== -->
 
 <section>
 
@@ -1542,7 +1779,7 @@ footer{
             </strong>
 
             <span>
-                Processing workflows
+                Data processing workflows
             </span>
 
         </div>
@@ -1582,7 +1819,9 @@ footer{
 
 
 
-<!-- ================= CONTACT ================= -->
+<!-- =====================================================
+     CONTACT
+===================================================== -->
 
 <section id="contact">
 
@@ -1605,9 +1844,8 @@ footer{
         <p>
 
             Open to Data Engineering opportunities
-            and conversations around cloud data
-            platforms, ETL, Spark and analytics
-            engineering.
+            and conversations around PySpark,
+            AWS, ETL and cloud data engineering.
 
         </p>
 
@@ -1627,7 +1865,6 @@ footer{
                 class="btn"
                 href="https://www.linkedin.com/"
                 target="_blank"
-                rel="noreferrer"
             >
                 LinkedIn ↗
             </a>
@@ -1637,7 +1874,6 @@ footer{
                 class="btn"
                 href="https://github.com/"
                 target="_blank"
-                rel="noreferrer"
             >
                 GitHub ↗
             </a>
@@ -1654,7 +1890,9 @@ footer{
 
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer class="container">
 
@@ -1663,43 +1901,20 @@ footer{
     </span>
 
     <span>
-        Data Engineer · Built for data, designed for humans.
+        Data Engineer · AWS · PySpark · SQL
     </span>
 
 </footer>
 
 
 
-<!-- ================= JAVASCRIPT ================= -->
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
-
-/* CUSTOM CURSOR */
-
-const cursor =
-document.createElement("div");
-
-cursor.id = "cursor";
-
-document.body.appendChild(cursor);
-
-
-window.addEventListener(
-    "mousemove",
-    e => {
-
-        cursor.style.left =
-            e.clientX - 9 + "px";
-
-        cursor.style.top =
-            e.clientY - 9 + "px";
-
-    }
-);
-
-
-/* SCROLL REVEAL */
+/* Scroll reveal */
 
 const observer =
 new IntersectionObserver(
@@ -1733,7 +1948,6 @@ document
     element =>
     observer.observe(element)
 );
-
 
 </script>
 

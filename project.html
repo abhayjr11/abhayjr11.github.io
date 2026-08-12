@@ -1,0 +1,2632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Projects | Abhay Jaiswal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+:root{
+
+    --bg:#06100d;
+    --panel:#0b1814;
+    --panel2:#0e211a;
+
+    --text:#effff7;
+    --muted:#9db5aa;
+
+    --accent:#52f5a7;
+    --accent2:#1ed78a;
+
+    --line:rgba(82,245,167,.14);
+
+    --shadow:0 25px 80px rgba(0,0,0,.35);
+}
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+body{
+
+    background:
+
+        radial-gradient(
+            circle at 80% 0%,
+            rgba(30,215,138,.12),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 0% 60%,
+            rgba(82,245,167,.05),
+            transparent 30%
+        ),
+
+        var(--bg);
+
+    color:var(--text);
+
+    font-family:Inter,Arial,sans-serif;
+
+    line-height:1.6;
+
+    overflow-x:hidden;
+}
+
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+
+.container{
+    width:min(1120px,92%);
+    margin:auto;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav{
+
+    position:fixed;
+
+    top:18px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:100;
+
+    width:min(1050px,92%);
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    padding:13px 18px 13px 22px;
+
+    background:rgba(7,18,14,.78);
+
+    border:1px solid var(--line);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:18px;
+
+    box-shadow:
+        0 12px 45px rgba(0,0,0,.25);
+}
+
+
+.logo{
+
+    font-family:"Space Grotesk";
+
+    font-size:18px;
+
+    font-weight:700;
+
+    letter-spacing:-.05em;
+}
+
+
+.logo span{
+    color:var(--accent);
+}
+
+
+.links{
+
+    display:flex;
+
+    gap:26px;
+
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+
+.links a{
+    transition:.25s;
+}
+
+
+.links a:hover{
+    color:var(--accent);
+}
+
+
+.links a.active{
+    color:var(--accent);
+}
+
+
+.navbtn{
+
+    border:1px solid
+        rgba(82,245,167,.35);
+
+    padding:8px 13px;
+
+    border-radius:10px;
+
+    color:var(--accent);
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.page-hero{
+
+    padding:155px 0 80px;
+
+    position:relative;
+
+    text-align:center;
+}
+
+
+.page-label{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    padding:7px 12px;
+
+    border-radius:999px;
+
+    border:1px solid var(--line);
+
+    background:
+        rgba(82,245,167,.05);
+
+    color:var(--accent);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:.15em;
+}
+
+
+.page-dot{
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:var(--accent);
+
+    box-shadow:
+        0 0 14px var(--accent);
+
+    animation:pulse 1.6s infinite;
+}
+
+
+.page-hero h1{
+
+    margin-top:22px;
+
+    font:
+        700
+        clamp(48px,7vw,78px)
+        /.95
+        "Space Grotesk";
+
+    letter-spacing:-.07em;
+}
+
+
+.page-hero h1 span{
+    color:var(--accent);
+}
+
+
+.page-hero p{
+
+    max-width:680px;
+
+    margin:24px auto 0;
+
+    color:var(--muted);
+
+    font-size:16px;
+}
+
+
+/* =====================================================
+   FILTERS
+===================================================== */
+
+.filters{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+    margin:15px 0 55px;
+}
+
+
+.filter{
+
+    cursor:pointer;
+
+    border:1px solid var(--line);
+
+    background:
+        rgba(82,245,167,.035);
+
+    color:var(--muted);
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    transition:.25s;
+}
+
+
+.filter:hover,
+.filter.active{
+
+    color:#04100a;
+
+    background:var(--accent);
+
+    border-color:var(--accent);
+}
+
+
+/* =====================================================
+   PROJECT GRID
+===================================================== */
+
+.projects{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:22px;
+}
+
+
+/* =====================================================
+   PROJECT CARD
+===================================================== */
+
+.project-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:1px solid var(--line);
+
+    border-radius:24px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(15,33,27,.90),
+            rgba(7,18,14,.90)
+        );
+
+    box-shadow:var(--shadow);
+
+    transition:
+
+        transform .35s ease,
+
+        border-color .35s ease,
+
+        box-shadow .35s ease;
+}
+
+
+.project-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:240px;
+    height:240px;
+
+    top:-140px;
+    right:-100px;
+
+    border-radius:50%;
+
+    background:
+        rgba(82,245,167,.07);
+
+    filter:blur(20px);
+
+    pointer-events:none;
+}
+
+
+.project-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:
+        rgba(82,245,167,.35);
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.45);
+}
+
+
+/* =====================================================
+   CARD TOP
+===================================================== */
+
+.card-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+    padding:25px 25px 0;
+}
+
+
+.project-number{
+
+    color:var(--accent);
+
+    font:
+        700
+        11px
+        "Space Grotesk";
+
+    letter-spacing:.12em;
+}
+
+
+.project-type{
+
+    padding:5px 9px;
+
+    border-radius:7px;
+
+    border:1px solid var(--line);
+
+    color:#78958a;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.08em;
+}
+
+
+/* =====================================================
+   CARD CONTENT
+===================================================== */
+
+.card-content{
+
+    padding:20px 25px 25px;
+}
+
+
+.card-content h2{
+
+    font:
+        700
+        27px
+        "Space Grotesk";
+
+    letter-spacing:-.04em;
+
+    margin-bottom:10px;
+}
+
+
+.company{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--accent);
+
+    font-size:11px;
+
+    font-weight:700;
+
+    margin-bottom:17px;
+}
+
+
+.company-line{
+
+    width:22px;
+    height:1px;
+
+    background:var(--accent);
+}
+
+
+.description{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.75;
+
+    margin-bottom:22px;
+}
+
+
+/* =====================================================
+   PROJECT DETAILS
+===================================================== */
+
+.details{
+
+    display:grid;
+
+    gap:12px;
+
+    margin-bottom:22px;
+}
+
+
+.detail{
+
+    display:flex;
+
+    gap:11px;
+
+    align-items:flex-start;
+}
+
+
+.detail-icon{
+
+    width:25px;
+    height:25px;
+
+    min-width:25px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:7px;
+
+    background:
+        rgba(82,245,167,.07);
+
+    border:1px solid var(--line);
+
+    color:var(--accent);
+
+    font-size:10px;
+
+    font-weight:800;
+}
+
+
+.detail-text{
+
+    color:#c5d9d0;
+
+    font-size:11px;
+
+    line-height:1.6;
+}
+
+
+.detail-text strong{
+
+    display:block;
+
+    color:#ecfff6;
+
+    font-size:11px;
+
+    margin-bottom:2px;
+}
+
+
+/* =====================================================
+   TECHNOLOGY TAGS
+===================================================== */
+
+.tech-list{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:7px;
+
+    margin-bottom:24px;
+}
+
+
+.tech{
+
+    padding:6px 9px;
+
+    border-radius:7px;
+
+    background:
+        rgba(82,245,167,.045);
+
+    border:1px solid
+        rgba(82,245,167,.11);
+
+    color:#9dbeb0;
+
+    font-size:9px;
+
+    font-weight:600;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.card-actions{
+
+    display:flex;
+
+    gap:9px;
+
+    flex-wrap:wrap;
+}
+
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    padding:9px 13px;
+
+    border-radius:10px;
+
+    border:1px solid var(--line);
+
+    font-size:11px;
+
+    font-weight:700;
+
+    transition:.25s;
+}
+
+
+.btn.primary{
+
+    background:var(--accent);
+
+    color:#04100a;
+
+    border-color:var(--accent);
+}
+
+
+.btn:hover{
+
+    transform:translateY(-2px);
+}
+
+
+.btn.github{
+
+    color:#c9ddd4;
+
+    background:
+        rgba(82,245,167,.025);
+}
+
+
+.btn.private{
+
+    color:#78958a;
+
+    cursor:default;
+}
+
+
+/* =====================================================
+   FEATURED PROJECT
+===================================================== */
+
+.featured{
+
+    grid-column:span 2;
+
+    display:grid;
+
+    grid-template-columns:1.15fr .85fr;
+}
+
+
+.featured .card-content{
+
+    padding-top:15px;
+}
+
+
+/* Architecture visual */
+
+.architecture{
+
+    min-height:100%;
+
+    padding:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-left:1px solid var(--line);
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(82,245,167,.08),
+            transparent 65%
+        );
+}
+
+
+.arch-flow{
+
+    width:100%;
+
+    max-width:300px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:0;
+}
+
+
+.arch-node{
+
+    width:100%;
+
+    padding:10px 13px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:1px solid var(--line);
+
+    border-radius:10px;
+
+    background:
+        rgba(4,15,11,.75);
+
+    font-size:10px;
+}
+
+
+.arch-icon{
+
+    width:28px;
+    height:28px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:7px;
+
+    background:
+        rgba(82,245,167,.08);
+
+    color:var(--accent);
+
+    font-size:9px;
+
+    font-weight:800;
+}
+
+
+.arch-node small{
+
+    display:block;
+
+    color:#6e887e;
+
+    font-size:8px;
+
+    margin-top:2px;
+}
+
+
+.arch-arrow{
+
+    height:24px;
+
+    width:1px;
+
+    background:
+        rgba(82,245,167,.35);
+
+    position:relative;
+}
+
+
+.arch-arrow::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-1px;
+
+    left:-3px;
+
+    width:6px;
+    height:6px;
+
+    border-right:1px solid var(--accent);
+
+    border-bottom:1px solid var(--accent);
+
+    transform:rotate(45deg);
+}
+
+
+/* =====================================================
+   EMPTY / HIDDEN
+===================================================== */
+
+.project-card.hidden{
+
+    display:none;
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.cta-section{
+
+    padding:100px 0 90px;
+}
+
+
+.cta{
+
+    padding:55px;
+
+    border:1px solid var(--line);
+
+    border-radius:28px;
+
+    text-align:center;
+
+    background:
+
+        radial-gradient(
+            circle at 90% 0%,
+            rgba(82,245,167,.12),
+            transparent 40%
+        ),
+
+        var(--panel);
+}
+
+
+.cta-label{
+
+    color:var(--accent);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:.16em;
+
+    margin-bottom:12px;
+}
+
+
+.cta h2{
+
+    font:
+        700
+        clamp(32px,4vw,48px)
+        "Space Grotesk";
+
+    letter-spacing:-.05em;
+}
+
+
+.cta p{
+
+    max-width:620px;
+
+    margin:15px auto 0;
+
+    color:var(--muted);
+
+    font-size:14px;
+}
+
+
+.cta-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-top:27px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    padding:35px 0 55px;
+
+    color:#71877e;
+
+    font-size:12px;
+
+    display:flex;
+
+    justify-content:space-between;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:
+
+        opacity .7s ease,
+
+        transform .7s ease;
+}
+
+
+.reveal.show{
+
+    opacity:1;
+
+    transform:none;
+}
+
+
+@keyframes pulse{
+
+    50%{
+
+        opacity:.35;
+
+        transform:scale(.7);
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:850px){
+
+    nav .links{
+        display:none;
+    }
+
+
+    .projects{
+
+        grid-template-columns:1fr;
+    }
+
+
+    .featured{
+
+        grid-column:span 1;
+
+        grid-template-columns:1fr;
+    }
+
+
+    .architecture{
+
+        min-height:300px;
+
+        border-left:none;
+
+        border-top:1px solid var(--line);
+    }
+}
+
+
+@media(max-width:550px){
+
+    .page-hero{
+
+        padding-top:125px;
+
+        padding-bottom:55px;
+    }
+
+
+    .page-hero h1{
+
+        font-size:50px;
+    }
+
+
+    .card-top{
+
+        padding:21px 20px 0;
+    }
+
+
+    .card-content{
+
+        padding:17px 20px 21px;
+    }
+
+
+    .card-content h2{
+
+        font-size:23px;
+    }
+
+
+    .cta{
+
+        padding:40px 20px;
+    }
+
+
+    footer{
+
+        flex-direction:column;
+
+        gap:8px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav>
+
+    <a class="logo" href="index.html">
+        ABHAY<span>.</span>
+    </a>
+
+
+    <div class="links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="projects.html" class="active">
+            Projects
+        </a>
+
+        <a href="index.html#skills">
+            Skills
+        </a>
+
+        <a href="index.html#experience">
+            Experience
+        </a>
+
+    </div>
+
+
+    <a class="navbtn" href="index.html#contact">
+        Let's talk
+    </a>
+
+</nav>
+
+
+
+<!-- =====================================================
+     PAGE HERO
+===================================================== -->
+
+<header class="page-hero">
+
+    <div class="container">
+
+        <div class="page-label">
+
+            <span class="page-dot"></span>
+
+            SELECTED WORK
+
+        </div>
+
+
+        <h1>
+
+            Projects that turn
+            <span>data into impact.</span>
+
+        </h1>
+
+
+        <p>
+
+            A collection of professional data engineering
+            work and personal projects spanning cloud
+            data platforms, PySpark ETL, analytics,
+            machine learning and automation.
+
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     FILTERS
+===================================================== -->
+
+<div class="container">
+
+    <div class="filters">
+
+        <button
+            class="filter active"
+            data-filter="all"
+        >
+            All Projects
+        </button>
+
+
+        <button
+            class="filter"
+            data-filter="professional"
+        >
+            Professional
+        </button>
+
+
+        <button
+            class="filter"
+            data-filter="data"
+        >
+            Data Engineering
+        </button>
+
+
+        <button
+            class="filter"
+            data-filter="personal"
+        >
+            Personal
+        </button>
+
+
+        <button
+            class="filter"
+            data-filter="ai"
+        >
+            AI / ML
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<main class="container">
+
+<div class="projects">
+
+
+<!-- =====================================================
+     PROJECT 01 — ABBVIE
+===================================================== -->
+
+<article
+    class="project-card featured reveal"
+    data-category="professional data"
+>
+
+
+    <div class="card-content">
+
+        <div class="card-top"
+             style="padding:0;">
+
+            <div>
+
+                <div class="project-number">
+                    01 / PROFESSIONAL
+                </div>
+
+                <div class="project-type">
+                    Data Engineering
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <h2>
+            AbbVie Healthcare
+        </h2>
+
+
+        <div class="company">
+
+            <span class="company-line"></span>
+
+            Healthcare Data Engineering
+
+        </div>
+
+
+        <p class="description">
+
+            Built and maintained scalable data engineering
+            solutions for healthcare data processing,
+            focusing on reliable ETL workflows, data
+            quality and distributed processing within
+            the AWS Hadoop ecosystem.
+
+        </p>
+
+
+        <div class="details">
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    ETL
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Pipeline Engineering
+                    </strong>
+
+                    Developed scalable PySpark ETL
+                    pipelines for heterogeneous data
+                    sources.
+
+                </div>
+
+            </div>
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    ✓
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Data Quality
+                    </strong>
+
+                    Worked on missing records, nulls,
+                    duplicates and pipeline failures.
+
+                </div>
+
+            </div>
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    ⚡
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Optimization
+                    </strong>
+
+                    Optimized Spark processing by
+                    minimizing shuffle operations and
+                    using Parquet for performance and
+                    storage efficiency.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="tech-list">
+
+            <span class="tech">Python</span>
+
+            <span class="tech">PySpark</span>
+
+            <span class="tech">Apache Spark</span>
+
+            <span class="tech">AWS EMR</span>
+
+            <span class="tech">AWS S3</span>
+
+            <span class="tech">Hadoop</span>
+
+            <span class="tech">Hive</span>
+
+            <span class="tech">Spark SQL</span>
+
+            <span class="tech">Parquet</span>
+
+        </div>
+
+
+        <div class="card-actions">
+
+            <span class="btn private">
+                Professional Project
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="architecture">
+
+        <div class="arch-flow">
+
+
+            <div class="arch-node">
+
+                <div class="arch-icon">
+                    SRC
+                </div>
+
+                <div>
+                    Source Data
+                    <small>
+                        Heterogeneous Sources
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="arch-arrow"></div>
+
+
+            <div class="arch-node">
+
+                <div class="arch-icon">
+                    S3
+                </div>
+
+                <div>
+                    AWS S3
+                    <small>
+                        Data Storage
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="arch-arrow"></div>
+
+
+            <div class="arch-node">
+
+                <div class="arch-icon">
+                    EMR
+                </div>
+
+                <div>
+                    AWS EMR
+                    <small>
+                        Spark Processing
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="arch-arrow"></div>
+
+
+            <div class="arch-node">
+
+                <div class="arch-icon">
+                    DB
+                </div>
+
+                <div>
+                    Analytics Data
+                    <small>
+                        Reliable Output
+                    </small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</article>
+
+
+
+<!-- =====================================================
+     PROJECT 02 — AMERICAN AIRLINES
+===================================================== -->
+
+<article
+    class="project-card reveal"
+    data-category="professional data"
+>
+
+    <div class="card-top">
+
+        <span class="project-number">
+            02 / PROFESSIONAL
+        </span>
+
+        <span class="project-type">
+            Cloud Data
+        </span>
+
+    </div>
+
+
+    <div class="card-content">
+
+        <h2>
+            American Airlines
+        </h2>
+
+
+        <div class="company">
+
+            <span class="company-line"></span>
+
+            Azure Data Engineering
+
+        </div>
+
+
+        <p class="description">
+
+            Worked on a cloud-based data engineering
+            environment using Azure Databricks, ADF
+            and ADLS to build scalable data processing
+            workflows and curated analytical datasets.
+
+        </p>
+
+
+        <div class="details">
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    01
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Bronze Layer
+                    </strong>
+
+                    Ingested raw CSV files from ADLS
+                    into Databricks Delta tables while
+                    preserving source integrity.
+
+                </div>
+
+            </div>
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    02
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Silver Layer
+                    </strong>
+
+                    Cleaned, validated and transformed
+                    raw data using PySpark and Python.
+
+                </div>
+
+            </div>
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    03
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Gold Layer
+                    </strong>
+
+                    Delivered curated business-ready
+                    datasets for analytics and reporting.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="tech-list">
+
+            <span class="tech">
+                Azure Databricks
+            </span>
+
+            <span class="tech">
+                ADF
+            </span>
+
+            <span class="tech">
+                ADLS
+            </span>
+
+            <span class="tech">
+                PySpark
+            </span>
+
+            <span class="tech">
+                Python
+            </span>
+
+            <span class="tech">
+                Delta Lake
+            </span>
+
+        </div>
+
+
+        <div class="card-actions">
+
+            <span class="btn private">
+                Professional Project
+            </span>
+
+        </div>
+
+    </div>
+
+</article>
+
+
+
+<!-- =====================================================
+     PROJECT 03 — ATS
+===================================================== -->
+
+<article
+    class="project-card reveal"
+    data-category="personal ai"
+>
+
+    <div class="card-top">
+
+        <span class="project-number">
+            03 / PERSONAL
+        </span>
+
+        <span class="project-type">
+            AI / ML
+        </span>
+
+    </div>
+
+
+    <div class="card-content">
+
+        <h2>
+            ATS — Automated Resume Screening
+        </h2>
+
+
+        <div class="company">
+
+            <span class="company-line"></span>
+
+            Resume Analysis & Recommendation
+
+        </div>
+
+
+        <p class="description">
+
+            An automated resume screening system designed
+            to streamline recruitment by analyzing resumes,
+            matching candidates against job descriptions
+            and identifying relevant skills.
+
+        </p>
+
+
+        <div class="details">
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    CV
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Resume Analysis
+                    </strong>
+
+                    Analyzes resumes and identifies
+                    candidates relevant to job requirements.
+
+                </div>
+
+            </div>
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    ML
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Matching
+                    </strong>
+
+                    Matches resumes against job
+                    descriptions to identify relevant
+                    candidates.
+
+                </div>
+
+            </div>
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    +
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Skill Recommendations
+                    </strong>
+
+                    Recommends additional skills based
+                    on job requirements.
+
+                </div>
+
+            </div>
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    UI
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Desktop Interface
+                    </strong>
+
+                    Developed a GUI using Python Tkinter.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="tech-list">
+
+            <span class="tech">
+                Python
+            </span>
+
+            <span class="tech">
+                Machine Learning
+            </span>
+
+            <span class="tech">
+                NLP
+            </span>
+
+            <span class="tech">
+                Tkinter
+            </span>
+
+            <span class="tech">
+                Jupyter Notebook
+            </span>
+
+        </div>
+
+
+        <div class="card-actions">
+
+            <a
+                class="btn github"
+                href="https://github.com/abhayjr11/ats-system"
+                target="_blank"
+            >
+                View on GitHub ↗
+            </a>
+
+        </div>
+
+    </div>
+
+</article>
+
+
+
+<!-- =====================================================
+     PROJECT 04 — HEALTHCARE SYSTEM
+===================================================== -->
+
+<article
+    class="project-card reveal"
+    data-category="personal data"
+>
+
+    <div class="card-top">
+
+        <span class="project-number">
+            04 / PERSONAL
+        </span>
+
+        <span class="project-type">
+            Big Data
+        </span>
+
+    </div>
+
+
+    <div class="card-content">
+
+        <h2>
+            Healthcare System
+        </h2>
+
+
+        <div class="company">
+
+            <span class="company-line"></span>
+
+            Big Data Analytics
+
+        </div>
+
+
+        <p class="description">
+
+            A healthcare insurance analytics project
+            designed to build data pipelines and analyze
+            customer behavior, claims and policy data to
+            support business strategies and personalized
+            offers.
+
+        </p>
+
+
+        <div class="details">
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    ETL
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Data Pipelines
+                    </strong>
+
+                    Built pipelines for healthcare
+                    insurance data from multiple sources.
+
+                </div>
+
+            </div>
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    SP
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Spark Processing
+                    </strong>
+
+                    Used Spark and Python for data
+                    cleaning, processing and analytics.
+
+                </div>
+
+            </div>
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    SQL
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Business Analytics
+                    </strong>
+
+                    Performed analytical queries around
+                    claims, patients, hospitals, policies
+                    and customer behavior.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="tech-list">
+
+            <span class="tech">
+                Python
+            </span>
+
+            <span class="tech">
+                Spark
+            </span>
+
+            <span class="tech">
+                Hadoop
+            </span>
+
+            <span class="tech">
+                Sqoop
+            </span>
+
+            <span class="tech">
+                Hive
+            </span>
+
+            <span class="tech">
+                MySQL
+            </span>
+
+            <span class="tech">
+                Linux
+            </span>
+
+        </div>
+
+
+        <div class="card-actions">
+
+            <a
+                class="btn github"
+                href="https://github.com/abhayjr11/HELTHCARE-SYSTEM"
+                target="_blank"
+            >
+                View on GitHub ↗
+            </a>
+
+        </div>
+
+    </div>
+
+</article>
+
+
+
+<!-- =====================================================
+     PROJECT 05 — PYSPARK ETL
+===================================================== -->
+
+<article
+    class="project-card featured reveal"
+    data-category="personal data"
+>
+
+
+    <div class="card-content">
+
+        <div class="card-top"
+             style="padding:0;">
+
+            <div>
+
+                <div class="project-number">
+                    05 / DATA ENGINEERING
+                </div>
+
+                <div class="project-type">
+                    PySpark ETL
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <h2>
+            Healthcare ETL Pipeline
+        </h2>
+
+
+        <div class="company">
+
+            <span class="company-line"></span>
+
+            Source Validation & Raw Layer Ingestion
+
+        </div>
+
+
+        <p class="description">
+
+            A PySpark-based healthcare ETL pipeline that
+            validates incoming CSV files before loading
+            them into a Hive raw table. The pipeline
+            demonstrates file validation, schema validation,
+            record-count validation, process-date validation
+            and metadata tracking.
+
+        </p>
+
+
+        <div class="details">
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    ✓
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        File Validation
+                    </strong>
+
+                    Validates incoming file names before
+                    processing.
+
+                </div>
+
+            </div>
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    DB
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Schema & Record Validation
+                    </strong>
+
+                    Checks schema and expected record counts
+                    before raw ingestion.
+
+                </div>
+
+            </div>
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    DT
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Process Date
+                    </strong>
+
+                    Validates processing dates and tracks
+                    ingestion metadata.
+
+                </div>
+
+            </div>
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    R
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Raw Layer
+                    </strong>
+
+                    Loads validated healthcare data into
+                    a Hive raw table.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="tech-list">
+
+            <span class="tech">
+                Python
+            </span>
+
+            <span class="tech">
+                PySpark
+            </span>
+
+            <span class="tech">
+                Apache Spark
+            </span>
+
+            <span class="tech">
+                Hive
+            </span>
+
+            <span class="tech">
+                CSV
+            </span>
+
+            <span class="tech">
+                Google Colab
+            </span>
+
+        </div>
+
+
+        <div class="card-actions">
+
+            <a
+                class="btn primary"
+                href="https://github.com/abhayjr11/ETL_Validation_PySpark"
+                target="_blank"
+            >
+                View Project ↗
+            </a>
+
+            <a
+                class="btn github"
+                href="https://github.com/abhayjr11/ETL_Validation_PySpark"
+                target="_blank"
+            >
+                GitHub
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="architecture">
+
+        <div class="arch-flow">
+
+
+            <div class="arch-node">
+
+                <div class="arch-icon">
+                    CSV
+                </div>
+
+                <div>
+                    Healthcare CSV
+                    <small>
+                        Incoming File
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="arch-arrow"></div>
+
+
+            <div class="arch-node">
+
+                <div class="arch-icon">
+                    ✓
+                </div>
+
+                <div>
+                    Validation Job
+                    <small>
+                        Schema · Count · Date
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="arch-arrow"></div>
+
+
+            <div class="arch-node">
+
+                <div class="arch-icon">
+                    ETL
+                </div>
+
+                <div>
+                    Raw Load
+                    <small>
+                        Add Metadata
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="arch-arrow"></div>
+
+
+            <div class="arch-node">
+
+                <div class="arch-icon">
+                    H
+                </div>
+
+                <div>
+                    Hive Raw Table
+                    <small>
+                        Validated Data
+                    </small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</article>
+
+
+
+<!-- =====================================================
+     PROJECT 06 — MARK
+===================================================== -->
+
+<article
+    class="project-card reveal"
+    data-category="personal ai"
+>
+
+    <div class="card-top">
+
+        <span class="project-number">
+            06 / PERSONAL
+        </span>
+
+        <span class="project-type">
+            Python / AI
+        </span>
+
+    </div>
+
+
+    <div class="card-content">
+
+        <h2>
+            MARK Voice Assistant
+        </h2>
+
+
+        <div class="company">
+
+            <span class="company-line"></span>
+
+            Voice Automation
+
+        </div>
+
+
+        <p class="description">
+
+            MARK is a Python-based voice assistant designed
+            for Windows, Linux and other platforms. It uses
+            voice recognition, language processing and voice
+            synthesis to respond to user commands and
+            perform requested functions.
+
+        </p>
+
+
+        <div class="details">
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    MIC
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Voice Interaction
+                    </strong>
+
+                    Designed around voice commands and
+                    spoken user interaction.
+
+                </div>
+
+            </div>
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    NLP
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Language Processing
+                    </strong>
+
+                    Uses language processing concepts
+                    to interpret commands and intents.
+
+                </div>
+
+            </div>
+
+
+            <div class="detail">
+
+                <div class="detail-icon">
+                    AI
+                </div>
+
+                <div class="detail-text">
+
+                    <strong>
+                        Digital Assistant
+                    </strong>
+
+                    Returns relevant information or
+                    performs functions based on commands.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="tech-list">
+
+            <span class="tech">
+                Python
+            </span>
+
+            <span class="tech">
+                Voice Recognition
+            </span>
+
+            <span class="tech">
+                NLP
+            </span>
+
+            <span class="tech">
+                Voice Synthesis
+            </span>
+
+        </div>
+
+
+        <div class="card-actions">
+
+            <a
+                class="btn github"
+                href="https://github.com/abhayjr11/MARK-Voice-Assistant"
+                target="_blank"
+            >
+                View on GitHub ↗
+            </a>
+
+        </div>
+
+    </div>
+
+</article>
+
+
+</div>
+
+</main>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta-section">
+
+<div class="container">
+
+    <div class="cta">
+
+        <div class="cta-label">
+            NEXT STEP
+        </div>
+
+
+        <h2>
+            Want to see more?
+        </h2>
+
+
+        <p>
+
+            Explore the source code, connect with me,
+            or check out how I approach data engineering
+            problems.
+
+        </p>
+
+
+        <div class="cta-actions">
+
+            <a
+                class="btn primary"
+                href="https://github.com/abhayjr11"
+                target="_blank"
+            >
+                GitHub Profile ↗
+            </a>
+
+
+            <a
+                class="btn github"
+                href="about.html"
+            >
+                About Me
+            </a>
+
+
+            <a
+                class="btn github"
+                href="index.html"
+            >
+                ← Home
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="container">
+
+    <span>
+        © 2026 Abhay Jaiswal
+    </span>
+
+
+    <span>
+        Data Engineer · AWS · PySpark · SQL
+    </span>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const observer =
+new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target
+                    .classList
+                    .add("show");
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.08
+    }
+
+);
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(
+    element =>
+    observer.observe(element)
+);
+
+
+
+/* =====================================================
+   PROJECT FILTER
+===================================================== */
+
+const filters =
+document.querySelectorAll(".filter");
+
+
+const projects =
+document.querySelectorAll(".project-card");
+
+
+filters.forEach(filter => {
+
+    filter.addEventListener(
+        "click",
+        () => {
+
+            /* Remove active */
+
+            filters.forEach(button => {
+
+                button.classList
+                    .remove("active");
+
+            });
+
+
+            /* Add active */
+
+            filter.classList
+                .add("active");
+
+
+            const selected =
+                filter.dataset.filter;
+
+
+            projects.forEach(project => {
+
+                const categories =
+                    project
+                        .dataset
+                        .category
+                        .split(" ");
+
+
+                if(
+                    selected === "all" ||
+                    categories.includes(selected)
+                ){
+
+                    project.classList
+                        .remove("hidden");
+
+                }
+
+                else{
+
+                    project.classList
+                        .add("hidden");
+
+                }
+
+            });
+
+        }
+    );
+
+});
+
+</script>
+
+
+</body>
+
+</html>

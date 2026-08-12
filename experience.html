@@ -1,0 +1,3270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Experience | Abhay Jaiswal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+
+    --bg: #06100d;
+
+    --panel: #091913;
+
+    --panel2: #0c2119;
+
+    --text: #effff7;
+
+    --muted: #9bb3a8;
+
+    --accent: #52f5a7;
+
+    --accent-dark: #1ed78a;
+
+    --line: rgba(82,245,167,.14);
+
+    --line-bright: rgba(82,245,167,.4);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    background:
+
+        radial-gradient(
+            circle at 85% 5%,
+            rgba(30,215,138,.13),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 5% 60%,
+            rgba(82,245,167,.07),
+            transparent 30%
+        ),
+
+        var(--bg);
+
+    color: var(--text);
+
+    font-family: "Inter", sans-serif;
+
+    line-height: 1.6;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================================================
+   GRID BACKGROUND
+========================================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -2;
+
+    pointer-events: none;
+
+    background-image:
+
+        linear-gradient(
+            rgba(82,245,167,.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(82,245,167,.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+}
+
+
+/* =========================================================
+   FLOATING ORBS
+========================================================= */
+
+.bg-orb {
+
+    position: fixed;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    filter: blur(2px);
+
+    opacity: .14;
+
+}
+
+
+.orb-one {
+
+    width: 260px;
+
+    height: 260px;
+
+    left: -130px;
+
+    top: 35%;
+
+    border: 1px solid
+        rgba(82,245,167,.4);
+
+    animation:
+        orbOne 12s ease-in-out infinite;
+
+}
+
+
+.orb-two {
+
+    width: 180px;
+
+    height: 180px;
+
+    right: -80px;
+
+    top: 65%;
+
+    border: 1px solid
+        rgba(82,245,167,.3);
+
+    animation:
+        orbTwo 10s ease-in-out infinite;
+
+}
+
+
+@keyframes orbOne {
+
+    0%,100% {
+
+        transform:
+            translate(0,0)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translate(50px,-60px)
+            scale(1.15);
+
+    }
+
+}
+
+
+@keyframes orbTwo {
+
+    0%,100% {
+
+        transform:
+            translate(0,0);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-40px,40px);
+
+    }
+
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+
+    width: min(1100px,92%);
+
+    margin: auto;
+
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+nav {
+
+    position: fixed;
+
+    top: 18px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: min(1050px,92%);
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding:
+        13px 18px 13px 22px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 18px;
+
+    background:
+        rgba(6,18,13,.78);
+
+    backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 15px 50px
+        rgba(0,0,0,.28);
+
+    animation:
+        navDrop .8s ease forwards;
+
+}
+
+
+@keyframes navDrop {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%,-25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%,0);
+
+    }
+
+}
+
+
+.logo {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+}
+
+
+.logo span {
+
+    color: var(--accent);
+
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 27px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+
+.nav-links a {
+
+    position: relative;
+
+    transition:
+        color .25s ease;
+
+}
+
+
+.nav-links a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -7px;
+
+    width: 0;
+
+    height: 1px;
+
+    background:
+        var(--accent);
+
+    transition:
+        width .3s ease;
+
+}
+
+
+.nav-links a:hover,
+.nav-links a.active {
+
+    color: var(--accent);
+
+}
+
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+
+    width: 100%;
+
+}
+
+
+.nav-contact {
+
+    padding:
+        8px 14px;
+
+    border:
+        1px solid
+        rgba(82,245,167,.35);
+
+    border-radius: 10px;
+
+    color:
+        var(--accent);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+.nav-contact:hover {
+
+    background:
+        rgba(82,245,167,.08);
+
+}
+
+
+.menu-toggle {
+
+    display: none;
+
+    width: 42px;
+
+    height: 42px;
+
+    border:
+        1px solid
+        rgba(82,245,167,.25);
+
+    border-radius: 10px;
+
+    background:
+        rgba(82,245,167,.05);
+
+    cursor: pointer;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+}
+
+
+.menu-toggle span {
+
+    width: 19px;
+
+    height: 2px;
+
+    background:
+        var(--accent);
+
+    border-radius: 5px;
+
+    transition: .3s;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.page-header {
+
+    padding:
+        165px 0 80px;
+
+    text-align: center;
+
+    animation:
+        headerIn 1s ease forwards;
+
+}
+
+
+@keyframes headerIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(35px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.page-label {
+
+    color:
+        var(--accent);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: .18em;
+
+    margin-bottom: 15px;
+
+    animation:
+        labelGlow 3s infinite;
+
+}
+
+
+@keyframes labelGlow {
+
+    0%,100% {
+
+        opacity: .65;
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        text-shadow:
+            0 0 18px
+            rgba(82,245,167,.5);
+
+    }
+
+}
+
+
+.page-header h1 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(48px,7vw,78px);
+
+    line-height: .95;
+
+    letter-spacing:
+        -.065em;
+
+}
+
+
+.page-header h1 span {
+
+    color:
+        var(--accent);
+
+    text-shadow:
+        0 0 35px
+        rgba(82,245,167,.18);
+
+}
+
+
+.page-header p {
+
+    max-width: 650px;
+
+    margin:
+        20px auto 0;
+
+    color:
+        var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   EXPERIENCE SECTION
+========================================================= */
+
+.experience-section {
+
+    padding:
+        0 0 100px;
+
+}
+
+
+/* =========================================================
+   EXPERIENCE HEADER
+========================================================= */
+
+.experience-intro {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    margin-bottom: 50px;
+
+}
+
+
+.intro-label {
+
+    color:
+        var(--accent);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: .17em;
+
+    margin-bottom: 8px;
+
+}
+
+
+.experience-intro h2 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 34px;
+
+    letter-spacing:
+        -.05em;
+
+}
+
+
+.experience-intro h2 span {
+
+    color:
+        var(--accent);
+
+}
+
+
+.experience-intro-right {
+
+    color:
+        #718a7f;
+
+    font-size: 11px;
+
+    text-align: right;
+
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline {
+
+    position: relative;
+
+    max-width: 950px;
+
+    margin: auto;
+
+    padding-bottom: 20px;
+
+}
+
+
+/* animated vertical line */
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 0;
+
+    width: 2px;
+
+    height: 100%;
+
+    transform:
+        translateX(-50%);
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            transparent,
+            var(--accent),
+            rgba(82,245,167,.2),
+            var(--accent),
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(82,245,167,.18);
+
+    animation:
+        lineGlow 4s ease-in-out infinite;
+
+}
+
+
+@keyframes lineGlow {
+
+    0%,100% {
+
+        opacity: .45;
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        box-shadow:
+            0 0 25px
+            rgba(82,245,167,.35);
+
+    }
+
+}
+
+
+/* =========================================================
+   TIMELINE ITEM
+========================================================= */
+
+.timeline-item {
+
+    position: relative;
+
+    width: 50%;
+
+    padding:
+        0 45px 75px 0;
+
+    opacity: 0;
+
+    transform:
+        translateX(-45px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
+}
+
+
+.timeline-item.right {
+
+    margin-left: 50%;
+
+    padding:
+        0 0 75px 45px;
+
+    transform:
+        translateX(45px);
+
+}
+
+
+.timeline-item.show {
+
+    opacity: 1;
+
+    transform:
+        translateX(0);
+
+}
+
+
+/* =========================================================
+   TIMELINE DOT
+========================================================= */
+
+.timeline-dot {
+
+    position: absolute;
+
+    top: 22px;
+
+    width: 15px;
+
+    height: 15px;
+
+    border-radius: 50%;
+
+    background:
+        var(--accent);
+
+    border:
+        4px solid
+        var(--bg);
+
+    box-shadow:
+
+        0 0 0 1px
+        rgba(82,245,167,.4),
+
+        0 0 20px
+        rgba(82,245,167,.5);
+
+    z-index: 5;
+
+    animation:
+        dotPulse 2.5s ease-in-out infinite;
+
+}
+
+
+.timeline-item.left
+.timeline-dot {
+
+    right:
+        -7px;
+
+}
+
+
+.timeline-item.right
+.timeline-dot {
+
+    left:
+        -7px;
+
+}
+
+
+@keyframes dotPulse {
+
+    0%,100% {
+
+        transform:
+            scale(1);
+
+        box-shadow:
+
+            0 0 0 1px
+            rgba(82,245,167,.4),
+
+            0 0 15px
+            rgba(82,245,167,.4);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.25);
+
+        box-shadow:
+
+            0 0 0 5px
+            rgba(82,245,167,.04),
+
+            0 0 28px
+            rgba(82,245,167,.7);
+
+    }
+
+}
+
+
+/* =========================================================
+   EXPERIENCE CARD
+========================================================= */
+
+.experience-card {
+
+    position: relative;
+
+    padding:
+        27px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius: 20px;
+
+    background:
+
+        radial-gradient(
+            circle at 90% 5%,
+            rgba(82,245,167,.09),
+            transparent 38%
+        ),
+
+        linear-gradient(
+            145deg,
+            rgba(13,33,25,.95),
+            rgba(6,17,13,.95)
+        );
+
+    overflow: hidden;
+
+    transition:
+
+        transform .4s ease,
+
+        border-color .4s ease,
+
+        box-shadow .4s ease;
+
+}
+
+
+.experience-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+
+    height: 130px;
+
+    top: -70px;
+
+    right: -70px;
+
+    border-radius: 50%;
+
+    background:
+        var(--accent);
+
+    opacity: .05;
+
+    filter: blur(20px);
+
+    animation:
+        cardGlow 4s ease-in-out infinite;
+
+}
+
+
+@keyframes cardGlow {
+
+    0%,100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.4);
+
+    }
+
+}
+
+
+.experience-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: -100%;
+
+    top: 0;
+
+    width: 50%;
+
+    height: 100%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.035),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left .8s ease;
+
+}
+
+
+.experience-card:hover::after {
+
+    left: 140%;
+
+}
+
+
+.experience-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        var(--line-bright);
+
+    box-shadow:
+
+        0 25px 60px
+        rgba(0,0,0,.35),
+
+        0 0 35px
+        rgba(82,245,167,.08);
+
+}
+
+
+/* =========================================================
+   CURRENT ROLE
+========================================================= */
+
+.current-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin-bottom: 15px;
+
+    padding:
+        5px 9px;
+
+    border:
+        1px solid
+        rgba(82,245,167,.3);
+
+    border-radius: 20px;
+
+    color:
+        var(--accent);
+
+    background:
+        rgba(82,245,167,.06);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+
+}
+
+
+.current-badge::before {
+
+    content: "";
+
+    width: 6px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+    background:
+        var(--accent);
+
+    box-shadow:
+        0 0 10px
+        var(--accent);
+
+    animation:
+        liveDot 1.5s infinite;
+
+}
+
+
+@keyframes liveDot {
+
+    0%,100% {
+
+        opacity: 1;
+
+    }
+
+    50% {
+
+        opacity: .35;
+
+    }
+
+}
+
+
+/* =========================================================
+   COMPANY
+========================================================= */
+
+.company-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.company-logo {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+        1px solid
+        rgba(82,245,167,.2);
+
+    border-radius: 13px;
+
+    background:
+        rgba(82,245,167,.06);
+
+    color:
+        var(--accent);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    animation:
+        logoFloat 4s ease-in-out infinite;
+
+}
+
+
+@keyframes logoFloat {
+
+    0%,100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-5px);
+
+    }
+
+}
+
+
+.company-name {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+}
+
+
+.company-duration {
+
+    color:
+        #789187;
+
+    font-size: 9px;
+
+}
+
+
+/* =========================================================
+   ROLE
+========================================================= */
+
+.role {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 23px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.employment {
+
+    color:
+        #c4d4ce;
+
+    font-size: 11px;
+
+    margin-bottom: 4px;
+
+}
+
+
+.date {
+
+    color:
+        #849c92;
+
+    font-size: 10px;
+
+    margin-bottom: 2px;
+
+}
+
+
+.location {
+
+    color:
+        #849c92;
+
+    font-size: 10px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.description {
+
+    padding-top: 15px;
+
+    border-top:
+        1px solid
+        rgba(82,245,167,.08);
+
+    color:
+        #a4b8b0;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 16px;
+
+}
+
+
+.skill {
+
+    padding:
+        6px 9px;
+
+    border:
+        1px solid
+        rgba(82,245,167,.12);
+
+    border-radius: 7px;
+
+    background:
+        rgba(82,245,167,.035);
+
+    color:
+        #8fa99f;
+
+    font-size: 8px;
+
+    transition:
+        .25s ease;
+
+}
+
+
+.skill:hover {
+
+    color:
+        var(--accent);
+
+    border-color:
+        rgba(82,245,167,.4);
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+/* =========================================================
+   PROGRESSION BADGE
+========================================================= */
+
+.progression {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 20px;
+
+    color:
+        rgba(82,245,167,.35);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: .1em;
+
+}
+
+
+/* =========================================================
+   CAREER FLOW
+========================================================= */
+
+.flow-section {
+
+    padding:
+        20px 0 100px;
+
+}
+
+
+.flow-box {
+
+    position: relative;
+
+    padding:
+        40px 30px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius: 22px;
+
+    background:
+        rgba(7,18,14,.75);
+
+    overflow: hidden;
+
+}
+
+
+.flow-title {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+}
+
+
+.flow-title .label {
+
+    color:
+        var(--accent);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: .17em;
+
+}
+
+
+.flow-title h2 {
+
+    margin-top: 8px;
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 30px;
+
+    letter-spacing:
+        -.05em;
+
+}
+
+
+.flow-title h2 span {
+
+    color:
+        var(--accent);
+
+}
+
+
+/* =========================================================
+   FLOW
+========================================================= */
+
+.flow {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 20px;
+
+}
+
+
+/* horizontal animated line */
+
+.flow::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 31px;
+
+    left: 10%;
+
+    right: 10%;
+
+    height: 2px;
+
+    background:
+        rgba(82,245,167,.12);
+
+}
+
+
+.flow::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 31px;
+
+    left: 10%;
+
+    width: 0;
+
+    height: 2px;
+
+    background:
+        var(--accent);
+
+    box-shadow:
+        0 0 15px
+        rgba(82,245,167,.5);
+
+    animation:
+        flowLine 4s ease-in-out infinite;
+
+}
+
+
+@keyframes flowLine {
+
+    0% {
+
+        width: 0;
+
+    }
+
+    70% {
+
+        width: 80%;
+
+    }
+
+    100% {
+
+        width: 80%;
+
+    }
+
+}
+
+
+.flow-step {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+}
+
+
+.flow-dot {
+
+    width: 64px;
+
+    height: 64px;
+
+    margin:
+        0 auto 18px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background:
+        #091a13;
+
+    border:
+        2px solid
+        rgba(82,245,167,.25);
+
+    color:
+        var(--accent);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 0 0
+        rgba(82,245,167,0);
+
+    animation:
+        flowDot 3s ease-in-out infinite;
+
+}
+
+
+.flow-step:nth-child(2)
+.flow-dot {
+
+    animation-delay:
+        .5s;
+
+}
+
+
+.flow-step:nth-child(3)
+.flow-dot {
+
+    animation-delay:
+        1s;
+
+}
+
+
+.flow-step:nth-child(4)
+.flow-dot {
+
+    animation-delay:
+        1.5s;
+
+}
+
+
+@keyframes flowDot {
+
+    0%,100% {
+
+        border-color:
+            rgba(82,245,167,.25);
+
+        box-shadow:
+            0 0 0
+            rgba(82,245,167,0);
+
+    }
+
+    50% {
+
+        border-color:
+            var(--accent);
+
+        box-shadow:
+            0 0 25px
+            rgba(82,245,167,.22);
+
+        transform:
+            translateY(-5px);
+
+    }
+
+}
+
+
+.flow-step h3 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 14px;
+
+    margin-bottom: 4px;
+
+}
+
+
+.flow-step p {
+
+    color:
+        #789187;
+
+    font-size: 9px;
+
+}
+
+
+/* =========================================================
+   COGNIZANT SUMMARY
+========================================================= */
+
+.summary {
+
+    padding:
+        0 0 100px;
+
+}
+
+
+.summary-card {
+
+    padding:
+        35px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius: 20px;
+
+    background:
+
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(82,245,167,.08),
+            transparent 35%
+        ),
+
+        rgba(7,18,14,.8);
+
+}
+
+
+.summary-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 15px;
+
+}
+
+
+.stat {
+
+    padding:
+        22px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(82,245,167,.09);
+
+    border-radius: 14px;
+
+    background:
+        rgba(82,245,167,.025);
+
+}
+
+
+.stat-number {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    color:
+        var(--accent);
+
+}
+
+
+.stat-label {
+
+    margin-top: 5px;
+
+    color:
+        #80988e;
+
+    font-size: 9px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta {
+
+    padding:
+        0 0 100px;
+
+}
+
+
+.cta-box {
+
+    padding:
+        55px 25px;
+
+    text-align:
+        center;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        23px;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(82,245,167,.08),
+            transparent 60%
+        );
+
+}
+
+
+.cta-box h2 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(30px,4vw,45px);
+
+    letter-spacing:
+        -.05em;
+
+}
+
+
+.cta-box h2 span {
+
+    color:
+        var(--accent);
+
+}
+
+
+.cta-box p {
+
+    max-width:
+        560px;
+
+    margin:
+        12px auto 24px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        12px;
+
+}
+
+
+.buttons {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        10px;
+
+    flex-wrap:
+        wrap;
+
+}
+
+
+.btn {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        11px 17px;
+
+    border:
+        1px solid
+        var(--line-bright);
+
+    border-radius:
+        10px;
+
+    color:
+        #c8ded4;
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    transition:
+        .3s ease;
+
+}
+
+
+.btn:hover {
+
+    color:
+        var(--accent);
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        var(--accent);
+
+}
+
+
+.btn.primary {
+
+    background:
+        var(--accent);
+
+    color:
+        #04100a;
+
+    border-color:
+        var(--accent);
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        35px 0 50px;
+
+    border-top:
+        1px solid
+        rgba(82,245,167,.06);
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    color:
+        #71877e;
+
+    font-size:
+        10px;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width:900px) {
+
+    .menu-toggle {
+
+        display:
+            flex;
+
+    }
+
+
+    .nav-contact {
+
+        display:
+            none;
+
+    }
+
+
+    .nav-links {
+
+        position:
+            absolute;
+
+        top:
+            calc(100% + 10px);
+
+        left:
+            0;
+
+        width:
+            100%;
+
+        padding:
+            10px;
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+        gap:
+            3px;
+
+        border:
+            1px solid
+            var(--line);
+
+        border-radius:
+            15px;
+
+        background:
+            rgba(6,18,13,.97);
+
+        backdrop-filter:
+            blur(20px);
+
+        opacity:
+            0;
+
+        visibility:
+            hidden;
+
+        transform:
+            translateY(-10px);
+
+        transition:
+            .25s ease;
+
+    }
+
+
+    .nav-links.active {
+
+        opacity:
+            1;
+
+        visibility:
+            visible;
+
+        transform:
+            translateY(0);
+
+    }
+
+
+    .nav-links a {
+
+        padding:
+            13px 15px;
+
+        border-radius:
+            9px;
+
+    }
+
+
+    .experience-intro {
+
+        display:
+            block;
+
+    }
+
+
+    .experience-intro-right {
+
+        text-align:
+            left;
+
+        margin-top:
+            12px;
+
+    }
+
+
+    .flow {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:
+            30px;
+
+    }
+
+
+    .flow::before,
+    .flow::after {
+
+        display:
+            none;
+
+    }
+
+
+    .summary-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width:550px) {
+
+    nav {
+
+        top:
+            10px;
+
+        width:
+            calc(100% - 22px);
+
+    }
+
+
+    .page-header {
+
+        padding:
+            125px 0 60px;
+
+    }
+
+
+    .page-header h1 {
+
+        font-size:
+            48px;
+
+    }
+
+
+    .timeline {
+
+        padding-left:
+            28px;
+
+    }
+
+
+    .timeline::before {
+
+        left:
+            7px;
+
+        transform:
+            none;
+
+    }
+
+
+    .timeline-item,
+    .timeline-item.right {
+
+        width:
+            100%;
+
+        margin-left:
+            0;
+
+        padding:
+            0 0 45px 25px;
+
+        transform:
+            translateY(35px);
+
+    }
+
+
+    .timeline-item.show {
+
+        transform:
+            translateY(0);
+
+    }
+
+
+    .timeline-item.left
+    .timeline-dot,
+    .timeline-item.right
+    .timeline-dot {
+
+        left:
+            -28px;
+
+        right:
+            auto;
+
+    }
+
+
+    .experience-card {
+
+        padding:
+            21px;
+
+    }
+
+
+    .role {
+
+        font-size:
+            20px;
+
+    }
+
+
+    .flow {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .flow-box {
+
+        padding:
+            30px 20px;
+
+    }
+
+
+    .summary-card {
+
+        padding:
+            20px;
+
+    }
+
+
+    footer {
+
+        flex-direction:
+            column;
+
+        gap:
+            8px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<!-- BACKGROUND -->
+
+<div class="bg-orb orb-one"></div>
+<div class="bg-orb orb-two"></div>
+
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a href="index.html" class="logo">
+        ABHAY<span>.</span>
+    </a>
+
+
+    <div class="nav-links" id="navLinks">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="experience.html" class="active">
+            Experience
+        </a>
+
+        <a href="projects.html">
+            Projects
+        </a>
+
+        <a href="skills.html">
+            Skills
+        </a>
+
+    </div>
+
+
+    <a
+        href="mailto:abhayjaiswal901@gmail.com"
+        class="nav-contact"
+    >
+        Let's talk
+    </a>
+
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation"
+    >
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+</nav>
+
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="page-header">
+
+    <div class="container">
+
+        <div class="page-label">
+            CAREER JOURNEY
+        </div>
+
+
+        <h1>
+            My <span>Experience.</span>
+        </h1>
+
+
+        <p>
+
+            From exploring Big Data as an intern to working
+            as an Associate, my journey at Cognizant has
+            evolved through data engineering, big-data
+            technologies and analytics.
+
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     EXPERIENCE
+========================================================= -->
+
+<section class="experience-section">
+
+<div class="container">
+
+
+    <div class="experience-intro">
+
+        <div>
+
+            <div class="intro-label">
+                COGNIZANT
+            </div>
+
+            <h2>
+                Career <span>progression.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="experience-intro-right">
+
+            Jan 2022 — Present<br>
+
+            Data • Big Data • Engineering
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         TIMELINE
+    ====================================================== -->
+
+    <div class="timeline">
+
+
+
+        <!-- =================================================
+             ASSOCIATE
+        ================================================== -->
+
+        <div class="timeline-item right">
+
+            <div class="timeline-dot"></div>
+
+
+            <div class="experience-card">
+
+                <span class="progression">
+                    04
+                </span>
+
+
+                <div class="current-badge">
+                    Current Role
+                </div>
+
+
+                <div class="company-row">
+
+                    <div class="company-logo">
+                        C
+                    </div>
+
+
+                    <div>
+
+                        <div class="company-name">
+                            Cognizant
+                        </div>
+
+                        <div class="company-duration">
+                            4 yrs 8 mos
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="role">
+                    Associate
+                </div>
+
+
+                <div class="employment">
+                    Full-time
+                </div>
+
+
+                <div class="date">
+                    Sep 2025 — Present · 1 yr
+                </div>
+
+
+                <div class="location">
+                    Indore, Madhya Pradesh, India · Hybrid
+                </div>
+
+
+                <div class="description">
+
+                    Continued my career progression at
+                    Cognizant, taking on the Associate role
+                    while working with data and engineering
+                    technologies.
+
+                </div>
+
+
+                <div class="skills">
+
+                    <span class="skill">
+                        Hadoop
+                    </span>
+
+                    <span class="skill">
+                        MySQL
+                    </span>
+
+                    <span class="skill">
+                        Big Data
+                    </span>
+
+                    <span class="skill">
+                        Data Engineering
+                    </span>
+
+                    <span class="skill">
+                        ETL
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PROGRAMMER ANALYST
+        ================================================== -->
+
+        <div class="timeline-item left">
+
+            <div class="timeline-dot"></div>
+
+
+            <div class="experience-card">
+
+                <span class="progression">
+                    03
+                </span>
+
+
+                <div class="company-row">
+
+                    <div class="company-logo">
+                        C
+                    </div>
+
+
+                    <div>
+
+                        <div class="company-name">
+                            Cognizant
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="role">
+                    Programmer Analyst
+                </div>
+
+
+                <div class="employment">
+                    Full-time
+                </div>
+
+
+                <div class="date">
+                    Jun 2023 — Oct 2025 · 2 yrs 5 mos
+                </div>
+
+
+                <div class="location">
+                    Pune District, Maharashtra, India · Hybrid
+                </div>
+
+
+                <div class="description">
+
+                    Worked on data and analytical solutions,
+                    applying programming, statistics and
+                    prediction concepts to project requirements.
+
+                </div>
+
+
+                <div class="skills">
+
+                    <span class="skill">
+                        Statistics
+                    </span>
+
+                    <span class="skill">
+                        Prediction
+                    </span>
+
+                    <span class="skill">
+                        Python
+                    </span>
+
+                    <span class="skill">
+                        SQL
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             TRAINEE
+        ================================================== -->
+
+        <div class="timeline-item right">
+
+            <div class="timeline-dot"></div>
+
+
+            <div class="experience-card">
+
+                <span class="progression">
+                    02
+                </span>
+
+
+                <div class="company-row">
+
+                    <div class="company-logo">
+                        C
+                    </div>
+
+
+                    <div>
+
+                        <div class="company-name">
+                            Cognizant
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="role">
+                    Programmer Analyst Trainee
+                </div>
+
+
+                <div class="employment">
+                    Full-time
+                </div>
+
+
+                <div class="date">
+                    Jun 2022 — Jun 2023 · 1 yr 1 mo
+                </div>
+
+
+                <div class="location">
+                    Pune District, Maharashtra, India
+                </div>
+
+
+                <div class="description">
+
+                    Data science and engineering role where
+                    I developed my foundation in big-data
+                    technologies, ETL and data processing.
+
+                </div>
+
+
+                <div class="skills">
+
+                    <span class="skill">
+                        Hive
+                    </span>
+
+                    <span class="skill">
+                        Extract
+                    </span>
+
+                    <span class="skill">
+                        Transform
+                    </span>
+
+                    <span class="skill">
+                        Load (ETL)
+                    </span>
+
+                    <span class="skill">
+                        Hadoop
+                    </span>
+
+                    <span class="skill">
+                        SQL
+                    </span>
+
+                    <span class="skill">
+                        Big Data
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             INTERN
+        ================================================== -->
+
+        <div class="timeline-item left">
+
+            <div class="timeline-dot"></div>
+
+
+            <div class="experience-card">
+
+                <span class="progression">
+                    01
+                </span>
+
+
+                <div class="company-row">
+
+                    <div class="company-logo">
+                        C
+                    </div>
+
+
+                    <div>
+
+                        <div class="company-name">
+                            Cognizant
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="role">
+                    Big Data Intern
+                </div>
+
+
+                <div class="employment">
+                    Internship
+                </div>
+
+
+                <div class="date">
+                    Jan 2022 — Jun 2022 · 6 mos
+                </div>
+
+
+                <div class="location">
+                    Pune District, Maharashtra, India
+                </div>
+
+
+                <div class="description">
+
+                    Internship focused on learning and
+                    exploring Big Data technology and
+                    building a foundation for my data
+                    engineering career.
+
+                </div>
+
+
+                <div class="skills">
+
+                    <span class="skill">
+                        MapReduce
+                    </span>
+
+                    <span class="skill">
+                        SQL
+                    </span>
+
+                    <span class="skill">
+                        Hadoop
+                    </span>
+
+                    <span class="skill">
+                        Big Data
+                    </span>
+
+                    <span class="skill">
+                        Hive
+                    </span>
+
+                    <span class="skill">
+                        Python
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CAREER FLOW
+========================================================= -->
+
+<section class="flow-section">
+
+<div class="container">
+
+
+    <div class="flow-box">
+
+
+        <div class="flow-title">
+
+            <div class="label">
+                THE JOURNEY
+            </div>
+
+            <h2>
+                From <span>learning</span> to
+                <span>leading.</span>
+            </h2>
+
+        </div>
+
+
+
+        <div class="flow">
+
+
+            <div class="flow-step">
+
+                <div class="flow-dot">
+                    01
+                </div>
+
+                <h3>
+                    Big Data Intern
+                </h3>
+
+                <p>
+                    Learn & Explore
+                </p>
+
+            </div>
+
+
+
+            <div class="flow-step">
+
+                <div class="flow-dot">
+                    02
+                </div>
+
+                <h3>
+                    Programmer Analyst Trainee
+                </h3>
+
+                <p>
+                    Build Foundations
+                </p>
+
+            </div>
+
+
+
+            <div class="flow-step">
+
+                <div class="flow-dot">
+                    03
+                </div>
+
+                <h3>
+                    Programmer Analyst
+                </h3>
+
+                <p>
+                    Apply & Deliver
+                </p>
+
+            </div>
+
+
+
+            <div class="flow-step">
+
+                <div class="flow-dot">
+                    04
+                </div>
+
+                <h3>
+                    Associate
+                </h3>
+
+                <p>
+                    Grow & Contribute
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SUMMARY
+========================================================= -->
+
+<section class="summary">
+
+<div class="container">
+
+
+    <div class="summary-card">
+
+
+        <div class="summary-grid">
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    4+
+                </div>
+
+                <div class="stat-label">
+                    Years Experience
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    4
+                </div>
+
+                <div class="stat-label">
+                    Career Roles
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    2022
+                </div>
+
+                <div class="stat-label">
+                    Journey Started
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+<div class="container">
+
+
+    <div class="cta-box">
+
+
+        <h2>
+            Want to see what I
+            <span>built?</span>
+        </h2>
+
+
+        <p>
+
+            Explore my projects, technical skills and
+            data engineering work.
+
+        </p>
+
+
+        <div class="buttons">
+
+
+            <a
+                href="projects.html"
+                class="btn primary"
+            >
+                🚀 Explore Projects
+            </a>
+
+
+            <a
+                href="skills.html"
+                class="btn"
+            >
+                Technical Skills
+            </a>
+
+
+            <a
+                href="mailto:abhayjaiswal901@gmail.com"
+                class="btn"
+            >
+                Contact Me
+            </a>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="container">
+
+    <span>
+        © 2026 Abhay Jaiswal
+    </span>
+
+    <span>
+        Data Engineer · AWS · PySpark · Python
+    </span>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuToggle.addEventListener(
+    "click",
+    function() {
+
+        menuToggle.classList.toggle("active");
+
+        navLinks.classList.toggle("active");
+
+    }
+);
+
+
+document
+.querySelectorAll("#navLinks a")
+.forEach(function(link) {
+
+    link.addEventListener(
+        "click",
+        function() {
+
+            menuToggle.classList.remove(
+                "active"
+            );
+
+            navLinks.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   TIMELINE SCROLL ANIMATION
+========================================================= */
+
+const timelineItems =
+    document.querySelectorAll(
+        ".timeline-item"
+    );
+
+
+const observer =
+    new IntersectionObserver(
+
+        function(entries) {
+
+            entries.forEach(
+                function(entry) {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.classList.add(
+                            "show"
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold: .15
+        }
+
+    );
+
+
+timelineItems.forEach(
+    function(item) {
+
+        observer.observe(item);
+
+    }
+);
+
+
+/* =========================================================
+   CARD MOUSE TILT
+========================================================= */
+
+const cards =
+    document.querySelectorAll(
+        ".experience-card"
+    );
+
+
+cards.forEach(function(card) {
+
+    card.addEventListener(
+        "mousemove",
+        function(event) {
+
+            if (
+                window.innerWidth < 900
+            ) return;
+
+
+            const rect =
+                card.getBoundingClientRect();
+
+
+            const x =
+                event.clientX - rect.left;
+
+
+            const y =
+                event.clientY - rect.top;
+
+
+            const rotateX =
+                ((y - rect.height / 2)
+                / rect.height) * -3;
+
+
+            const rotateY =
+                ((x - rect.width / 2)
+                / rect.width) * 3;
+
+
+            card.style.transform =
+                `translateY(-8px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)`;
+
+        }
+    );
+
+
+    card.addEventListener(
+        "mouseleave",
+        function() {
+
+            card.style.transform =
+                "";
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   CLOSE MENU OUTSIDE
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            !navLinks.contains(event.target) &&
+            !menuToggle.contains(event.target)
+        ) {
+
+            menuToggle.classList.remove(
+                "active"
+            );
+
+            navLinks.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+</html>
